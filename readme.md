@@ -12,8 +12,36 @@ git clone https://github.com/digiifsu/smkifsu.sch.id.git
 - lalu ketikan perintah
 ```
 composer update
+php spark migrate
+php spark serve
 ```
-- lalu ketikan
-```
+- setelah itu buka xampp lalu masuk ke phpmyadmin dan buat table baru namanya digiifsu_web
+- setelah buat table buka file .env pada root project
+- lalu ubah file app/config/database.php dan edit jadi seperti ini
+ ```
+ 
+    public $default = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'digiifsu_web',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];
+ ```
+ - selanjutnya ke terminal ketikan perintah berikut
+ ```
+php spark migrate
 php spark serve
 ```
