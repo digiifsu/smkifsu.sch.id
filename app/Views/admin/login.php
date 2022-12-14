@@ -1,7 +1,7 @@
 <?php $this->extend('admin/layout/auth_layout') ?>
 
 <?php $this->section("content"); ?>
-<div class="col-md-5 mx-auto mt-5">
+<div class="login-wrapper">
     <div class="card" style="border-radius: 0;">
         <div class="card-header">
             <div class="card-title">Login</div>

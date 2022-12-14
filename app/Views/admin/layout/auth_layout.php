@@ -29,10 +29,16 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/atlantis.min.css">
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/demo.css">
+    <style>
+        .login-wrapper{
+            width: 420px;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <?= $this->renderSection("content"); ?>
     </div>
     <!--   Core JS Files   -->
