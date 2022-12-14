@@ -25,13 +25,13 @@ CI_ENVIRONMENT = development
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false
 
-# app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
-# app.sessionCookieName = 'ci_session'
-# app.sessionExpiration = 7200
-# app.sessionSavePath = null
-# app.sessionMatchIP = false
-# app.sessionTimeToUpdate = 300
-# app.sessionRegenerateDestroy = false
+app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
+app.sessionCookieName = 'sim_ifsu'
+app.sessionExpiration = 7200
+app.sessionSavePath = null
+app.sessionMatchIP = false
+app.sessionTimeToUpdate = 300
+app.sessionRegenerateDestroy = false
 
 # app.CSPEnabled = false
 
@@ -46,6 +46,7 @@ database.default.password =
 database.default.DBDriver = MySQLi
 database.default.DBPrefix =
 database.default.port = 3306
+
 # database.tests.hostname = localhost
 # database.tests.database = ci4_test
 # database.tests.username = root
