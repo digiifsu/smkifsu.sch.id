@@ -5,7 +5,7 @@
  */
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
-class AuthController extends BaseController{
+class Account extends BaseController{
     public function login(){
         $title = "Login admin";
         return view("admin/login",compact('title'));

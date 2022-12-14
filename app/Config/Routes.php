@@ -26,7 +26,7 @@ $routes->get('/', 'Home::index');
 //router group untuk admin
 $routes->group('admin',static function ($routes) {
     //router login admin
-    $routes->get('login', "Admin\AuthController::login");
+    $routes->get('login', "Admin\Account::login");
     
 });
 
