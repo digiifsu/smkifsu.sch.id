@@ -27,7 +27,8 @@ $routes->get('/', 'Home::index');
 $routes->group('webadmin',static function ($routes) {
     $routes->get("/", "Admin\Dashboard::index");    
     //router login admin
-    $routes->get('login', "Admin\Account::login");
+    $routes->get('login', "Admin\Account::loginView",['as'=>'admin_login']);
+    $routes->post('check_login', 'Admin\Account::loginProccess', ['as' => 'admin_login_post']);
 });
 
 
