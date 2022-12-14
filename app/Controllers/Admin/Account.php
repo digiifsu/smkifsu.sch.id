@@ -10,4 +10,8 @@ class Account extends BaseController{
         $title = "Login admin";
         return view("admin/login",compact('title'));
     }
+    public function checkLogin()
+    {
+        //validasi hela
+    }
 }

@@ -27,6 +27,10 @@ class Users extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '255',                
                 ),
+                'jabatan' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => 23,
+                ),
                 'level' => array(
                     'type' => 'ENUM',
                     'constraint' => ['super_admin','admin','user'],
@@ -34,7 +38,7 @@ class Users extends Migration
                 ),
                 'create_at' => array(
                     'type' => 'datetime',
-                )
+                ),
         ));
         $this->forge->addUniqueKey('email');
         $this->forge->addPrimaryKey('id');
