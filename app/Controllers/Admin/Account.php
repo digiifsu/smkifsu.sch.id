@@ -41,13 +41,13 @@ class Account extends BaseController
                 $found = model('User')->where('email', $this->request->getPost('email'))->first();
                 if (!empty($found)) {
                     if (password_verify($this->request->getPost('password'), $found['password'])) {
-                        //jika berhasil login dan verifikasi password
+                        return redirect()->route('admin_dashboard');
                     } else {
-                        session()->setFlashdata('login_error', "Password not match!");
+                        session()->setFlashdata('login_error', "Password yang kamu ketikan tidak valid!");
                         return redirect()->route('admin_login')->withInput();
                     }
                 } else {
-                    session()->setFlashdata('login_error', "Wrong email!");
+                    session()->setFlashdata('login_error', "Password belum terdaftar!");
                     return redirect()->route('admin_login')->withInput();
                 }
             }
