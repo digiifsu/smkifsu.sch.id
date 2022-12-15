@@ -59,7 +59,6 @@ class TbSiswa extends Migration
         );
         //
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('id_komli', 'tb_kompetensi_keahlian', 'id', 'CASCADE', 'SET NULL');
         $this->forge->createTable('tb_siswa');
     }
 

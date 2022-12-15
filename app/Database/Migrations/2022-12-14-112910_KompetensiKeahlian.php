@@ -45,7 +45,6 @@ class KompetensiKeahlian extends Migration
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('slug');
-        $this->forge->addForeignKey('kepala_jurusan','tb_lembaga','id','CASCADE','SET NULL');
         $this->forge->createTable('tb_kompetensi_keahlian');
     }
 
