@@ -14,7 +14,7 @@ class TbMessage extends Migration
             array(
                 'id' => array(
                     'type' => 'INT',
-                    'auto_icrement' => true,
+                    'auto_increment' => true,
                     'constraint' => '14',
                     'null' => false,
                 ),
@@ -24,7 +24,7 @@ class TbMessage extends Migration
                 ),
                 'email' => array(
                     'type' => 'VARCHAR',
-                    'constrait' => '225',
+                    'constraint' => '225',
                 ),
                 'message' => array(
                     'type' => 'TEXT',
