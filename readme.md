@@ -4,9 +4,9 @@
 
 - Pastikan sudah menginstall git dan composer
 - Setelah terinstall buka git lalu ketikan 
+```git
+  git clone https://github.com/digiifsu/smkifsu.sch.id.git
 ```
-git clone https://github.com/digiifsu/smkifsu.sch.id.git
-```sh
 - setelah di clone buka folder nya
 - lalu klik kanan selanjutnya klik git bash here
 - lalu ketikan perintah
@@ -44,3 +44,7 @@ php spark serve
 php spark migrate
 php spark serve
 ```
+
+
+##1solve problems intl extension
+Jika mengalami error maka cek dulu extension intl di ```PHP.ini```
