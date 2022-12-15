@@ -24,11 +24,15 @@ $routes->set404Override();
 //ROUTES
 $routes->get('/', 'Home::index');
 //router group untuk admin
-$routes->group('admin',static function ($routes) {
+$routes->group('webadmin', static function ($routes) {
+    $routes->get("/", "Admin\Dashboard::index", ['as' => 'admin_dashboard']);
     //router login admin
-    $routes->get('login', "Admin\AuthController::login");
-    
+    $routes->get('login', "Admin\Account::loginView", ['as' => 'admin_login']);
+    $routes->post('check_login', 'Admin\Account::loginProccess', ['as' => 'admin_login_post']);
+    //post router
+    $routes->get("post/all", 'Admin\Post::index', ['as' => 'admin_all_post']);
 });
+
 
 
 /*
