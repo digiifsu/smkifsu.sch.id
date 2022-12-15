@@ -12,4 +12,7 @@ class Dashboard extends BaseController
         $title = $this->title;
         return view("admin/home", compact('title'));
     }
+    public function logout(){
+        redirect()->route('admin_login');
+    }
 }

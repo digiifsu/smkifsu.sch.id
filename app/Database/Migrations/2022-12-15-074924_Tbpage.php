@@ -16,8 +16,13 @@ class Tbpage extends Migration
                     'constraint' => '14',
                     'null' => false,
                 ),
+                'slug' => array(
+                    'type' => "VARCHAR",
+                    "unique" => true,
+                    'constrant' => '224',
+                ),
                 'id_kategori' => array(
-                    'type' => 'VARCHAR',
+                    'type' => 'INT',
                     'constraint' => '33',
                 ),
                 'judul' => array(
@@ -32,9 +37,15 @@ class Tbpage extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '225',
                 ),
+                'views' => array(
+                    'type' => "INT",
+                    'default' => '0',
+                ),
                 'publish_at' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '40',
+                    'type' => 'DATETIME',
+                ),
+                'update_at' => array(
+                    'type' => 'DATETIME',
                 ),
                 'thumbnail' => array(
                     'type' => 'VARCHAR',
@@ -47,11 +58,11 @@ class Tbpage extends Migration
             )
         );
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('tb_page');
+        $this->forge->createTable('tb_pages');
     }
 
     public function down()
     {
-        $this->forge->dropTable('tb_page');
+        $this->forge->dropTable('tb_pages');
     }
 }

@@ -38,28 +38,36 @@ class Tbpost extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '255',
                 ),
-                'tag' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '255',
+                'id_tag' => array(
+                    'type' => 'INT',
+                    'unsigned' => true,
+                    'constraint' => '15',
+                    'null' => true,
                 ),
                 'id_category' => array(
                     'type' => 'INT',
-                    'auto_increment' => true,
-                    'constraint' => '14',
-                    'null' => false,
+                    'unsigned' => true,
+                    'constraint' => '15',
+                    'null' => true,
                 ),
                 'time' => array(
-                    'type' => 'DATE TIME',
+                    'type' => 'DATETIME',
+                ),
+                'update_at' => array(
+                    'type' => 'DATETIME',
                 ),
                 'author' => array(
                     'type' => 'INT',
-                    'auto_increment' => true,
-                    'constraint' => '14',
-                    'null' => false,
+                    'unsigned' => true,
+                    'constraint' => '15',
+                ),
+                'views' => array(
+                    'type' => 'INT',
+                    'default' => '0',
                 ),
                 'status' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '225',
+                    'type' => 'ENUM',
+                    'constraint' => ['draft','publish'],
                 )
             )
         );

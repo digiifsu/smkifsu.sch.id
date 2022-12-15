@@ -24,9 +24,12 @@ class TbSetting extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '225',
                 ),
-                'kata_kunci'
+                'kata_kunci' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '122'
+                ),
             )
-        )
+        );
     }
 
     public function down()
