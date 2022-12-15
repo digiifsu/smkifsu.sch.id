@@ -16,33 +16,33 @@ class Tbpage extends Migration
                     'constraint' => '14',
                     'null' => false,
                 ),
-                'nama' => array(
+                'id_kategori' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '33',
                 ),
-                'pekerjaan' => array(
+                'judul' => array(
                     'type' => 'VARCHAR',
-                    'constraint' => '225',
+                    'constraint' => '40',
                 ),
-                'kategory' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '225',
-                ),
-                'email' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '225',
-                ),
-                'agama' => array(
+                'deskripsi' => array(
                     'type' => 'TEXT',
                     'null' => true,
                 ),
-                'jenis_kelamin' => array(
-                    'type' => 'TEXT',
-                    'null' => true,
+                'isi' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '225',
                 ),
-                'status' => array(
-                    'type' => 'TEXT',
-                    'null' => true,
+                'publish_at' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '40',
+                ),
+                'thumbnail' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '40',
+                ),
+                'slug' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '40',
                 )
             )
         );
