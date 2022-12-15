@@ -6,18 +6,18 @@
 - Setelah terinstall buka git lalu ketikan 
 ```
 git clone https://github.com/digiifsu/smkifsu.sch.id.git
-```
+```sh
 - setelah di clone buka folder nya
 - lalu klik kanan selanjutnya klik git bash here
 - lalu ketikan perintah
-```
+```sh
 composer update
 php spark serve
 ```
 - setelah itu buka xampp lalu masuk ke phpmyadmin dan buat table baru namanya digiifsu_web
 - setelah buat table buka file .env pada root project
 - lalu ubah file app/config/database.php dan edit jadi seperti ini
- ```
+ ```php
  
     public $default = [
         'DSN'      => '',
@@ -40,7 +40,7 @@ php spark serve
     ];
  ```
  - selanjutnya ke terminal ketikan perintah berikut
- ```
+ ```sh
 php spark migrate
 php spark serve
 ```
