@@ -28,12 +28,31 @@ class TbSetting extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '122'
                 ),
+                'deskripsi' => array(
+                    'type' => 'TEXT',
+                ),
+                'tag' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '225',
+                ),
+                'copyright' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '225',
+                ),
+                'visi' => array(
+                    'type' => 'TEXT',
+                ),
+                'misi' => array(
+                    'type' => 'TEXT',
+                )
             )
         );
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('tb_setting');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('tb_setting');
     }
 }

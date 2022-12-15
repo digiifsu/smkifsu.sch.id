@@ -14,7 +14,7 @@ class Tbpost extends Migration
             array(
                 'id_post' => array(
                     'type' => 'INT',
-                    'auto_increment' =>true,
+                    'auto_increment' => true,
                     'constraint' => '14',
                     'null' => false,
                 ),
