@@ -20,7 +20,7 @@ class TbMessage extends Migration
                 ),
                 'nama' => array(
                     'type' => 'VARCHAR',
-                    'constrait' => '225',
+                    'constraint' => '225',
                 ),
                 'email' => array(
                     'type' => 'VARCHAR',

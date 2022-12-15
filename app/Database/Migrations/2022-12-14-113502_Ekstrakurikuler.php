@@ -26,7 +26,6 @@ class Ekstrakurikuler extends Migration
                 ),
                 'ketua' => array(
                     'type' => 'INT',
-                    'null' => false,
                 ),
                 'pembina' => array(
                     'type' => 'INT',
