@@ -39,6 +39,10 @@ class Users extends Migration
                 'create_at' => array(
                     'type' => 'datetime',
                 ),
+                'avatar' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '120'
+                )
         ));
         $this->forge->addUniqueKey('email');
         $this->forge->addPrimaryKey('id');

@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
                 'password' => password_hash('123456',PASSWORD_DEFAULT),
                 'jabatan' => 'kepala jurusan',
                 'level' => 'super_admin',
+                'avatar' => 'https://via.placeholder.com/150'
             ),
             array( 
                 'nama_lengkap' => "Admin",
@@ -22,6 +23,7 @@ class UserSeeder extends Seeder
                 'password' => password_hash('123456',PASSWORD_DEFAULT),
                 'jabatan' => 'tata usaha',
                 'level' => 'admin',
+                'avatar' => 'https://via.placeholder.com/150'
             ),
         );
         foreach($data as $datas){

@@ -19,15 +19,21 @@ class KompetensiKeahlian extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '120'
                 ),
-                'nama' => array(
+                'nama_komli' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '80',
                 ),
                 'deskripsi' => array(
                     'type' => 'TEXT',
                 ),
-                'visi_misi' => array(
+                'visi' => array(
                     'type' => 'TEXT',
+                ),
+                'misi' => array(
+                    'type' => 'TEXT'
+                ),
+                'kepala_jurusan' => array(
+                    'type' => 'INT',
                 ),
                 'karir' => array(
                     'type' => 'TEXT',
