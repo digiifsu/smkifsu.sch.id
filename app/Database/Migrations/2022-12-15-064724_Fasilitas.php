@@ -31,11 +31,11 @@ class Fasilitas extends Migration
             )
         );
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('Fasilitas');
+        $this->forge->createTable('tb_fasilitas');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Fasilitas');
+        $this->forge->dropTable('tb_fasilitas');
     }
 }

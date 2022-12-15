@@ -12,7 +12,6 @@ git clone https://github.com/digiifsu/smkifsu.sch.id.git
 - lalu ketikan perintah
 ```
 composer update
-php spark migrate
 php spark serve
 ```
 - setelah itu buka xampp lalu masuk ke phpmyadmin dan buat table baru namanya digiifsu_web
