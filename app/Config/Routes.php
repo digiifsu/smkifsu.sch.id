@@ -2,11 +2,8 @@
 
 namespace Config;
 
-// Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
-// Load the system's routing file first, so that the app and ENVIRONMENT
-// can override as needed.
 if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
     require SYSTEMPATH . 'Config/Routes.php';
 }
@@ -30,24 +27,14 @@ $routes->group('webadmin', static function ($routes) {
     $routes->get('login', "Admin\Account::loginView", ['as' => 'admin_login']);
     $routes->post('check_login', 'Admin\Account::loginProccess', ['as' => 'admin_login_post']);
     //post router
-    $routes->get("post/all", 'Admin\Post::index', ['as' => 'admin_all_post']);
+    $routes->group('post',static function($routes){
+        $routes->get('/', fn()=>redirect()->route('admin_post_all'));
+        $routes->get('all', 'Admin\Post::index', ['as'=>'admin_post_all']);
+        $routes->match(['GET','POST'],'addNew', 'Admin\Post::addNew', ['as'=>'admin_post_addNew']);
+        $routes->match(['GET','POST'],'update/(:alphanum)','Admin\Post::update/$1');
+    });
 });
-
-
-
-/*
- * --------------------------------------------------------------------
- * Additional Routing
- * --------------------------------------------------------------------
- *
- * There will often be times that you need additional routing and you
- * need it to be able to override any defaults in this file. Environment
- * based routes is one such time. require() additional route files here
- * to make that happen.
- *
- * You will have access to the $routes object within that file without
- * needing to reload it.
- */
+//
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

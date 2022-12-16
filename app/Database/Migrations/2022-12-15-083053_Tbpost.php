@@ -51,10 +51,12 @@ class Tbpost extends Migration
                     'null' => true,
                 ),
                 'time' => array(
-                    'type' => 'DATETIME',
+                    'type' => 'VARCHAR',
+                    'constraint' => '200',
                 ),
                 'update_at' => array(
-                    'type' => 'DATETIME',
+                    'type' => 'VARCHAR',
+                    'constraint' => '200',
                 ),
                 'author' => array(
                     'type' => 'INT',

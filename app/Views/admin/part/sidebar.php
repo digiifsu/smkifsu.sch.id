@@ -5,37 +5,16 @@
         <div class="sidebar-content">
             <div class="user">
                 <div class="avatar-sm float-left mr-2">
-                    <img src="<?= base_url('/') ?>assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                    <img src="<?= base_url('assets/img/profile.jpg') ?>" alt="..." class="avatar-img rounded-circle">
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
+									Dadan Hidayat
 									<span class="user-level">Administrator</span>
-									<span class="caret"></span>
 								</span>
                     </a>
                     <div class="clearfix"></div>
-
-                    <div class="collapse in" id="collapseExample">
-                        <ul class="nav">
-                            <li>
-                                <a href="#profile">
-                                    <span class="link-collapse">My Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#edit">
-                                    <span class="link-collapse">Edit Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#settings">
-                                    <span class="link-collapse">Settings</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <ul class="nav nav-primary">
@@ -55,12 +34,12 @@
                     <div class="collapse" id="artikel">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="components/avatars.html">
+                            <a href="<?= route_to('admin_post_addNew'); ?>">
                                     <span class="sub-item">Add New</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="components/buttons.html">
+                            <a href="<?= route_to('admin_post_all'); ?>">
                                     <span class="sub-item">All Posts</span>
                                 </a>
                             </li>
@@ -87,7 +66,7 @@
                     <div class="collapse" id="pages">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="components/avatars.html">
+                                <a href="<?= route_to('admin_post_add'); ?>">
                                     <span class="sub-item">Add New</span>
                                 </a>
                             </li>

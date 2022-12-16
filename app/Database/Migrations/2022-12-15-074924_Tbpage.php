@@ -42,10 +42,12 @@ class Tbpage extends Migration
                     'default' => '0',
                 ),
                 'publish_at' => array(
-                    'type' => 'DATETIME',
+                    'type' => 'VARCHAR',
+                    'constraint' => '200',
                 ),
                 'update_at' => array(
-                    'type' => 'DATETIME',
+                    'type' => 'VARCHAR',
+                    'constraint' => '200',
                 ),
                 'thumbnail' => array(
                     'type' => 'VARCHAR',

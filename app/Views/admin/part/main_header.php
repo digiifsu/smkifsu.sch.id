@@ -3,7 +3,7 @@
     <div class="logo-header" data-background-color="blue">
 
         <a href="index.html" class="logo">
-            <img src="<?= base_url('/') ?>assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+            <img src="<?= base_url('assets/img/logo_tefa.png') ?>" width="50px" alt="navbar brand" class="navbar-brand">
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
@@ -27,11 +27,11 @@
                 <form class="navbar-left navbar-form nav-search mr-md-3">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <button type="submit" class="btn btn-search pr-1">
+                            <button type="button" class="btn btn-search pr-1">
                                 <i class="fa fa-search search-icon"></i>
                             </button>
                         </div>
-                        <input type="text" placeholder="Search ..." class="form-control">
+                        <input type="text" id="search_menu" placeholder="Search ..." class="form-control">
                     </div>
                 </form>
             </div>
