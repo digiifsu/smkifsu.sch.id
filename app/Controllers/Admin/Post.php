@@ -12,11 +12,11 @@ class Post extends BaseController
 
         //data artikel
 
-        return view('admin.post.all_post', compact('title'));
+        return view('admin/post/all_post', compact('title'));
     }
     public function addNew(){
         $title = "Manager Article";
-        return view("admin.post.add_post",compact('title'));
+        return view("admin/post/add_post",compact('title'));
     }
     public function update($id = null)
     {

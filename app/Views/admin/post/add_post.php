@@ -1,4 +1,4 @@
-<?php $this->extend('admin.layout.app_layout');  ?>
+<?php $this->extend('admin\layout\app_layout');  ?>
 
 <?php $this->section('head'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/vendors/froala') ?>/css/froala_editor.pkgd.min.css">
@@ -113,7 +113,11 @@
 <script>
 	(function () {
 		new FroalaEditor("#post-body", {
-			fileUploadURL : '<?= base_url('backend/files/upload') ?>'
+			imageUploadURL : '<?= route_to('admin_post_upload_file') ?>',
+			imageUploadParams: {
+				id : 'my_editor',
+			}
+			
 		})
 	})()
 </script>

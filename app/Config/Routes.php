@@ -33,6 +33,16 @@ $routes->group('webadmin', static function ($routes) {
         $routes->match(['GET','POST'],'addNew', 'Admin\Post::addNew', ['as'=>'admin_post_addNew']);
         $routes->match(['GET','POST'],'update/(:alphanum)','Admin\Post::update/$1');
     });
+
+    $routes->group('upload', function ($routes) {
+        $routes->post(
+            'post/image','FileUpload::uploadImagePost',['as'=>'admin_post_upload_file']
+        );
+    });
+});
+
+$routes->get('da', function () {
+    var_dump(strpos('index', '.php'));
 });
 //
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
