@@ -37,7 +37,8 @@ class Users extends Migration
                     'default' => 'admin',
                 ),
                 'create_at' => array(
-                    'type' => 'datetime',
+                    'type' => 'VARCHAR',
+                    'constraint' => '200'
                 ),
                 'avatar' => array(
                     'type' => 'VARCHAR',
