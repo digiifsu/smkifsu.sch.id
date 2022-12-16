@@ -47,4 +47,4 @@ php spark serve
 
 
 ##1solve problems intl extension
-Jika mengalami error maka cek dulu extension intl di ```PHP.ini```
+Jika mengalami error maka cek dulu extension intl di ```PHP.ini``` dan hapus tanda comentar ";"
