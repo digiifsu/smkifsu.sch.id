@@ -1,5 +1,9 @@
 <?php $this->extend('admin\layout\app_layout'); ?>
 
 <?php $this->section('content'); ?>
-<h1>Manage Artikel</h1>
+
+<div class="page-inner">
+    
+</div>
+
 <?php $this->endSection(); ?>
