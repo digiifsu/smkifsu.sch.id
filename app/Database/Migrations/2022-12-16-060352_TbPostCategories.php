@@ -18,12 +18,16 @@ class TbPostCategories extends Migration
                 ),
                 'slug' => array(
                     'type' => 'VARCHAR',
+                    'unique' => true,
                     'cosntraint' => '225',
                 ),
                 'nama' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '225',
-                )
+                ),
+                'description' => array(
+                    'type' => 'TEXT'
+                ),
             )
         );
         $this->forge->addPrimaryKey('id');
