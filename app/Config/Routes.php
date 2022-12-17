@@ -53,7 +53,7 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
         $routes->get('get_uploaded_file', 'FileUpload::getUploadedFile', ['as' => 'admin_file_manage']);
     });
 });
-//config
+
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
