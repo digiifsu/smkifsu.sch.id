@@ -21,23 +21,23 @@
 <div class="page-inner">
 	<h4 class="page-title">Tambah Post</h4>
 	<div class="page-category">
-		<a class="btn btn-outline btn-sm btn-primary btn-rounded" href="<?= route_to('admin_post_all') ?>"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</a>
+		<a class="btn btn-outline btn-sm btn-primary btn-rounded" href="<?= base_url(route_to('admin_post_all')) ?>"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</a>
 		<!-- <a class="btn btn-sm btn-primary btn-rounded" href=""><i class="fas fa-plus-circle"></i> Tambah Kategori</a> -->
 	</div>
 	<!-- add new post -->
-	<form action="">
+	<form action="" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-md-8 mb-3">
 				<div class="card-post bg-white p-3">
 					<div class="form-group">
-						<input type="text" class="form-control title-input-post" placeholder="Title">
+						<input type="text" name='title' class="form-control title-input-post" placeholder="Title">
 					</div>
 					<div class="form-group">
 						<label for="kategori">Kategori</label>
 						<div>
 							<div class="input-group">
 
-								<select name="" class="form-control" id="categories">
+								<select name="kategori" class="form-control" id="categories">
 									<option value="">Pendidikan</option>
 									<option value="">Budaya</option>
 									<option value="">Sekolah</option>
@@ -55,12 +55,12 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon3">https://smkifsu.sch.id/post/</span>
 							</div>
-							<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+							<input name='slug' type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="content">Content</label>
-						<textarea name="" id="post-body" style="height:300px!important;" class="form-control"></textarea>
+						<textarea name="content" id="post-body" style="height:300px!important;" class="form-control"></textarea>
 					</div>
 				</div>
 				
@@ -76,24 +76,24 @@
 							<label for="publish_date">Publish date</label>
 							<div class="row">
 								<div class="col-md-6">
-									<input class="form-control" type="date" name="" id="">
+									<input name="date" class="form-control" type="date" name="" id="">
 								</div>
 								<div class="col-md-6">
-									<input type="time" name="" class="form-control" id="">
+									<input name="time" type="time" name="" class="form-control" id="">
 								</div>
 							</div>
 						</div>
 
 						<div class="mt-3">
 							<label for="thumbnail">Thumbnail</label>
-							<input type="file" class="form-control">
+							<input type="file" name="thumbnail" class="form-control">
 						</div>
 						
 					</div>
 					<div class="card-footer">
 						<div class="btn-group" role="group" aria-label="Basic example">
-							<button type="button" class="btn btn-secondary">Publish</button>
-							<button type="button" class="btn btn-warning">Save Draft</button>
+							<button type="button" name="publish" class="btn btn-secondary">Publish</button>
+							<button name="draft" type="button" class="btn btn-warning">Save Draft</button>
 						</div>
 					</div>
 				</div>
@@ -113,7 +113,15 @@
 <script>
 	(function () {
 		new FroalaEditor("#post-body", {
-			imageUploadURL : '<?= route_to('admin_post_upload_file') ?>',
+			imageManagerPageSize: 20,
+			imageManagerScrollOffset: 10,
+			imageManagerLoadURL: "<?= base_url(route_to('admin_file_manage'))?>",
+			imageManagerLoadMethod: "GET",
+			imageManagerLoadParams: {cmd: "fetch"},
+			imageManagerDeleteURL: "http://example.com/delete_image",
+			imageManagerDeleteMethod: "DELETE",
+			imageManagerDeleteParams: {param: 'value'},
+			imageUploadURL : '<?= base_url(route_to('admin_post_upload_file')) ?>',
 			imageUploadParams: {
 				id : 'my_editor',
 			}

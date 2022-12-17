@@ -15,7 +15,7 @@
                     <p class="alert alert-danger"><?= session()->getFlashdata('login_error') ?></p>
                 <?php endif; ?>
             <?php endif; ?>
-            <?= form_open(route_to('admin_login_post')) ?>
+            <?= form_open(base_url(route_to('admin_login_post'))) ?>
             <div class="form-group form-group-default">
                 <label>Email</label>
                 <input type="email" class="form-control" name="email" value="<?= old('email') ?>" placeholder="Ketikan email anda">

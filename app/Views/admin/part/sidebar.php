@@ -34,12 +34,12 @@
                     <div class="collapse" id="artikel">
                         <ul class="nav nav-collapse">
                             <li>
-                            <a href="<?= route_to('admin_post_addNew'); ?>">
+                            <a href="<?= base_url(route_to('admin_post_addNew')); ?>">
                                     <span class="sub-item">Add New</span>
                                 </a>
                             </li>
                             <li>
-                            <a href="<?= route_to('admin_post_all'); ?>">
+                            <a href="<?= base_url(route_to('admin_post_all')) ?>">
                                     <span class="sub-item">All Posts</span>
                                 </a>
                             </li>
