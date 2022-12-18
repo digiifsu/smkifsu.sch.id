@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -12,17 +11,17 @@ class Tbpost extends Migration
     {
         $this->forge->addField(
             array(
-                'id_post' => array(
+                'id' => array(
                     'type' => 'INT',
                     'auto_increment' => true,
+                    'unsigned' =>true,
                     'constraint' => '14',
-                    'null' => false,
                 ),
                 'slug' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '225',
                 ),
-                'judul' => array(
+                'title' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '40',
                 ),
@@ -50,7 +49,7 @@ class Tbpost extends Migration
                     'constraint' => '15',
                     'null' => true,
                 ),
-                'time' => array(
+                'create_at' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '200',
                 ),

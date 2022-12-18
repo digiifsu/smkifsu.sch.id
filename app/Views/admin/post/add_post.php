@@ -1,8 +1,12 @@
-<?php $this->extend('admin\layout\app_layout');  ?>
-<?php $this->section('head'); ?>
-<link rel="stylesheet" href="<?= base_url('assets/vendors/froala') ?>/css/froala_editor.pkgd.min.css">
-<?php $this->endSection(); ?>
-<?php $this->section('content'); ?>
+<?php
+$this->extend('admin\layout\app_layout');
+//sction head
+$this->section('head');
+echo link_tag('assets/vendors/froala/css/froala_editor.pkgd.min.css');
+$this->endSection();
+//section content
+$this->section('content');
+?>
 <style>
 .card-post {
     border-radius: 0 !important;
@@ -108,9 +112,11 @@
     </form>
     <!-- end:add new post -->
 </div>
-<?php $this->endSection(); ?>
-<?php $this->section('footer'); ?>
-<script type="text/javascript" src="<?= base_url('assets/vendors/froala/js/froala_editor.pkgd.min.js') ?>"></script>
+<?php
+$this->endSection();
+$this->section('footer');
+echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js');
+?>
 <script>
 (function() {
     new FroalaEditor("#post-body", {

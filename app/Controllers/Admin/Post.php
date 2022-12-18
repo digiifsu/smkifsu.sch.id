@@ -11,10 +11,11 @@ class Post extends BaseController
     public function index()
     {
         $title = "Manage Article";
-    
-        //data artikel
 
-        return view('admin/post/all_post', compact('title'));
+        $tb_post = model('Admin/Posts');
+        $data_post = $tb_post->withCategory()->orderBy('create_at','desc')->get()->getResult();
+
+        return view('admin/post/all_post', compact('title','data_post'));
     }
     public function addNew(){
         $title = "Manager Article";

@@ -8,7 +8,7 @@
     <link rel="icon" href="<?= base_url('assets/img/icon.ico'); ?>" type="image/x-icon" />
 
     <!-- Fonts and icons -->
-    <script src="<?= base_url('assets/js/plugin/webfont/webfont.min.js'); ?>"></script>
+    <?= script_tag('assets/js/plugin/webfont/webfont.min.js'); ?>
     <script>
         WebFont.load({
             google: {
@@ -24,63 +24,63 @@
         });
     </script>
     <!-- CSS Files -->
-    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/atlantis.min.css') ?>">
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="<?= base_url('assets/css/demo.css'); ?>">
-    <?= $this->renderSection('head');  ?>
+    <?php
+    $link_file = array(
+        'assets/css/bootstrap.min.css',
+        'assets/css/atlantis.min.css',
+        'assets/css/demo.css',
+    );
+    foreach ($link_file as $link) {
+        echo link_tag($link).PHP_EOL;
+    }
+    //render secition head
+    $this->renderSection('head');
+    ?>
 </head>
+
 <body>
-   <div class="wrapper">
-       <!-- s:main header -->
-       <?= $this->include('admin/part/main_header'); ?>
-       <!-- e:main header -->
-       <!-- s:sidebar -->
-       <?= $this->include('admin/part/sidebar'); ?>
-       <!-- e:sidebar -->
-       <!-- s:content -->
-      <div class="main-panel">
-          <div class="content">
-              <?= $this->renderSection('content'); ?>
-          </div>
-        <?= $this->include('admin/part/footer'); ?>
-      </div>
-       <!-- e:content -->
-   </div>
-
-    <!--   Core JS Files   -->
-    <script src="<?= base_url('assets/js/core/jquery.3.2.1.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/js/core/popper.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/js/core/bootstrap.min.js'); ?>"></script>
-    <!-- jQuery UI -->
-    <script src="<?= base_url('assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js'); ?>"></script>
-    <!-- jQuery Scrollbar -->
-    <script src="<?= base_url('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js'); ?>"></script>
-    <!-- Chart JS -->
-    <script src="<?= base_url('assets/js/plugin/chart.js/chart.min.js'); ?>"></script>
-
-    <!-- jQuery Sparkline -->
-    <script src="<?= base_url('assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js'); ?>"></script>
-
-    <!-- Chart Circle -->
-    <script src="<?= base_url('assets/js/plugin/chart-circle/circles.min.js'); ?>"></script>
-    <!-- Datatables -->
-    <script src="<?= base_url('assets/js/plugin/datatables/datatables.min.js'); ?>"></script>
-    <!-- Bootstrap Notify -->
-    <script src="<?= base_url('assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js'); ?>"></script>
-    <!-- jQuery Vector Maps -->
-    <script src="<?= base_url('assets/js/plugin/jqvmap/jquery.vmap.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/js/plugin/jqvmap/maps/jquery.vmap.world.js'); ?>"></script>
-    <!-- Sweet Alert -->
-    <script src="<?= base_url('assets/js/plugin/sweetalert/sweetalert.min.js'); ?>"></script>
-    <!-- Atlantis JS -->
-    <script src="<?= base_url('assets/js/atlantis.min.js'); ?>"></script>
-    <!-- Atlantis DEMO methods, don't include it in your project! -->
-    <script src="<?= base_url('assets/js/setting-demo.js'); ?>"></script>
-    <script src="<?= base_url('assets/js/demo.js'); ?>"></script>
-
-   <?= $this->renderSection('footer'); ?>
+    <div class="wrapper">
+        <!-- s:main header -->
+        <?= $this->include('admin/part/main_header'); ?>
+        <!-- e:main header -->
+        <!-- s:sidebar -->
+        <?= $this->include('admin/part/sidebar'); ?>
+        <!-- e:sidebar -->
+        <!-- s:content -->
+        <div class="main-panel">
+            <div class="content">
+                <?= $this->renderSection('content'); ?>
+            </div>
+            <?= $this->include('admin/part/footer'); ?>
+        </div>
+        <!-- e:content -->
+    </div>
+    <?php
+    $script_src = array(
+        'assets/js/core/jquery.3.2.1.min.js',
+        'assets/js/core/popper.min.js',
+        'assets/js/core/bootstrap.min.js',
+        'assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js',
+        'assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js',
+        'assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js',
+        'assets/js/plugin/chart.js/chart.min.js',
+        'assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js',
+        'assets/js/plugin/chart-circle/circles.min.js',
+        'assets/js/plugin/datatables/datatables.min.js',
+        'assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js',
+        'assets/js/plugin/jqvmap/jquery.vmap.min.js',
+        'assets/js/plugin/jqvmap/maps/jquery.vmap.world.js',
+        'assets/js/plugin/sweetalert/sweetalert.min.js',
+        'assets/js/atlantis.min.js',
+        'assets/js/setting-demo.js',
+        'assets/js/demo.js',
+    );
+    //load javascript file
+    foreach ($script_src as $src) {
+        echo script_tag($src) . PHP_EOL;
+    }
+    $this->renderSection('footer');
+    ?>
 </body>
 
 </html>

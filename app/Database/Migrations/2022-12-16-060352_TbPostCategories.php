@@ -9,7 +9,7 @@ class TbPostCategories extends Migration
     public function up()
     {
         $this->forge->addField(
-            array(
+              array(
                 'id' => array(
                     'type' => 'INT',
                     'auto_increment' => true,
@@ -18,16 +18,12 @@ class TbPostCategories extends Migration
                 ),
                 'slug' => array(
                     'type' => 'VARCHAR',
-                    'unique' => true,
-                    'cosntraint' => '225',
+                    'constraint' => '255',
                 ),
                 'nama' => array(
                     'type' => 'VARCHAR',
-                    'constraint' => '225',
-                ),
-                'description' => array(
-                    'type' => 'TEXT'
-                ),
+                    'constraint' => '250',
+                )
             )
         );
         $this->forge->addPrimaryKey('id');

@@ -27,7 +27,7 @@ class TbPagesCategories extends Migration
             )
         );
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('tb_PagesCategories');
+        $this->forge->createTable('tb_pages_Categories');
     }
 
     public function down()
