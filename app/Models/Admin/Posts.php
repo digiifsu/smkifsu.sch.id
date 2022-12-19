@@ -14,7 +14,19 @@ class Posts extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'title',
+         'slug',
+         'isi',
+         'author',
+         'id_category',
+         'view',
+         'create_at',
+         'status',
+        'deskripsi_singkat',
+         'thumbnail',
+
+    ];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,15 +51,16 @@ class Posts extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
     public $tb_post_categories = 'tb_post_categories';
-    public function withCategory(){
+    public function withCategory()
+    {
         $buillder = $this->db->table($this->table);
-        $buillder->select($this->table.'.*,'.$this->tb_post_categories.'.nama as nama_category'.',tb_users.nama_lengkap');
-        $buillder->join($this->tb_post_categories,$this->tb_post_categories.'.id='.$this->table.'.id_category','left');
-        $buillder->join('tb_users', 'tb_users.id=tb_post.author','left');
+        $buillder->select($this->table . '.*,' . $this->tb_post_categories . '.nama as nama_category' . ',tb_users.nama_lengkap');
+        $buillder->join($this->tb_post_categories, $this->tb_post_categories . '.id=' . $this->table . '.id_category', 'left');
+        $buillder->join('tb_users', 'tb_users.id=tb_post.author', 'left');
         return $buillder;
     }
 
-    public function dataTable(){
-        
+    public function dataTable()
+    {
     }
 }

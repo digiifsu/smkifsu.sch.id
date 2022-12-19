@@ -46,19 +46,44 @@ $this->section('content');
 
     <div class="row">
         <div class="col-md-8 mb-3">
+            <div class="err-block">
+                <?php
+                if(session()->has('error_success')){
+                    echo "<p class='alert alert-success'>".session()->getFlashdata('error_success')."</p>" . PHP_EOL;
+                }
+                if (session()->has('error_danger')) {
+                    $errors = session()->getFlashdata('error_danger');
+                    if (is_array($errors)) {
+                        foreach ($errors as $error) {
+                            echo "<p class='alert alert-danger'>{$error}</p>" . PHP_EOL;
+                        }
+                    }
+                }
+                ?>
+            </div>
             <div class="card-post bg-white p-3">
                 <div class="form-group">
-                    <input required='true' id='title' autofocus="true" autocomplete="false" type="text" name='title' class="form-control title-input-post" placeholder="Title">
+                    <input required='true' value="<?= old('title'); ?>" id='title' autofocus="true" autocomplete="false" type="text" name='title' class="form-control title-input-post" placeholder="Title">
                 </div>
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
                     <div>
                         <div class="input-group">
-                            <select name="kategori" class="form-control" id="categories">
-                                <option value="">Pendidikan</option>
-                                <option value="">Budaya</option>
-                                <option value="">Sekolah</option>
-
+                            <?php
+                            $kategori = array(
+                                'budaya',
+                                'pendidkan',
+                                'tresome'
+                            );
+                            ?>
+                            <select name="id_category" class="form-control" id="categories">
+                               <?php
+                               foreach($kategori as $e => $i){
+                                    ?>
+                                    <option value="<?= $e ?>"><?= $i ?></option>
+                                    <?php
+                               }
+                               ?>
                             </select>
                             <div class="input-group-prepend">
                                 <button class="btn btn-sm btn-primary" type="button">
@@ -74,12 +99,12 @@ $this->section('content');
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon3">https://smkifsu.sch.id/post/</span>
                         </div>
-                        <input name='slug' id='slug' type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                        <input name='slug' value="<?= old('slug'); ?>" id='slug' type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea required='true' autofocus="true" autocomplete="false" name="content" id="post-body" style="height:300px!important;" class="form-control"></textarea>
+                    <textarea required='true' autofocus="true" autocomplete="false" name="isi" id="post-body" style="height:300px!important;" class="form-control"><?= old('isi'); ?></textarea>
                 </div>
             </div>
         </div>

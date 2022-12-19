@@ -34,7 +34,7 @@
                             Kategori
                         </th>
                         <th>
-                            Details
+                            Status
                         </th>
                         <th>
                             Author
@@ -51,24 +51,28 @@
                                 <td id="title-action">
                                     <a href="<?= base_url(sprintf('post/%s/%s.html', $data->id, $data->slug)); ?>"><?= esc($data->title); ?></a>
                                 </td>
-                                <td><?= is_null($data->nama_category) ? 'tanpa kategori' :  esc($data->nama_category);?></td>
+                                <td><?= is_null($data->nama_category) ? 'tanpa kategori' :  esc($data->nama_category); ?></td>
                                 <td>
-                                <span>Publish: <time>29-2-3</time></span>
+                                    <?php if ($data->status === 'publish') : ?>
+                                        <span class="badge badge-primary">publish</span>
+                                    <?php else : ?>
+                                        <span class="badge badge-warning">Draft</span>
+                                    <?php endif; ?>
                                 </td>
                                 <td>
                                     <?php
-                                    if(!empty($data->nama_lengkap)){
-                                        ?>
+                                    if (!empty($data->nama_lengkap)) {
+                                    ?>
                                         <span class="badge badge-success">
                                             <?= $data->nama_lengkap ?>
                                         </span>
-                                        <?php
-                                    } else{
-                                        ?>
+                                    <?php
+                                    } else {
+                                    ?>
                                         <span class="badge badge-danger">
                                             Unknown
                                         </span>
-                                        <?php
+                                    <?php
                                     }
                                     ?>
                                 </td>
@@ -102,9 +106,11 @@
         $(document).ready(function() {
             $('#tb_post').DataTable();
         });
-        $('#title-action').mousemove(function(){
+        $('#title-action').mousemove(function() {
             alert('dadan')
         })
     </script>
 
     <?php $this->endSection() ?>
+
+   
