@@ -36,6 +36,9 @@
                         <th>
                             Details
                         </th>
+                        <th>
+                            Author
+                        </th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -45,12 +48,29 @@
                         <?php foreach ($data_post as $data) : ?>
                             <tr>
                                 <td><input type="checkbox"></td>
-                                <td>
+                                <td id="title-action">
                                     <a href="<?= base_url(sprintf('post/%s/%s.html', $data->id, $data->slug)); ?>"><?= esc($data->title); ?></a>
                                 </td>
                                 <td><?= is_null($data->nama_category) ? 'tanpa kategori' :  esc($data->nama_category);?></td>
                                 <td>
-                                    publish_at: - update_at : 
+                                <span>Publish: <time>29-2-3</time></span>
+                                </td>
+                                <td>
+                                    <?php
+                                    if(!empty($data->nama_lengkap)){
+                                        ?>
+                                        <span class="badge badge-success">
+                                            <?= $data->nama_lengkap ?>
+                                        </span>
+                                        <?php
+                                    } else{
+                                        ?>
+                                        <span class="badge badge-danger">
+                                            Unknown
+                                        </span>
+                                        <?php
+                                    }
+                                    ?>
                                 </td>
                                 <td>Action</td>
                             </tr>
@@ -77,9 +97,13 @@
     }
 
     ?>
+
     <script>
         $(document).ready(function() {
             $('#tb_post').DataTable();
+        });
+        $('#title-action').mousemove(function(){
+            alert('dadan')
         })
     </script>
 

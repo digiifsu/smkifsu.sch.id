@@ -13,8 +13,8 @@ class Post extends BaseController
         $title = "Manage Article";
 
         $tb_post = model('Admin/Posts');
+        //get data categories from model
         $data_post = $tb_post->withCategory()->orderBy('create_at','desc')->get()->getResult();
-
         return view('admin/post/all_post', compact('title','data_post'));
     }
     public function addNew(){
