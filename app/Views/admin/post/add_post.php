@@ -3,9 +3,6 @@ $this->extend('admin\layout\app_layout');
 //sction head
 $this->section('head');
 echo link_tag('assets/vendors/froala/css/froala_editor.pkgd.min.css');
-echo link_tag('assets/vendors/filepond/dist/filepond.min.css');
-echo link_tag('assets/vendors/filepond/dist/filepond-plugin-image-preview.css');
-
 $this->endSection();
 //section content
 $this->section('content');
@@ -26,7 +23,15 @@ $this->section('content');
     }
 
     .file-preview {
-        height: 200px;
+        position: relative !important;
+    }
+
+    .file-preview #image {
+        border: 1px solid #dedede;
+    }
+
+    .file-preview #image #images {
+        width: 100%;
     }
 </style>
 <div class="page-inner">
@@ -43,7 +48,7 @@ $this->section('content');
         <div class="col-md-8 mb-3">
             <div class="card-post bg-white p-3">
                 <div class="form-group">
-                    <input required='true' autofocus="true" autocomplete="false" type="text" name='title' class="form-control title-input-post" placeholder="Title">
+                    <input required='true' id='title' autofocus="true" autocomplete="false" type="text" name='title' class="form-control title-input-post" placeholder="Title">
                 </div>
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
@@ -69,7 +74,7 @@ $this->section('content');
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon3">https://smkifsu.sch.id/post/</span>
                         </div>
-                        <input name='slug' type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                        <input name='slug' id='slug' type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
                     </div>
                 </div>
                 <div class="form-group">
@@ -78,12 +83,14 @@ $this->section('content');
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="card card-post">
                 <div class="card-header">
                     <b class="card-title">PUBLISH</b>
                 </div>
                 <div class="card-body">
+
 
                     <div class="mb-2">
                         <label for="publish_date">Publish date</label>
@@ -97,10 +104,13 @@ $this->section('content');
                         </div>
                     </div>
 
-                    <div class="mt-3">
+                    <div class="mt-3 mb-5">
                         <label for="thumbnail">Thumbnail</label>
                         <div class="file-preview">
                             <input type="file" name="thumbnail" id='upload-file' class="form-control ">
+                            <div id='image'>
+                                <img src="" id='images' alt="" srcset="">
+                            </div>
                         </div>
                     </div>
 
@@ -120,39 +130,40 @@ $this->section('content');
 <?php
 $this->endSection();
 $this->section('footer');
-echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js'),
-script_tag('assets/vendors/filepond/dist/filepond.min.js'),
-script_tag('assets/vendors/filepond/dist/filepond-plugin-image-preview.js'),
-script_tag('assets/vendors/filepond/dist/filepond-plugin-image-edit.js');
+echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js');
 ?>
 <script>
-    (function() {
-        new FroalaEditor("#post-body", {
-            imageManagerPageSize: 20,
-            imageManagerScrollOffset: 10,
-            imageManagerLoadURL: "<?= base_url(route_to('admin_file_manage')) ?>",
-            imageManagerLoadMethod: "GET",
-            imageManagerLoadParams: {
-                cmd: "fetch"
-            },
-            imageManagerDeleteURL: "http://example.com/delete_image",
-            imageManagerDeleteMethod: "DELETE",
-            imageManagerDeleteParams: {
-                param: 'value'
-            },
-            imageUploadURL: '<?= base_url(route_to('admin_post_upload_file')) ?>',
-            imageUploadParams: {
-                id: 'my_editor',
-            }
-        });
-    })();
-
     $(document).ready(function() {
+        (function() {
+            new FroalaEditor("#post-body", {
+                imageManagerPageSize: 20,
+                imageManagerScrollOffset: 10,
+                imageManagerLoadURL: "<?= base_url(route_to('admin_file_manage')) ?>",
+                imageManagerLoadMethod: "GET",
+                imageManagerLoadParams: {
+                    cmd: "fetch"
+                },
+                imageManagerDeleteURL: "http://example.com/delete_image",
+                imageManagerDeleteMethod: "DELETE",
+                imageManagerDeleteParams: {
+                    param: 'value'
+                },
+                imageUploadURL: '<?= base_url(route_to('admin_post_upload_file')) ?>',
+                imageUploadParams: {
+                    id: 'my_editor',
+                }
+            });
+        })();
 
 
-        FilePond.registerPlugin(FilePondPluginImagePreview);
-        FilePond.create(
-            document.querySelector('#upload-file'));
-    })
+        $('#title').on('keyup', (e) => {
+            $("#slug").html($(this).val());
+        })
+
+        $('#upload-file').on('change', function(e) {
+            document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
+        })
+
+    });
 </script>
 <?php $this->endSection();  ?>
