@@ -116,3 +116,12 @@ Stack trace:
 #13 C:\Users\LIVA\Desktop\codeigniter4-framework-6ffad15\system\CLI\Console.php(48): CodeIgniter\CodeIgniter->run()
 #14 C:\Users\LIVA\Desktop\codeigniter4-framework-6ffad15\spark(98): CodeIgniter\CLI\Console->run()
 #15 {main}
+CRITICAL - 2022-12-18 21:21:39 --> toolbar filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 493.
+ 1 SYSTEMPATH\Filters\Filters.php(493): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('toolbar')
+ 2 SYSTEMPATH\Filters\Filters.php(244): CodeIgniter\Filters\Filters->processAliasesToClass('after')
+ 3 SYSTEMPATH\Filters\Filters.php(163): CodeIgniter\Filters\Filters->initialize('webadmin/post/add_new')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('webadmin/post/add_new', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

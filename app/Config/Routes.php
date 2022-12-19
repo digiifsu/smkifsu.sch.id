@@ -42,6 +42,10 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
         $routes->get('all', 'Admin\Post::index', ['as' => 'admin_post_all']);
         $routes->match(['GET', 'POST'], 'add_new', 'Admin\Post::addNew', ['as' => 'admin_post_addNew']);
         $routes->match(['GET', 'POST'], 'update/(:alphanum)', 'Admin\Post::update/$1');
+
+        $routes->group('categories', function ($routes) {
+            $routes->get('add', 'Admin\Categories::addNew',['as'=>'admin_categories_add']);
+        });
     });
     /*
     * --------------------------------------------------------------------

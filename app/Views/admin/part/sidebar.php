@@ -44,7 +44,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="components/gridsystem.html">
+                                <a href="<?= route_to('admin_categories_add') ?>">
                                     <span class="sub-item">Categories</span>
                                 </a>
                             </li>
