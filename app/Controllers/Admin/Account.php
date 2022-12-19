@@ -12,7 +12,7 @@ use App\Models\User;
 use \Config\{
     Services,
 };
-
+//use the ahahah
 class Account extends BaseController
 {
     protected $helpers = ['form'];
@@ -43,12 +43,10 @@ class Account extends BaseController
                     if (password_verify($this->request->getPost('password'), $found['password'])) {
                         return redirect()->route('admin_dashboard');
                     } else {
-                        session()->setFlashdata('login_error', "Password yang kamu ketikan tidak valid!");
-                        return redirect()->route('admin_login')->withInput();
+                        return redirect()->route('admin_login')->withInput()->with('login_error', "Password yang kamu ketikan tidak valid!");;
                     }
                 } else {
-                    session()->setFlashdata('login_error', "Password belum terdaftar!");
-                    return redirect()->route('admin_login')->withInput();
+                    return redirect()->route('admin_login')->withInput()->with('login_error','Password belum terdaftar!');
                 }
             }
         }

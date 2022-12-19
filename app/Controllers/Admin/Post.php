@@ -18,6 +18,11 @@ class Post extends BaseController
         return view('admin/post/all_post', compact('title','data_post'));
     }
     public function addNew(){
+        $publish = false;
+        if (isset($_POST['publish'])) {
+            $publish = true;
+        }
+        
         $title = "Manager Article";
         return view("admin/post/add_post",compact('title'));
     }
