@@ -44,7 +44,7 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
         $routes->match(['GET', 'POST'], 'update/(:alphanum)', 'Admin\Post::update/$1');
 
         $routes->group('categories', function ($routes) {
-            $routes->get('add', 'Admin\Categories::addNew',['as'=>'admin_categories_add']);
+            $routes->get('add', 'Admin\Categories::addNewPostCategories',['as'=>'admin_categories_add']);
         });
     });
     /*

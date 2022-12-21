@@ -10,7 +10,7 @@ class Categories extends BaseController
     {
         //
     }
-    public function addNew(){
+    public function addNewPostCategories(){
         $title = 'Add New Categories';
         return view('admin/categories/add_new', compact('title'));
     }

@@ -24,6 +24,10 @@ class TbPostCategories extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '250',
                 ),
+                  'keywords' => array(
+                      'type' => "VARCHAR",
+                      'constraint' => '225'
+                  ),
                   'deskripsi' => array(
                       'type' => 'TEXT'
                   )
