@@ -52,14 +52,16 @@
                                     <a href="<?= base_url(sprintf('post/%s/%s.html', $data->id, $data->slug)); ?>"><?= esc($data->title); ?></a>
                                 </td>
                                 <td><?= is_null($data->nama_category) ? 'tanpa kategori' :  esc($data->nama_category); ?></td>
-                                <td>
+                                <td class="center">
                                     <?php if ($data->status === 'publish') : ?>
                                         <span class="badge badge-primary">publish</span>
-                                    <?php else : ?>
+                                    <?php elseif($data->status == 'draft') : ?>
                                         <span class="badge badge-warning">Draft</span>
+                                    <?php else : ?>
+                                    <span class="badge badge-danger">Unpublish</span>
                                     <?php endif; ?>
                                 </td>
-                                <td>
+                                <td class="center">
                                     <?php
                                     if (!empty($data->nama_lengkap)) {
                                     ?>
@@ -76,7 +78,19 @@
                                     }
                                     ?>
                                 </td>
-                                <td>Action</td>
+                                <td class="center">
+                                    <div class="dropdown show">
+                                        <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Update</a>
+                                            <a class="dropdown-item" href="#">Delete</a>
+                                            <a class="dropdown-item" href="#">Publish</a>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -106,9 +120,7 @@
         $(document).ready(function() {
             $('#tb_post').DataTable();
         });
-        $('#title-action').mousemove(function() {
-            alert('dadan')
-        })
+
     </script>
 
     <?php $this->endSection() ?>

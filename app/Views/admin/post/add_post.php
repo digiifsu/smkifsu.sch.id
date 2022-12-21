@@ -57,6 +57,8 @@ $this->section('content');
                         foreach ($errors as $error) {
                             echo "<p class='alert alert-danger'>{$error}</p>" . PHP_EOL;
                         }
+                    } else{
+                        echo "<p class='alert alert-danger'>".session()->getFlashdata('error_danger')."</p>" . PHP_EOL;
                     }
                 }
                 ?>
@@ -69,21 +71,17 @@ $this->section('content');
                     <label for="kategori">Kategori</label>
                     <div>
                         <div class="input-group">
-                            <?php
-                            $kategori = array(
-                                'budaya',
-                                'pendidkan',
-                                'tresome'
-                            );
-                            ?>
+
                             <select name="id_category" class="form-control" id="categories">
-                               <?php
-                               foreach($kategori as $e => $i){
-                                    ?>
-                                    <option value="<?= $e ?>"><?= $i ?></option>
-                                    <?php
-                               }
-                               ?>
+                                <?php if(!empty($categories)): ?>
+                                    <?php foreach($categories as $category): ?>
+                                        <?php if($category['id'] == old('id_category')): ?>
+                                            <option selected value="<?= $category['id'] ?>"><?= $category['nama'] ?></option>
+                                        <?php else: ?>
+                                            <option value="<?= $category['id'] ?>"><?= $category['nama'] ?></option>
+                                        <?php endif; ?>
+                                     <?php endforeach; ?>
+                                <?php endif; ?>
                             </select>
                             <div class="input-group-prepend">
                                 <button class="btn btn-sm btn-primary" type="button">
@@ -97,9 +95,9 @@ $this->section('content');
                     <label for="slug">Slug</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon3">https://smkifsu.sch.id/post/</span>
+                            <span class="input-group-text" id="basic-addon3">https://smkifsu.sch.id/post/:id/</span>
                         </div>
-                        <input name='slug' value="<?= old('slug'); ?>" id='slug' type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                        <input  id="slug" name='slug' value="<?= old('slug'); ?>"  type="text" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -119,21 +117,16 @@ $this->section('content');
 
                     <div class="mb-2">
                         <label for="publish_date">Publish date</label>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input required='true' autofocus="true" autocomplete="false" name="date" class="form-control" type="date" name="" id="">
-                            </div>
-                            <div class="col-md-6">
-                                <input required='true' autofocus="true" autocomplete="false" name="time" type="time" name="" class="form-control" id="">
-                            </div>
-                        </div>
+
+                        <input class="form-control" required type="datetime-local"
+                               name="create_at" value="<?= date('Y-m-d h:i:s') ?>"
                     </div>
 
-                    <div class="mt-3 mb-5">
+                    <div class="mt-3">
                         <label for="thumbnail">Thumbnail</label>
                         <div class="file-preview">
-                            <input type="file" name="thumbnail" id='upload-file' class="form-control ">
-                            <div id='image'>
+                            <input type="file" accept="image/*" name="thumbnail" id='upload-file' class="form-control ">
+                            <div id='image' style="display: none">
                                 <img src="" id='images' alt="" srcset="">
                             </div>
                         </div>
@@ -155,7 +148,8 @@ $this->section('content');
 <?php
 $this->endSection();
 $this->section('footer');
-echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js');
+echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js'),
+script_tag('assets/vendors/moment.js/2.29.1/moment-with-locales.min.js');
 ?>
 <script>
     $(document).ready(function() {
@@ -182,12 +176,14 @@ echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js');
 
 
         $('#title').on('keyup', (e) => {
-            $("#slug").html($(this).val());
+           $('#slug').val(buatSlug(e.target.value));
         })
 
         $('#upload-file').on('change', function(e) {
+            document.getElementById('image').style.display = 'block';
             document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
-        })
+        });
+
 
     });
 </script>

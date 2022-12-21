@@ -19,10 +19,17 @@ class Post extends BaseController
     }
     public function addNew()
     {
-        $publish = false;
+        $status = 'unpublish';
         if (isset($_POST['publish'])) {
-            $publish = true;
+            $is_admin = true;
+            if($is_admin){
+                $status = 'publish';
+            }
+        } else {
+            $status = 'draft';
         }
+
+
         //check apakah request nya method
         if ($this->request->getMethod(true) === "POST") {
             $rule = array(
@@ -37,24 +44,36 @@ class Post extends BaseController
             //prosess file thumbnail
             $thumbnail = '';
             if(($_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) && ($file = $this->request->getFile('thumbnail'))){
-                if($file->hasMoved() === false){
-                    $filename_random = $file->getRandomName();
-                    if ($file->move(FCPATH . 'uploads/images/post/thumb', $filename_random)) {
-                        $thumbnail = 'uploads/images/post/thumb/' . $filename_random;
-                    }
-                }
+                $validationRule = [
+                    'thumbnail' => [
+                        'label' => 'Image File',
+                        'rules' => 'uploaded[thumbnail]'
+                            . '|is_image[thumbnail]'
+                            . '|mime_in[thumbnail,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
+                    ],
+                ];
+              if (!$this->validate($validationRule)) {
+                  return redirect()->route('admin_post_addNew')->withInput()->with('error_danger',"Gambar Thumbnail tidak valid");
+              } else{
+                  if($file->hasMoved() === false){
+                      $filename_random = $file->getRandomName();
+                      if ($file->move(FCPATH . 'uploads/images/post/thumb', $filename_random)) {
+                          $thumbnail = 'uploads/images/post/thumb/' . $filename_random;
+                      }
+                  }
+              }
+
             }
- 
             //get data
             $data = $this->request->getPost();
             if (empty($data['slug'])) {
                 $data['slug'] = trim(str_replace(' ', '-', preg_replace("/[^a-zA-Z0-9_-]/", ' ', $data['title'])), '-');
             }
             //status draft or published
-            $data['status'] = $publish ? 'publish' : 'draft';
+            $data['status'] = $status;
             $data['author'] = 4;
             $data['views'] = 0;
-            $data['create_at'] = $data['date'] . ' ' . $data['time'];
+            $data['create_at'] = $this->request->getPost('create_at');
             $data['thumbnail'] = $thumbnail;
             $data['deskripsi_singkat'] = substr(strip_tags($data['isi']), 0, 300);
             //get model posts
@@ -69,7 +88,8 @@ class Post extends BaseController
             }
         } else {
             $title = "Manager Article";
-            return view("admin/post/add_post", compact('title'));
+            $categories = model('Admin/Categories')->findAll();
+            return view("admin/post/add_post", compact('title','categories'));
         }
     }
     public function update($id = null)

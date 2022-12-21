@@ -68,7 +68,8 @@ class Tbpost extends Migration
                 ),
                 'status' => array(
                     'type' => 'ENUM',
-                    'constraint' => ['draft','publish'],
+                    'constraint' => ['draft','publish','unpublish'],
+                    'default' => 'unpublish',
                 )
             )
         );

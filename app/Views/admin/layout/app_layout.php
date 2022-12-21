@@ -33,9 +33,19 @@
     foreach ($link_file as $link) {
         echo link_tag($link).PHP_EOL;
     }
+
     //render secition head
     $this->renderSection('head');
     ?>
+    <style>
+        .table>tbody>tr>td, .table>tbody>tr>th {
+            border: 1px solid rgba(231, 231, 231, 0.36) !important;
+            padding: 8px!important;
+        }
+        .table>tbody>tr>td.center, .table>tbody>tr>th.center{
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -71,7 +81,7 @@
         'assets/js/plugin/jqvmap/jquery.vmap.min.js',
         'assets/js/plugin/jqvmap/maps/jquery.vmap.world.js',
         'assets/js/plugin/sweetalert/sweetalert.min.js',
-        'assets/js/atlantis.min.js',
+        'assets/js/atlantis.js',
         'assets/js/setting-demo.js',
         'assets/js/demo.js',
     );

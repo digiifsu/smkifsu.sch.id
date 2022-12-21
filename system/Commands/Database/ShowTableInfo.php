@@ -50,7 +50,6 @@ class ShowTableInfo extends BaseCommand
      */
     protected $usage = <<<'EOL'
         db:table [<table_name>] [options]
-
           Examples:
             db:table --show
             db:table --metadata

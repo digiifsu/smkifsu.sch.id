@@ -23,15 +23,18 @@ class TbPostCategories extends Migration
                 'nama' => array(
                     'type' => 'VARCHAR',
                     'constraint' => '250',
-                )
+                ),
+                  'deskripsi' => array(
+                      'type' => 'TEXT'
+                  )
             )
         );
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('tb_Post_Categories');
+        $this->forge->createTable('tb_post_Categories');
     }
 
     public function down()
     {
-        $this->forge->dropTable('tb_Post_Categories');
+        $this->forge->dropTable('tb_post_Categories');
     }
 }
