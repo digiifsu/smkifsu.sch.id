@@ -1,5 +1,4 @@
 DirectoryIndex index.php
 Options -Indexes
-
 RewriteEngine On
 RewriteRule (.*) public/$1 [L]
