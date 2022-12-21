@@ -51,6 +51,7 @@ class Posts extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
     public $tb_post_categories = 'tb_post_categories';
+    //for get post with category
     public function withCategory()
     {
         $buillder = $this->db->table($this->table);

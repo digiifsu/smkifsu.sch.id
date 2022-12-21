@@ -19,6 +19,9 @@
         <!-- <a class="btn btn-sm btn-primary btn-rounded" href=""><i class="fas fa-plus-circle"></i> Tambah Kategori</a> -->
     </div>
     <hr>
+   <?php if (session()->has('message')) : ?>
+    <?php echo session()->getFlashdata('message'); ?>
+    <?php endif; ?>
     <div style="box-shadow: 0px 0px 0px 1px #dedede;" class="container-wrapper border bg-white p-3">
         <div class="tabel-responsive">
             <table id="tb_post" class="table table-bordered">
@@ -85,8 +88,8 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Update</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
+                                            <a class="dropdown-item" href="<?= route_to('admin_post_delete', $data->id); ?>"><i class="fa fa-1x fa-trash"></i>&nbsp; Delete</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
                                             <a class="dropdown-item" href="#">Publish</a>
                                         </div>
                                     </div>

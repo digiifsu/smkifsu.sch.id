@@ -98,4 +98,18 @@ class Post extends BaseController
 
         echo $id;
     }
+    public function delete($id = null){
+        if($id == null) {
+            return redirect()->route('admin_post_all')->with('error','welcda');
+        }
+        //check dulu di database ada gak 
+        $post_model = model('Admin/Posts');
+        if($post_model->where('id',$id)->countAllResults() > 0){
+            if($post_model->delete($id)){
+                return redirect()->back()->with('message', sprintf('<p class="alert alert-success">%s</p>', 'Data berhasil di hapus'));
+            }
+        } else{
+            return redirect()->back()->with('message', sprintf('<p class="alert alert-danger">%s</p>', 'Data gagal di hapus'));
+        }
+    }
 }

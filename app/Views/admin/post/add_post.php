@@ -81,6 +81,8 @@ $this->section('content');
                                             <option value="<?= $category['id'] ?>"><?= $category['nama'] ?></option>
                                         <?php endif; ?>
                                      <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <option value="null">Uncategories</option>
                                 <?php endif; ?>
                             </select>
                             <div class="input-group-prepend">
