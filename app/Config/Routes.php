@@ -45,7 +45,7 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
         $routes->get('delete/(:alphanum)', 'Admin\Post::delete/$1', ['as' => 'admin_post_delete']);
         //categories
         $routes->group('categories', function ($routes) {
-            $routes->get('add', 'Admin\Categories::addNewPostCategories',['as'=>'admin_categories_add']);
+            $routes->get('/', 'Admin\Categories::index',['as'=>'admin_categories']);
         });
     });
     /*

@@ -2,15 +2,14 @@
 
 
 <?php $this->section('head'); ?>
-<link rel="stylesheet" href="<?= base_url('assets/vendors/DataTables/datatables.min.css'); ?>">
-<link rel="stylesheet" href="<?= base_url('assets/vendors/DataTables/jQueryUI-1.13.2/themes/base/jquery-ui.min.css'); ?>">
-<?php $this->endSection(); ?>
-<?php $this->section('content'); ?>
 <style>
     table tr th {
         height: 10px;
     }
 </style>
+<?php $this->endSection(); ?>
+<?php $this->section('content'); ?>
+
 <div class="page-inner">
     <h4 class="page-title">All Post</h4>
     <div class="page-category">
@@ -19,9 +18,7 @@
         <!-- <a class="btn btn-sm btn-primary btn-rounded" href=""><i class="fas fa-plus-circle"></i> Tambah Kategori</a> -->
     </div>
     <hr>
-    <?php if (session()->has('message')) : ?>
-        <?php echo session()->getFlashdata('message'); ?>
-    <?php endif; ?>
+
     <div style="box-shadow: 0px 0px 0px 1px #dedede;" class="container-wrapper border bg-white p-3">
         <div class="tabel-responsive">
             <table id="tb_post" class="table table-bordered">
@@ -42,7 +39,7 @@
                         <th>
                             Author
                         </th>
-                        <th>Action</th>
+                        <th style="width:30px;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +47,7 @@
                     if (isset($data_post) && is_array($data_post)) : ?>
                         <?php foreach ($data_post as $data) : ?>
                             <tr>
-                                <td><input type="checkbox"></td>
+                                <td class="center"><input type="checkbox"></td>
                                 <td id="title-action">
                                     <a href="<?= base_url(sprintf('post/%s/%s.html', $data->id, $data->slug)); ?>"><?= esc($data->title); ?></a>
                                 </td>
@@ -88,7 +85,7 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a onclick="return confirmation(this);location.replace('<?= route_to('admin_post_delete', $data->id); ?>')" class="dropdown-item"><i class="fa fa-1x fa-trash"></i>&nbsp; Delete</a>
+                                            <a onclick="return confirmation(event);" href='<?= base_url(route_to('admin_post_delete', $data->id)); ?>' class="dropdown-item"><i class="fa fa-1x fa-trash"></i>&nbsp; Delete</a>
                                             <a class="dropdown-item" href="#"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
                                             <a class="dropdown-item" href="#">Publish</a>
                                         </div>
@@ -109,14 +106,6 @@
     $this->endSection();
     //section footer
     $this->section('footer');
-    $script_file = array(
-        'assets/vendors/DataTables/datatables.min.js',
-        'assets/vendors/DataTables/jQueryUI-1.13.2/jquery-ui.min.js',
-    );
-    foreach ($script_file as $script) {
-        echo script_tag($script) . PHP_EOL;
-    }
-
     ?>
 
     <script>
@@ -125,20 +114,40 @@
         });
 
         function confirmation(e) {
+            e.preventDefault();
             Swal.fire({
+                icon: 'question',
                 title: 'Apakah anda yakin?',
+                text: 'Kamu akan menghapus post ini secara permanenet!',
                 showCancelButton: true,
                 confirmButtonText: 'Ya',
                 denyButtonText: `Tidak`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    return true;
-                } else{
+                    window.location.replace(e.target.href)
+                } else {
                     return false;
                 }
             });
         }
+
+
+        <?php if (session()->has('message')) : ?>
+          
+            $.notify({
+                icon: 'flaticon-alarm-1',
+                title: 'Notifikasi',
+                message: '<?php echo session()->getFlashdata('message'); ?>',
+            }, {
+                type: 'info',
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                time: 1000,
+            });
+        <?php endif; ?>
     </script>
 
     <?php $this->endSection() ?>

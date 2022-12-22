@@ -2,7 +2,8 @@
 $this->extend('admin\layout\app_layout');
 //sction head
 $this->section('head');
-echo link_tag('assets/vendors/froala/css/froala_editor.pkgd.min.css');
+echo link_tag('assets/vendors/froala/css/froala_editor.pkgd.min.css'),
+link_tag('assets/vendors/tagin/tagin.min.css');
 $this->endSection();
 //section content
 $this->section('content');
@@ -69,13 +70,12 @@ $this->section('content');
                 </div>
                 <div class="form-group">
                     <label for="keywords">Keywords</label>
-                    <input type="text" placeholder="Ketikan kata kunci yang di pisahkan oleh koma!" class="form-control" name="keywords">
+                    <input type="text" data-role='tagsinput' value="<?= old('keywords') ?>" id='keywords' placeholder="Ketikan kata kunci yang di pisahkan oleh koma!" class="form-control" hidden name="keywords">
                 </div>
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
                     <div>
                         <div class="input-group">
-
                             <select name="id_category" class="form-control" id="categories">
                                 <?php if (!empty($categories)) : ?>
                                     <?php foreach ($categories as $category) : ?>
@@ -121,9 +121,7 @@ $this->section('content');
                 <div class="card-body">
                     <div class="mb-2">
                         <label for="publish_date">Publish date</label>
-
                         <input class="form-control" required type="datetime-local" name="create_at" value="<?= date('Y-m-d h:i:s') ?>" </div>
-
                         <div class="mt-3">
                             <label for="thumbnail">Thumbnail</label>
                             <div class="file-preview">
@@ -133,10 +131,9 @@ $this->section('content');
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="card-footer">
-                        <div class="btn-group" role="group" aria-label="Basic example">
+                        <div class="btn-group">
                             <button type="submit" name="publish" class="btn btn-secondary">Publish</button>
                             <button name="draft" type="submit" class="btn btn-warning">Save Draft</button>
                         </div>
@@ -151,7 +148,8 @@ $this->section('content');
     $this->endSection();
     $this->section('footer');
     echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js'),
-    script_tag('assets/vendors/moment.js/2.29.1/moment-with-locales.min.js');
+    script_tag('assets/vendors/moment.js/2.29.1/moment-with-locales.min.js'),
+    script_tag('assets/vendors/tagin/tagin.min.js');
     ?>
     <script>
         $(document).ready(function() {
@@ -179,13 +177,18 @@ $this->section('content');
 
             $('#title').on('keyup', (e) => {
                 $('#slug').val(buatSlug(e.target.value));
-            })
+            });
 
+           
             $('#upload-file').on('change', function(e) {
                 document.getElementById('image').style.display = 'block';
                 document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
             });
 
+            const tagin = new Tagin(document.querySelector('#keywords'), {
+                enter: true,
+                placeholder: 'Tambah tag baru (dipisahkan dengan koma)'
+            })
 
         });
     </script>
