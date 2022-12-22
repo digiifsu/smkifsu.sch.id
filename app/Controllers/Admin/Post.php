@@ -35,6 +35,7 @@ class Post extends BaseController
             $rule = array(
                 'title' => 'required',
                 'isi' => 'required',
+                'keywords' => 'required',
                 'id_category' => 'required',
             );
             //if valiation valied redirect to add post page

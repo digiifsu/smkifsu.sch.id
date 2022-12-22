@@ -19,8 +19,8 @@
         <!-- <a class="btn btn-sm btn-primary btn-rounded" href=""><i class="fas fa-plus-circle"></i> Tambah Kategori</a> -->
     </div>
     <hr>
-   <?php if (session()->has('message')) : ?>
-    <?php echo session()->getFlashdata('message'); ?>
+    <?php if (session()->has('message')) : ?>
+        <?php echo session()->getFlashdata('message'); ?>
     <?php endif; ?>
     <div style="box-shadow: 0px 0px 0px 1px #dedede;" class="container-wrapper border bg-white p-3">
         <div class="tabel-responsive">
@@ -58,10 +58,10 @@
                                 <td class="center">
                                     <?php if ($data->status === 'publish') : ?>
                                         <span class="badge badge-primary">publish</span>
-                                    <?php elseif($data->status == 'draft') : ?>
+                                    <?php elseif ($data->status == 'draft') : ?>
                                         <span class="badge badge-warning">Draft</span>
                                     <?php else : ?>
-                                    <span class="badge badge-danger">Unpublish</span>
+                                        <span class="badge badge-danger">Unpublish</span>
                                     <?php endif; ?>
                                 </td>
                                 <td class="center">
@@ -88,7 +88,7 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="<?= route_to('admin_post_delete', $data->id); ?>"><i class="fa fa-1x fa-trash"></i>&nbsp; Delete</a>
+                                            <a onclick="return confirmation(this);location.replace('<?= route_to('admin_post_delete', $data->id); ?>')" class="dropdown-item"><i class="fa fa-1x fa-trash"></i>&nbsp; Delete</a>
                                             <a class="dropdown-item" href="#"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
                                             <a class="dropdown-item" href="#">Publish</a>
                                         </div>
@@ -124,8 +124,21 @@
             $('#tb_post').DataTable();
         });
 
+        function confirmation(e) {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                denyButtonText: `Tidak`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    return true;
+                } else{
+                    return false;
+                }
+            });
+        }
     </script>
 
     <?php $this->endSection() ?>
-
-   

@@ -23,8 +23,9 @@ class Posts extends Model
          'view',
          'create_at',
          'status',
-        'deskripsi_singkat',
+         'deskripsi_singkat',
          'thumbnail',
+         'keywords'
 
     ];
 

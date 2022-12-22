@@ -46,7 +46,7 @@
             text-align: center;
         }
     </style>
-    <?=??>
+    <?= script_tag('assets/vendors/sweetalert.js'); ?>
 </head>
 
 <body>

@@ -25,6 +25,12 @@ class Tbpost extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '40',
                 ),
+                'keywords' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => '225',
+                    'null' => true,
+                ),
+
                 'deskripsi_singkat' => array(
                     'type' => 'TEXT',
                     'null' => true,
