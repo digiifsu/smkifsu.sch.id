@@ -41,11 +41,12 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
         $routes->get('/', fn () => redirect()->route('admin_post_all'));
         $routes->get('all', 'Admin\Post::index', ['as' => 'admin_post_all']);
         $routes->match(['GET', 'POST'], 'add_new', 'Admin\Post::addNew', ['as' => 'admin_post_addNew']);
-        $routes->match(['GET', 'POST'], 'update/(:alphanum)', 'Admin\Post::update/$1');
+        $routes->match(['GET', 'POST'], 'update/(:alphanum)', 'Admin\Post::update/$1',['as'=>'admin_post_update']);
         $routes->get('delete/(:alphanum)', 'Admin\Post::delete/$1', ['as' => 'admin_post_delete']);
         //categories
         $routes->group('categories', function ($routes) {
-            $routes->get('/', 'Admin\Categories::index',['as'=>'admin_categories']);
+            $routes->match(['GET','POST'],'/', 'Admin\Categories::index',['as'=>'admin_categories']);
+            $routes->get('delete/(:alphanum)', 'Admin\Categories::delete/$1', ['as' => 'admin_categories_delete']);
         });
     });
     /*
@@ -53,6 +54,9 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
     * Route group upload
     * --------------------------------------------------------------------
     */
+    $routes->group('storage', function ($routes) {
+        $routes->get('/', 'Storage::index', ['as' => 'admin_storage']);
+    });
     $routes->group('upload', function ($routes) {
         $routes->post('post/image', 'FileUpload::uploadImagePost', ['as' => 'admin_post_upload_file']);
         $routes->get('get_uploaded_file', 'FileUpload::getUploadedFile', ['as' => 'admin_file_manage']);

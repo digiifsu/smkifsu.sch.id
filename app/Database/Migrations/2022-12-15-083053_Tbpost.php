@@ -40,8 +40,7 @@ class Tbpost extends Migration
                     'constraint' => '225',
                 ),
                 'isi' => array(
-                    'type' => 'VARCHAR',
-                    'constraint' => '255',
+                    'type' => 'TEXT',
                 ),
                 'id_tag' => array(
                     'type' => 'INT',

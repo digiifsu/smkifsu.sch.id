@@ -86,7 +86,7 @@
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a onclick="return confirmation(event);" href='<?= base_url(route_to('admin_post_delete', $data->id)); ?>' class="dropdown-item"><i class="fa fa-1x fa-trash"></i>&nbsp; Delete</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
+                                            <a class="dropdown-item" target="__blank" href="<?= base_url(route_to('admin_post_update', $data->id)); ?>"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
                                             <a class="dropdown-item" href="#">Publish</a>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@
             });
         }
 
-
+        ///notofication
         <?php if (session()->has('message')) : ?>
           
             $.notify({

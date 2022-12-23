@@ -806,6 +806,7 @@ if (! function_exists('model')) {
      */
     function model(string $name, bool $getShared = true, ?ConnectionInterface &$conn = null)
     {
+        $name = str_replace("\\","/",$name);
         return Factories::models($name, ['getShared' => $getShared], $conn);
     }
 }

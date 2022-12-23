@@ -44,15 +44,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= route_to('admin_categories_add') ?>">
+                                <a href="<?= base_url(route_to('admin_categories')); ?>">
                                     <span class="sub-item">Categories</span>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="components/panels.html">
                                     <span class="sub-item">Tags</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </li>

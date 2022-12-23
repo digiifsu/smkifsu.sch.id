@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1671426488;_ci_previous_url|s:36:"http://localhost:8080/webadmin/login";_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:2:{s:5:"email";s:15:"admin@gmail.com";s:8:"password";s:5:"13456";}}__ci_vars|a:2:{s:13:"_ci_old_input";s:3:"old";s:11:"login_error";s:3:"old";}login_error|s:39:"Password yang kamu ketikan tidak valid!";

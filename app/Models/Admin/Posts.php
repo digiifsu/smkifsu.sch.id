@@ -38,8 +38,8 @@ class Posts extends Model
     // Validation
     protected $validationRules      = [];
     protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    protected $skipValidation       = true;
+    protected $cleanValidationRules = false;
 
     // Callbacks
     protected $allowCallbacks = true;
@@ -52,6 +52,7 @@ class Posts extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
     public $tb_post_categories = 'tb_post_categories';
+    
     //for get post with category
     public function withCategory()
     {
@@ -61,7 +62,9 @@ class Posts extends Model
         $buillder->join('tb_users', 'tb_users.id=tb_post.author', 'left');
         return $buillder;
     }
-
+    public function addNew($data){
+        return $this->db->insert($data);
+    }
     public function dataTable()
     {
     }

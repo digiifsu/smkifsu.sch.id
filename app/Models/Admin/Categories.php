@@ -20,4 +20,11 @@ class Categories extends Model
         'deskripsi',
         'slug'
     ];
+    public function insertPost($data){
+        //check slug
+        if($this->where('slug',$data['slug'])->countAllResults() === 0) {
+            return $this->insert($data);
+        }
+        return redirect()->route('admin_post_categories')->with('message_danger', 'Slug sudah ada di database!');
+    }
 }

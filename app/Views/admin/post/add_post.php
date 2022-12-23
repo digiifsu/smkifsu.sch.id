@@ -73,6 +73,12 @@ $this->section('content');
                     <input type="text" data-role='tagsinput' value="<?= old('keywords') ?>" id='keywords' placeholder="Ketikan kata kunci yang di pisahkan oleh koma!" class="form-control" hidden name="keywords">
                 </div>
                 <div class="form-group">
+                    <label for="deskripsi_singkat">Deskripsi Singkat</label>
+                    <textarea class="form-control" name="deskripsi_singkat">
+                        <?= old('deskripsi_singkat') ?>
+                    </textarea>
+                </div>
+                <div class="form-group">
                     <label for="kategori">Kategori</label>
                     <div>
                         <div class="input-group">
@@ -107,8 +113,12 @@ $this->section('content');
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="">Add Image</label>
+                    <input type="file" id="image-content" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea required='true' autofocus="true" autocomplete="false" name="isi" id="post-body" style="height:300px!important;" class="form-control"><?= old('isi'); ?></textarea>
+                    <textarea name="isi" id="post-body" style="height:300px!important;" class="form-control"><?= old('isi'); ?></textarea>
                 </div>
             </div>
         </div>
@@ -145,51 +155,4 @@ $this->section('content');
         <!-- end:add new post -->
     </div>
     <?php
-    $this->endSection();
-    $this->section('footer');
-    echo script_tag('assets/vendors/froala/js/froala_editor.pkgd.min.js'),
-    script_tag('assets/vendors/moment.js/2.29.1/moment-with-locales.min.js'),
-    script_tag('assets/vendors/tagin/tagin.min.js');
-    ?>
-    <script>
-        $(document).ready(function() {
-            (function() {
-                new FroalaEditor("#post-body", {
-                    imageManagerPageSize: 20,
-                    imageManagerScrollOffset: 10,
-                    imageManagerLoadURL: "<?= base_url(route_to('admin_file_manage')) ?>",
-                    imageManagerLoadMethod: "GET",
-                    imageManagerLoadParams: {
-                        cmd: "fetch"
-                    },
-                    imageManagerDeleteURL: "<?= base_url(route_to('admin_file_manage')) ?>",
-                    imageManagerDeleteMethod: "DELETE",
-                    imageManagerDeleteParams: {
-                        cmd: 'delete'
-                    },
-                    imageUploadURL: '<?= base_url(route_to('admin_post_upload_file')) ?>',
-                    imageUploadParams: {
-                        id: 'my_editor',
-                    }
-                });
-            })();
-
-
-            $('#title').on('keyup', (e) => {
-                $('#slug').val(buatSlug(e.target.value));
-            });
-
-           
-            $('#upload-file').on('change', function(e) {
-                document.getElementById('image').style.display = 'block';
-                document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
-            });
-
-            const tagin = new Tagin(document.querySelector('#keywords'), {
-                enter: true,
-                placeholder: 'Tambah tag baru (dipisahkan dengan koma)'
-            })
-
-        });
-    </script>
-    <?php $this->endSection();  ?>
+    $this->endSection();$this->section('footer');echo $this->include('admin/post/partials/footer');$this->endSection();  ?>

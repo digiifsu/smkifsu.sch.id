@@ -39,6 +39,7 @@ abstract class BaseController extends Controller
     protected $helpers = [
         'html',
         'form',
+        'filesystem'
     ];
 
     /**

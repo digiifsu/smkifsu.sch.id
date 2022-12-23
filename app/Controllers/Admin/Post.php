@@ -17,6 +17,7 @@ class Post extends BaseController
         $data_post = $tb_post->withCategory()->orderBy('create_at', 'desc')->get()->getResult();
         return view('admin/post/all_post', compact('title', 'data_post'));
     }
+
     public function addNew()
     {
         $status = 'unpublish';
@@ -71,19 +72,22 @@ class Post extends BaseController
             } else {
                 $data['slug'] = trim(str_replace(' ', '-', preg_replace("/[^a-zA-Z0-9_-]/", ' ', $data['slug'])), '-');
             }
+         
             //status draft or published
             $data['status'] = $status;
             $data['author'] = 4;
+            $data['isi'] = $this->request->getPost('isi');
             $data['views'] = 0;
             $data['create_at'] = $this->request->getPost('create_at');
             $data['thumbnail'] = $thumbnail;
-            $data['deskripsi_singkat'] = substr(strip_tags($data['isi']), 0, 300);
+            $data['deskripsi_singkat'] = strip_tags($data['deskripsi_singkat']);
             //get model posts
             $model = model('Admin/Posts');
             //insert proccess
-            if ($model->insert($data)) {
+            if ($mo = $model->insert($data)) {
                 //if success redirect to back page
-                return redirect()->route('admin_post_addNew')->with('error_success', "Post Berhasil di simpan sebagai " . $data['status'] . "");
+               
+                //return redirect()->route('admin_post_addNew')->with('error_success', "Post Berhasil di simpan sebagai " . $data['status'] . "");
             } else {
                 //if not success show message and back to before page
                 return redirect()->route('admin_post_addNew')->with('error_danger', "Post gagal dibuat");
@@ -97,8 +101,44 @@ class Post extends BaseController
     public function update($id = null)
     {
         if (empty($id)) redirect()->route('admin_post_all');
+        $model = model(\Admin\Posts::class);
+        if(false === ($model->where('id', $id)->countAllResults() > 0)){
+            return redirect()->back();
+        }
+        //update
+        if($this->request->getMethod(true) === "POST") {
+            $status = 'unpublish';
+            if (isset($_POST['update'])) {
+                $is_admin = true;
+                if ($is_admin) {
+                    $status = 'publish';
+                }
+            } else {
+                $status = 'draft';
+            }
 
-        echo $id;
+            $data = [
+                'title' => $this->request->getPost('title'),
+                'slug' => buat_slug($this->request->getPost('slug')),
+                'isi' => $this->request->getPost('isi'),
+                'author' => 4,
+                'id_category' => $this->request->getPost('id_category'),
+                'create_at' => $this->request->getPost('create_at'),
+                'status' => $status,
+                'deskripsi_singkat' => $this->request->getPost('deskripsi_singkat'),
+                'thumbnail' => 234,
+                'keywords' => $this->request->getPost('keywords'),
+            ];
+            if($model->update($id,$data)){
+                return redirect()->route('admin_post_all');
+            }
+        } 
+       else{
+            $data = $model->withCategory()->where('tb_post.id', $id)->get()->getRow();
+            $title = "Edit post {$data->id}";
+            $categories = model('Admin/Categories')->findAll();
+            return view('admin/post/edit_post', compact('data', 'title', 'categories'));
+       }
     }
     public function delete($id = null)
     {

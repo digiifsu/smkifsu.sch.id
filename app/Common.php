@@ -13,3 +13,7 @@
  *
  * @see: https://codeigniter4.github.io/CodeIgniter4/
  */
+
+ function buat_slug($string){
+    return trim(str_replace(' ', '-', preg_replace("/[^a-zA-Z0-9_-]/", ' ', $string)), '-');
+ }
