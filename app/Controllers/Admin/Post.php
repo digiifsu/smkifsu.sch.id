@@ -84,10 +84,9 @@ class Post extends BaseController
             //get model posts
             $model = model('Admin/Posts');
             //insert proccess
-            if ($mo = $model->insert($data)) {
+            if ($model->insert($data)) {
                 //if success redirect to back page
-               
-                //return redirect()->route('admin_post_addNew')->with('error_success', "Post Berhasil di simpan sebagai " . $data['status'] . "");
+                return redirect()->route('admin_post_addNew')->with('error_success', "Post Berhasil di simpan sebagai " . $data['status'] . "");
             } else {
                 //if not success show message and back to before page
                 return redirect()->route('admin_post_addNew')->with('error_danger', "Post gagal dibuat");

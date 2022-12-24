@@ -86,8 +86,7 @@
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a onclick="return confirmation(event);" href='<?= base_url(route_to('admin_post_delete', $data->id)); ?>' class="dropdown-item"><i class="fa fa-1x fa-trash"></i>&nbsp; Delete</a>
-                                            <a class="dropdown-item" target="__blank" href="<?= base_url(route_to('admin_post_update', $data->id)); ?>"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
-                                            <a class="dropdown-item" href="#">Publish</a>
+                                            <a class="dropdown-item" href="<?= base_url(route_to('admin_post_update', $data->id)); ?>"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
                                         </div>
                                     </div>
                                 </td>
@@ -113,7 +112,7 @@
             $('#tb_post').DataTable();
         });
 
-        function confirmation(e) {
+        function p(e) {
             e.preventDefault();
             Swal.fire({
                 icon: 'question',

@@ -1,0 +1,11 @@
+CRITICAL - 2022-12-24 04:40:09 --> Undefined index: deskripsi
+in APPPATH\Views\admin\categories\all_categories.php on line 74.
+ 1 APPPATH\Views\admin\categories\all_categories.php(74): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: deskripsi', 'APPPATH\\Views\\admin\\categories\\all_categories.php', 74, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\categories\\all_categories.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/categories/all_categories', [], true)
+ 5 APPPATH\Controllers\Admin\Categories.php(29): view('admin/categories/all_categories', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Categories->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Categories))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

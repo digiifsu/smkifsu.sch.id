@@ -17,7 +17,6 @@ class Categories extends Model
     protected $allowedFields    = [
         'id',
         'nama',
-        'deskripsi',
         'slug'
     ];
     public function insertPost($data){

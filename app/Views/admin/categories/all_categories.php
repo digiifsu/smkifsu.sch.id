@@ -36,21 +36,13 @@ echo link_tag('assets/vendors/tagin/tagin.min.css')
                     <?= form_open(); ?>
                     <div class="form-group">
                         <label for="name">Category Name</label>
-                        <input required type="text" name='nama' class="form-control">
+                        <input required type="text" name='nama' value="<?= $data['nama'] ?? old('nama') ?? ''; ?>" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="slug">Slug</label>
-                        <input type="text" name="slug" class="form-control">
+                        <input type="text" value="<?= $data['slug'] ?? old('slug') ?? ''; ?>" name="slug" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label for="slug">Keywords</label>
-                        <input hidden id="keywords" name="keywords" type="text" class="form-control">
-                        <small><i class="input-text">Boleh Dikosongkan</i></small>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input type="text" name="deskripsi" class="form-control">
-                    </div>
+
                     <div class="form-group">
                         <button class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Tambah</button>
                     </div>
@@ -79,7 +71,7 @@ echo link_tag('assets/vendors/tagin/tagin.min.css')
                                     <tr>
                                         <td><?= $i; ?></td>
                                         <td><?= $categori['nama']; ?></td>
-                                        <td><?= $categori['deskripsi']; ?></td>
+                                        <td><?= $categori['slug']; ?></td>
                                         <td>
                                             <div class="dropdown show">
                                                 <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdown_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -130,11 +122,11 @@ echo script_tag('assets/vendors/tagin/tagin.min.js');
             denyButtonText: `Tidak`
         }).then(function(result) {
             if (result.isConfirmed) {
-                 return window.location.replace(e.target.href)
-            } else{
+                return window.location.replace(e.target.href)
+            } else {
                 Swal.fire({
-                    icon : 'success',
-                    text : "Data kategori gagal di hapus",
+                    icon: 'success',
+                    text: "Data kategori gagal di hapus",
                     title: "Dibatalkan",
                 })
             }
