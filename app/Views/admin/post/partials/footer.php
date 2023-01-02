@@ -1,6 +1,8 @@
 <?php
 echo
 script_tag('assets/vendors/tinymce/tinymce.min.js'),
+script_tag('webadmin/js/elfinder.min.js'),
+script_tag('assets/js/tinymceElfinder.js'),
 script_tag('assets/vendors/moment.js/2.29.1/moment-with-locales.min.js'),
 script_tag('assets/vendors/tagin/tagin.min.js');
 
@@ -8,18 +10,31 @@ echo $this->include('admin/modal/modal_file_manager');
 
 ?>
 <script>
+
+
+    const mceElf = new tinymceElfinder({
+        // connector URL (Set your connector)
+        url: '<?= site_url(route_to('filemanager_backend')) ?>',
+        // upload target folder hash for this tinyMCE
+        uploadTargetHash: 'l1_lw', // Hash value on elFinder of writable folder
+        // elFinder dialog node id
+        nodeId: 'elfinder' // Any ID you decide
+    });
+
     tinymce.init({
         selector: '#post-body',
-        plugins: 'link lists image advlist fullscreen media code table emoticons textcolor hr preview mediaGallery codesample',
+        plugins: 'link lists image advlist fullscreen media code table emoticons textcolor hr preview mediaGallery codesample imagetools insertfile',
         height: 400,
         menubar: false,
         relative_urls: false,
         remove_script_host: false,
         convert_urls: true,
         toolbar: [
-            'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | mediaGallery media link',
+            'undo redo | bold italic underline strikethrough forecolor backcolor bullist numlist | blockquote subscript superscript | alignleft aligncenter alignright alignjustify | image | media | link',
             ' formatselect | cut copy paste selectall | table emoticons hr | removeformat | preview code codesample | fullscreen',
         ],
+        file_picker_callback : mceElf.browser,
+        images_upload_handler: mceElf.uploadHandler,
         codesample_languages: [{
                 text: 'HTML/XML',
                 value: 'html'
@@ -63,46 +78,6 @@ echo $this->include('admin/modal/modal_file_manager');
         ],
     });
 
-    let launchModal = () => {
-        load_dir('#filemanager-content', 'images/');
-        $('#filemanagers').modal('show');
-    }
-
-    function load_dir(content, cmd = '') {
-        $(content).load('<?=base_url(route_to('admin_storage'))?>?cmd=' + cmd);
-    }
-    //block file manager for upload content
-    tinymce.PluginManager.add('mediaGallery', function(editor, url) {
-
-        editor.ui.registry.addButton('mediaGallery', {
-            icon: 'gallery',
-            onAction: function() {
-                // Open window
-                launchModal();
-            }
-        });
-    });
-
-
-    $('#image-content').on('change', function(ev) {
-        var ed = tinymce.activeEditor;
-
-        const imageUrl = ev.target.files[0];
-
-        ed.selection.setContent(`<img class="img-thumbnail" src='${imageUrl}'>`);
-
-    });
-
-    //set item
-    function setItem(e) {
-        var ed = tinymce.activeEditor;
-        ed.selection.setContent(`<img class="img-thumbnail" src='${e}'>`);
-        $('#filemanagers').modal('hide');
-    }
-
-    $('#title').on('keyup', (e) => {
-        $('#slug').val(buatSlug(e.target.value));
-    });
     $('#upload-file').on('change', function(e) {
         document.getElementById('image').style.display = 'block';
         document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
