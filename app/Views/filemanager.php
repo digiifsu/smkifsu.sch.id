@@ -9,13 +9,15 @@
 
 		<!-- Require JS (REQUIRED) -->
 		<!-- Rename "main.default.js" to "main.js" and edit it if you need configure elFInder options or any things -->
-		<script data-main="<?= base_url('public/assets/elfinder/main.default.js') ?>" src="<?= base_url('public/assets/js/require.min.js') ?>"></script>
-		<script>
+		<script data-main="<?= base_url('public/webadmin/main.default.js') ?>" src="<?= base_url('public/assets/js/require.min.js') ?>"></script>
+    
+       <script>
 			define('elFinderConfig', {
 				// elFinder options (REQUIRED)
 				// Documentation for client options:
 				// https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
 				defaultOpts : {
+                    cssAutoLoad:false,
 					url : '<?= site_url(route_to('filemanager_backend')) ?>', // or connector.maximal.php : connector URL (REQUIRED)
 					commandsOptions : {
 						edit : {
@@ -69,6 +71,9 @@
 
 		<!-- Element where elFinder will be created (REQUIRED) -->
 		<div id="elfinder"></div>
-
+        <?php 
+       echo link_tag('webadmin/css/elfinder.min.css'),
+           link_tag('webadmin/css/windows-10/css/theme.css'); 
+           ?>
 	</body>
 </html>

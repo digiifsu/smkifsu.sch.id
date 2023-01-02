@@ -1,18 +1,18 @@
 <?php
 echo
+link_tag('webadmin/css/elfinder.min.css'),
+link_tag('webadmin/css/Material/css/theme-light.css'),
 script_tag('assets/vendors/tinymce/tinymce.min.js'),
 script_tag('webadmin/js/elfinder.min.js'),
 script_tag('assets/js/tinymceElfinder.js'),
 script_tag('assets/vendors/moment.js/2.29.1/moment-with-locales.min.js'),
 script_tag('assets/vendors/tagin/tagin.min.js');
-
-echo $this->include('admin/modal/modal_file_manager');
-
 ?>
 <script>
 
 
     const mceElf = new tinymceElfinder({
+        cssAutoLoad: false,
         // connector URL (Set your connector)
         url: '<?= site_url(route_to('filemanager_backend')) ?>',
         // upload target folder hash for this tinyMCE
