@@ -41,3 +41,25 @@ in APPPATH\Views\filemanager.php on line 19.
  5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManager))
  6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-02 20:01:14 --> syntax error, unexpected ','
+in APPPATH\Views\filemanager.php on line 13.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('filemanager', [], true)
+ 3 APPPATH\Controllers\FileManager.php(7): view('filemanager')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\FileManager->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileManager))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-02 20:11:36 --> syntax error, unexpected ','
+in APPPATH\Views\admin\post\partials\footer.php on line 3.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/post/partials/footer', null, true)
+ 3 APPPATH\Views\admin\post\add_post.php(158): CodeIgniter\View\View->include('admin/post/partials/footer')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\post\\add_post.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/post/add_post', [], true)
+ 7 APPPATH\Controllers\Admin\Post.php(97): view('admin/post/add_post', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Post->addNew()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Post))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
