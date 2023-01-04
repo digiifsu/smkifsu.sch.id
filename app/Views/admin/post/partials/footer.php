@@ -1,7 +1,7 @@
 <?php
 $this->section('head');
 echo link_tag('elfinder/css/elfinder.min.css'),
-link_tag('elfinder/css/Material/css/theme-light.css');
+link_tag('elfinder/css/Material/css/theme-gray.css');
 $this->endSection();
 $this->section('footer');
 echo script_tag('assets/vendors/tinymce/tinymce.min.js'),
@@ -82,9 +82,15 @@ $this->endSection();
         ],
     });
 
-    $('#upload-file').on('change', function(e) {
-        document.getElementById('image').style.display = 'block';
-        document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
+    $('#upload-file').on('click', function() {
+
+        mceElf.browser(function(e){
+             document.getElementById('images').src = e; 
+             document.querySelector('#input-thumbnail').value = e;
+        },'',{filetype:'image'})
+
+        // document.getElementById('image').style.display = 'block';
+        // document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
     });
     const tagin = new Tagin(document.querySelector('#keywords'), {
         enter: true,

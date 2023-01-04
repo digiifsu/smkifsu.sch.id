@@ -127,11 +127,12 @@ $this->section('content');
                         <label for="publish_date">Publish date</label>
                         <input class="form-control" required type="datetime-local" name="create_at" value="<?= date('Y-m-d h:i:s',strtotime(old('publish_at') ?? $data->create_at)) ?>" </div>
                         <div class="mt-3">
-                            <label for="thumbnail">Thumbnail</label>
+                            <label for="thumbnail" class='form-label'>Thumbnail</label>
                             <div class="file-preview">
-                                <input type="file" accept="image/*" name="thumbnail" id='upload-file' class="form-control ">
-                                <div id='image' style="display: none">
-                                    <img src="" id='images' alt="" srcset="">
+                                <button id='upload-file' class='btn btn-success btn-sm' type='button'>Pilih file</button>
+                                <input type="text" value="<?= old('thumbnail') ?? $data->thumbnail ?>" class="form-control form-control-sm mt-2" name="thumbnail" id='input-thumbnail'>
+                                <div id='image' style="display: block">
+                                    <img src="<?= old('thumbnail') ?? base_url($data->thumbnail) ?>" id='images' alt="" srcset="">
                                 </div>
                             </div>
                         </div>

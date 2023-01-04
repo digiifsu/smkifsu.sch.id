@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-	<title>Filemanager</title>
+	<title>Manager FILE</title>
 	<?=
 	script_tag('elfinder/js/jquery-ui-1.12.1/jquery-ui.min.css'),
 	link_tag('elfinder/css/elfinder.min.css'),

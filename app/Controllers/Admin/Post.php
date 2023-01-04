@@ -33,38 +33,16 @@ class Post extends BaseController
 
         //check apakah request nya method
         if ($this->request->getMethod(true) === "POST") {
-            $rule = array(
-                'title' => 'required',
-                'isi' => 'required',
-                'keywords' => 'required',
-                'id_category' => 'required',
-            );
-            //if valiation valied redirect to add post page
-            if ($this->validate($rule) === FALSE) {
-                return redirect()->route('admin_post_addNew')->with('error_danger', $this->validator->getErrors())->withInput();
-            }
-            //prosess file thumbnail
-            $thumbnail = '';
-            if (($_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) && ($file = $this->request->getFile('thumbnail'))) {
-                $validationRule = [
-                    'thumbnail' => [
-                        'label' => 'Image File',
-                        'rules' => 'uploaded[thumbnail]'
-                            . '|is_image[thumbnail]'
-                            . '|mime_in[thumbnail,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
-                    ],
-                ];
-                if (!$this->validate($validationRule)) {
-                    return redirect()->route('admin_post_addNew')->withInput()->with('error_danger', "Gambar Thumbnail tidak valid");
-                } else {
-                    if ($file->hasMoved() === false) {
-                        $filename_random = $file->getRandomName();
-                        if ($file->move(FCPATH . 'uploads/images/post/thumb', $filename_random)) {
-                            $thumbnail = 'uploads/images/post/thumb/' . $filename_random;
-                        }
-                    }
+                $rule = array(
+                    'title' => 'required',
+                    'isi' => 'required',
+                    'keywords' => 'required',
+                    'id_category' => 'required',
+                );
+                //if valiation valied redirect to add post page
+                if ($this->validate($rule) === FALSE) {
+                    return redirect()->route('admin_post_addNew')->with('error_danger', $this->validator->getErrors())->withInput();
                 }
-            }
             //get data
             $data = $this->request->getPost();
             if (empty($data['slug'])) {
@@ -78,8 +56,8 @@ class Post extends BaseController
             $data['author'] = 4;
             $data['isi'] = $this->request->getPost('isi');
             $data['views'] = 0;
+            $data['thumbnail'] = str_replace(base_url(), '', $this->request->getPost('thumbnail'));
             $data['create_at'] = $this->request->getPost('create_at');
-            $data['thumbnail'] = $thumbnail;
             $data['deskripsi_singkat'] = strip_tags($data['deskripsi_singkat']);
             //get model posts
             $model = model('Admin/Posts');
@@ -125,7 +103,7 @@ class Post extends BaseController
                 'create_at' => $this->request->getPost('create_at'),
                 'status' => $status,
                 'deskripsi_singkat' => $this->request->getPost('deskripsi_singkat'),
-                'thumbnail' => 234,
+                'thumbnail' => str_replace(base_url(),'',$this->request->getPost('thumbnail')),
                 'keywords' => $this->request->getPost('keywords'),
             ];
             if($model->update($id,$data)){

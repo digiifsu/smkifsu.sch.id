@@ -113,10 +113,6 @@ $this->section('content');
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Add Image</label>
-                    <input type="file" id="image-content" class="form-control">
-                </div>
-                <div class="form-group">
                     <label for="content">Content</label>
                     <textarea name="isi" id="post-body" style="height:300px!important;" class="form-control"><?= old('isi'); ?></textarea>
                 </div>
@@ -129,15 +125,16 @@ $this->section('content');
                     <b class="card-title">PUBLISH</b>
                 </div>
                 <div class="card-body">
-                    <div class="mb-2">
+                    <div class="mb-2 form-group">
                         <label for="publish_date">Publish date</label>
                         <input class="form-control" required type="datetime-local" name="create_at" value="<?= date('Y-m-d h:i:s') ?>" </div>
                         <div class="mt-3">
-                            <label for="thumbnail">Thumbnail</label>
+                            <label for="thumbnail" class='form-label'>Thumbnail</label>
                             <div class="file-preview">
-                                <input type="file" accept="image/*" name="thumbnail" id='upload-file' class="form-control ">
-                                <div id='image' style="display: none">
-                                    <img src="" id='images' alt="" srcset="">
+                                <button id='upload-file' class='btn btn-success btn-sm' type='button'>Pilih file</button>
+                                <input type="text" value="<?= base_url('public/storage/post/thumbnail/default.jpg') ?>" class="form-control form-control-sm mt-2" name="thumbnail" id='input-thumbnail'>
+                                <div id='image' style="display: block">
+                                    <img src="<?= base_url('public/storage/post/thumbnail/default.jpg') ?>" id='images' alt="" srcset="">
                                 </div>
                             </div>
                         </div>
