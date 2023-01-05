@@ -1,0 +1,42 @@
+CRITICAL - 2023-01-05 04:32:25 --> Call to a member function where() on null
+in APPPATH\Controllers\Admin\BankData.php on line 57.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->tambahSiswa()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 04:32:39 --> Call to a member function where() on null
+in APPPATH\Controllers\Admin\BankData.php on line 57.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->tambahSiswa()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 04:32:58 --> Call to a member function where() on null
+in APPPATH\Controllers\Admin\BankData.php on line 57.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->tambahSiswa()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 04:33:29 --> Call to a member function where() on null
+in APPPATH\Controllers\Admin\BankData.php on line 57.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->tambahSiswa()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 04:45:16 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::getResults()
+in APPPATH\Controllers\Admin\BankData.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 04:45:55 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::getResults()
+in APPPATH\Controllers\Admin\BankData.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

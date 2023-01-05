@@ -7,13 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 	<title>Manager FILE</title>
 	<?=
-	script_tag('elfinder/js/jquery-ui-1.12.1/jquery-ui.min.css'),
-	link_tag('elfinder/css/elfinder.min.css'),
-	link_tag('elfinder/css/windows-10/css/theme.css'),
-	script_tag('elfinder/js/jquery-3.4.1.min.js'),
-	script_tag('elfinder/js/jquery-ui-1.12.1/jquery-ui.min.js'),
-	script_tag('elfinder/js/elfinder.min.js'),
-	script_tag('elfinder/js/extras/editors.default.min.js'); ?>
+		script_tag('elfinder/js/jquery-ui-1.12.1/jquery-ui.min.css'),
+		link_tag('elfinder/css/elfinder.min.css'),
+		link_tag('elfinder/css/windows-10/css/theme.css'),
+		script_tag('elfinder/js/jquery-3.4.1.min.js'),
+		script_tag('elfinder/js/jquery-ui-1.12.1/jquery-ui.min.js'),
+		script_tag('elfinder/js/elfinder.min.js'),
+		script_tag('elfinder/js/extras/editors.default.min.js'); ?>
 	<script>
 		$(document).ready(function () {
 			$('#elfinder').elfinder(
