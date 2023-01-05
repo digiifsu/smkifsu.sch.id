@@ -11,7 +11,7 @@
 <?php $this->section('content'); ?>
 
 <div class="page-inner">
-    <h4 class="page-title">All Pages</h4>
+    <h4 class="page-title">Edit Pages</h4>
     <div class="page-category">
         <a class="btn btn-outline btn-sm btn-primary btn-rounded" href="<?= base_url(route_to('admin_post_addNew')) ?>"><i class="fa fa-plus-circle"></i>&nbsp;Add New
             Post</a>
@@ -28,16 +28,16 @@
                             <input type="checkbox">
                         </th>
                         <th>
-                            Judul
+                            Edit Judul
                         </th>
                         <th>
-                            Kategori
+                           Edit Kategori
                         </th>
                         <th>
-                            isi
+                            Ubah isi
                         </th>
                         <th>
-                            Deskripsi
+                            Ubah Deskripsi
                         </th>
                         <th style="width:30px;">Action</th>
                     </tr>
