@@ -96,4 +96,9 @@ $this->endSection();
         enter: true,
         placeholder: 'Tambah tag baru (dipisahkan dengan koma)'
     })
+    //for crate slug
+    const slugInput = document.getElementById('slug');
+    $('#title').on('keyup', function(e) {
+        slugInput.value = buatSlug(e.target.value)
+    });
 </script>
