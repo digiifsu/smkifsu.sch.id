@@ -93,7 +93,7 @@
                     <div class="collapse" id="forms">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="forms/forms.html">
+                                <a href="<?= site_url(route_to('admin_bankdata_siswa')) ?>">
                                     <span class="sub-item">Siswa</span>
                                 </a>
                             </li>
