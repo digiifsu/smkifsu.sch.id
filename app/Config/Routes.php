@@ -38,7 +38,7 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 	* --------------------------------------------------------------------
 	*/
     $routes->group('/pages', function($routes){
-
+		$routes->get('add', 'Admin\pages::index', ['as' => 'admin_pages']);
     });
 	/*
 	* --------------------------------------------------------------------
