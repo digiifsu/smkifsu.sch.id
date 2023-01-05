@@ -131,7 +131,7 @@
             });
         }
 
-        ///notofication
+        //notofication
         <?php if (session()->has('message')) : ?>
           
             $.notify({

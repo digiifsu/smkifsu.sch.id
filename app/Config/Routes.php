@@ -32,6 +32,14 @@ $routes->post('webadmin/check_login', 'Admin\Account::loginProccess', ['as' => '
  */
 $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 	$routes->get("/", "Admin\Dashboard::index", ['as' => 'admin_dashboard']);
+    /*
+	* --------------------------------------------------------------------
+	* Route group pages
+	* --------------------------------------------------------------------
+	*/
+    $routes->group('/pages', function($routes){
+
+    });
 	/*
 	* --------------------------------------------------------------------
 	* Route group post
@@ -56,6 +64,7 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 	$routes->group('bank-data', function ($routes) {
 		$routes->group('siswa', function ($routes) {
 			$routes->get('', "Admin\BankData::siswa", ['as' => 'admin_bankdata_siswa']);
+            $routes->post('add_new', "Admin\BankData::tambahSiswa", ['as'=>'admin_tambah_siswa']);
 		});
 	});
 	/*

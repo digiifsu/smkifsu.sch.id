@@ -11,4 +11,7 @@ class BankData extends BaseController
         $title = 'Data Siswa';
         return view('admin/bank-data/siswa/show_all.php', compact('title'));
     }
+    public function tambahSiswa(){
+        var_dump($this->request->getPost());
+    }
 }

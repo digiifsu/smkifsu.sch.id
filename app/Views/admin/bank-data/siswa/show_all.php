@@ -105,47 +105,47 @@ echo script_tag('assets/js/tinymceElfinder.js');
                 </button>
             </div>
             <div class="modal-body">
-                <?= form_open() ?>
+                <?= form_open('',['id'=>'tambah_siswa']) ?>
                 <div class="form-group">
                     <label for="" class="form-label">NIS</label>
-                    <input type="text" class="form-control">
+                    <input required type="text" name="nis" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control">
+                    <input required type="text" name="nama" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Kelas</label>
-                    <input type="text" class="form-control">
+                    <input required type="text" name="kelas" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Jenis Kelamin</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">Laki Laki</option>
+                    <select required name="jenis_kelamin" id="" class="form-control">
+                        <option  value="1">Laki Laki</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Kopotensi Keahlian</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">RPL</option>
+                    <select required name="id_komli" id="" class="form-control">
+                        <option value="1">RPL</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Agama</label>
-                    <input type="text" class="form-control">
+                    <input required type="text" name="agama" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Foto Siswa</label>
-                    <input hidden id="img-siswa" type="text">
+                    <input hidden id="img-siswa" name="gambar" type="text">
                     <div class="upload-box">
                         <i class="fa fa-image"></i>
                     </div>
                 </div>
-                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
             </div>
         </div>
     </div>
@@ -177,9 +177,42 @@ echo script_tag('assets/js/tinymceElfinder.js');
         }, '', {
             filetype: 'image'
         })
-
-        // document.getElementById('image').style.display = 'block';
-        // document.getElementById('images').src = URL.createObjectURL(e.target.files[0]);
     });
+    /**
+     * ajax for add siswa
+     */
+    $('#tambah_siswa').on('submit', function(e){
+        //mencegah form mengarahkan ke halaman lain
+        e.preventDefault();
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Apakah data yang mau anda masukan sudah benar!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((val) => {
+                if (val) {
+                  save_data($('#tambah_siswa').serialize());
+                }
+            });
+    })
+    async function save_data(e){
+        $.ajax({
+            url : '<?= site_url(route_to('admin_tambah_siswa')) ?>',
+            method : 'post',
+            data : e,
+            success : function (e){
+                console.log(e);
+            }
+
+        }).fail(function(e){
+            const response = JSON.parse(e.responseText);
+            swal({
+                title :`Error ${response.code}`,
+                icon : 'danger',
+                text : response.message,
+            })
+        });
+    }
 </script>
 <?php $this->endSection() ?>
