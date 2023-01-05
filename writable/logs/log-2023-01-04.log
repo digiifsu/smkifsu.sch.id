@@ -179,3 +179,50 @@ in SYSTEMPATH\Debug\Exceptions.php on line 177.
 10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-04 22:28:20 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'digiifsu', 3306, '', 0)
+#1 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\app\Controllers\Admin\Post.php(74): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\Post->addNew()
+#8 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Post))
+#9 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('C:\\Users\\Lab 2\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\app\Controllers\Admin\Post.php(74): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\Post->addNew()
+#7 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Post))
+#8 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Lab 2\Documents\GitHub\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('C:\\Users\\Lab 2\\...')
+#11 {main}
+CRITICAL - 2023-01-04 22:28:20 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_post_categories`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Admin\Post.php(74): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Post->addNew()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Post))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
