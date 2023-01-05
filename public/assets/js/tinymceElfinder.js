@@ -88,7 +88,7 @@ window.tinymceElfinder = function(opts) {
                     },
                     bootCallback : (fm) => {
                         // set z-index
-                        fm.getUI().css('z-index', parseInt($('body>.'+cls+':last').css('z-index')) + 100);
+                        fm.getUI().css('z-index', 99999);
                     },
                     getFileCallback : (files, fm) => {}
                 }, opts)).elfinder('instance');
