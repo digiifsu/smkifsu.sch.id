@@ -63,8 +63,12 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 	*/
 	$routes->group('bank-data', function ($routes) {
 		$routes->group('siswa', function ($routes) {
-			$routes->get('', "Admin\BankData::siswa", ['as' => 'admin_bankdata_siswa']);
-            $routes->post('add_new', "Admin\BankData::tambahSiswa", ['as'=>'admin_tambah_siswa']);
+			$routes->get('', "Admin\Siswa::index", ['as' => 'admin_bankdata_siswa']);
+            $routes->post('add_new', "Admin\Siswa::store", ['as'=>'admin_tambah_siswa']);
+			$routes->get('delete/(:any)', "Admin\Siswa::destroy/$1", ['as' => 'admin_bankdata_hapus_siswa']);
+			$routes->get('edit/(:num)', "Admin\Siswa::edit/$1", ['as' => 'admin_bankdata_edit_siswa']);
+			$routes->post('edit/(:num)', "Admin\Siswa::update/$1", ['as' => 'admin_bankdata_update_siswa']);
+
 		});
 	});
 	/*

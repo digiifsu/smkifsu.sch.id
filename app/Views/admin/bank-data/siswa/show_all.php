@@ -84,14 +84,14 @@ echo $this->section('content')
                                         </td>
                                         <td>
                                             <div class="form-button-action">
-                                                <button type="button" data-toggle="tooltip" title=""
+                                                <a href="<?= site_url(route_to('admin_bankdata_edit_siswa',strip_tags($row->id))) ?>" data-toggle="tooltip" title=""
                                                     class="btn btn-link btn-primary btn-lg" data-original-title="Edit data <?= $row->nama ?>">
                                                     <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" title=""
+                                                </a>
+                                                <a onclick="confirm(event)" href="<?= site_url(route_to('admin_bankdata_hapus_siswa',strip_tags($row->id))) ?>" data-toggle="tooltip" title=""
                                                     class="btn btn-link btn-danger" data-original-title="Hapus">
                                                     <i class="fa fa-times"></i>
-                                                </button>
+                                                 </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -218,6 +218,23 @@ echo script_tag('assets/js/tinymceElfinder.js');
             }
         });
     })
+
+    async function confirm(e) {
+        e.preventDefault();
+
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Apakah data yang mau anda masukan sudah benar!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((val) => {
+            if (val) {
+                return window.location.replace(e.target.href)
+            }
+        });
+    }
+
     async function save_data(e) {
         $.ajax({
             url: '<?= site_url(route_to('admin_tambah_siswa')) ?>',
@@ -260,5 +277,22 @@ echo script_tag('assets/js/tinymceElfinder.js');
             })
         });
     }
+
+    //notofication
+    <?php if (session()->has('message')) : ?>
+          
+          $.notify({
+              icon: 'flaticon-alarm-1',
+              title: 'Notifikasi',
+              message: '<?php echo session()->getFlashdata('message'); ?>',
+          }, {
+              type: 'info',
+              placement: {
+                  from: "top",
+                  align: "right"
+              },
+              time: 1000,
+          });
+      <?php endif; ?>
 </script>
 <?php $this->endSection() ?>

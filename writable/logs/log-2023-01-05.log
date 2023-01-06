@@ -40,3 +40,329 @@ in APPPATH\Controllers\Admin\BankData.php on line 14.
  3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 18:48:45 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'digiifsu', 3306, '', 0)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#8 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#5 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#10 {main}
+CRITICAL - 2023-01-05 18:48:45 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`', [], false)
+ 3 SYSTEMPATH\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 18:49:29 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'digiifsu', 3306, '', 0)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#8 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#5 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#10 {main}
+CRITICAL - 2023-01-05 18:49:29 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`', [], false)
+ 3 SYSTEMPATH\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 18:49:34 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'digiifsu', 3306, '', 0)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#8 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#5 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#10 {main}
+CRITICAL - 2023-01-05 18:49:34 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`', [], false)
+ 3 SYSTEMPATH\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-05 18:50:14 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'digiifsu', 3306, '', 0)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#8 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it.
+ in E:\web\project\smkifsu.sch.id\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 E:\web\project\smkifsu.sch.id\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 E:\web\project\smkifsu.sch.id\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 E:\web\project\smkifsu.sch.id\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 E:\web\project\smkifsu.sch.id\app\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', Array)
+#5 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+#6 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+#7 E:\web\project\smkifsu.sch.id\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 E:\web\project\smkifsu.sch.id\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 E:\web\project\smkifsu.sch.id\system\Commands\Server\rewrite.php(46): require_once('E:\\web\\project\\...')
+#10 {main}
+CRITICAL - 2023-01-05 18:50:14 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`', [], false)
+ 3 SYSTEMPATH\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Admin\BankData.php(14): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 18:56:17 --> syntax error, unexpected '}'
+in APPPATH\Config\Routes.php on line 69.
+ 1 SYSTEMPATH\CodeIgniter.php(430): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 2 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 3 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 4 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 18:56:30 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1144.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1144): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1010): CodeIgniter\Router\RouteCollection->fillRouteParams('webadmin/bank-data/siswa/delete/(:id)', [...])
+ 3 SYSTEMPATH\Common.php(912): CodeIgniter\Router\RouteCollection->reverseRoute('admin_bankdata_hapus_siswa', '1')
+ 4 APPPATH\Views\admin\bank-data\siswa\show_all.php(91): route_to('admin_bankdata_hapus_siswa', '1')
+ 5 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\bank-data\\siswa\\show_all.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/bank-data/siswa/show_all.php', [], true)
+ 8 APPPATH\Controllers\Admin\BankData.php(15): view('admin/bank-data/siswa/show_all.php', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 18:56:53 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1144.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1144): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1010): CodeIgniter\Router\RouteCollection->fillRouteParams('webadmin/bank-data/siswa/delete/(:id)', [...])
+ 3 SYSTEMPATH\Common.php(912): CodeIgniter\Router\RouteCollection->reverseRoute('admin_bankdata_hapus_siswa', '1')
+ 4 APPPATH\Views\admin\bank-data\siswa\show_all.php(91): route_to('admin_bankdata_hapus_siswa', '1')
+ 5 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\bank-data\\siswa\\show_all.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/bank-data/siswa/show_all.php', [], true)
+ 8 APPPATH\Controllers\Admin\BankData.php(15): view('admin/bank-data/siswa/show_all.php', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 18:57:22 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1144.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1144): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1010): CodeIgniter\Router\RouteCollection->fillRouteParams('webadmin/bank-data/siswa/delete/(id)', [...])
+ 3 SYSTEMPATH\Common.php(912): CodeIgniter\Router\RouteCollection->reverseRoute('admin_bankdata_hapus_siswa', '1')
+ 4 APPPATH\Views\admin\bank-data\siswa\show_all.php(91): route_to('admin_bankdata_hapus_siswa', '1')
+ 5 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\bank-data\\siswa\\show_all.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/bank-data/siswa/show_all.php', [], true)
+ 8 APPPATH\Controllers\Admin\BankData.php(15): view('admin/bank-data/siswa/show_all.php', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 18:58:22 --> Router.invalidParameterType
+in SYSTEMPATH\Router\RouteCollection.php on line 1144.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1144): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1010): CodeIgniter\Router\RouteCollection->fillRouteParams('webadmin/bank-data/siswa/delete/([0-9]+)', [...])
+ 3 SYSTEMPATH\Common.php(912): CodeIgniter\Router\RouteCollection->reverseRoute('admin_bankdata_hapus_siswa', 'ROOTPATH\\public')
+ 4 APPPATH\Views\admin\bank-data\siswa\show_all.php(91): route_to('admin_bankdata_hapus_siswa', 'ROOTPATH\\public')
+ 5 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\bank-data\\siswa\\show_all.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/bank-data/siswa/show_all.php', [], true)
+ 8 APPPATH\Controllers\Admin\BankData.php(15): view('admin/bank-data/siswa/show_all.php', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\BankData->siswa()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\BankData))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 19:36:59 --> Cannot declare class App\Controllers\Admin\Siswa because the name is already in use
+in APPPATH\Controllers\Admin\Siswa.php on line 8.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-01-05 19:42:56 --> compact(): Undefined variable: title
+in APPPATH\Controllers\Admin\Siswa.php on line 87.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8, 'compact(): Undefined variable: title', 'APPPATH\\Controllers\\Admin\\Siswa.php', 87, [...])
+ 2 APPPATH\Controllers\Admin\Siswa.php(87): compact('title', 'data_siswa')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('13')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 19:43:10 --> compact(): Undefined variable: data_siswa
+in APPPATH\Controllers\Admin\Siswa.php on line 88.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8, 'compact(): Undefined variable: data_siswa', 'APPPATH\\Controllers\\Admin\\Siswa.php', 88, [...])
+ 2 APPPATH\Controllers\Admin\Siswa.php(88): compact('title', 'data_siswa')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('13')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 19:43:12 --> compact(): Undefined variable: data_siswa
+in APPPATH\Controllers\Admin\Siswa.php on line 88.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8, 'compact(): Undefined variable: data_siswa', 'APPPATH\\Controllers\\Admin\\Siswa.php', 88, [...])
+ 2 APPPATH\Controllers\Admin\Siswa.php(88): compact('title', 'data_siswa')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('13')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 19:44:41 --> compact(): Undefined variable: data_siswa
+in APPPATH\Controllers\Admin\Siswa.php on line 97.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8, 'compact(): Undefined variable: data_siswa', 'APPPATH\\Controllers\\Admin\\Siswa.php', 97, [...])
+ 2 APPPATH\Controllers\Admin\Siswa.php(97): compact('title', 'data_siswa')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('13')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 20:22:54 --> Cannot use object of type stdClass as array
+in APPPATH\Views\admin\bank-data\siswa\edit_siswa.php on line 38.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/bank-data/siswa/edit_siswa', [], true)
+ 4 APPPATH\Controllers\Admin\Siswa.php(98): view('admin/bank-data/siswa/edit_siswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('13')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 20:34:11 --> Call to undefined method App\Models\Admin\Siswa::whwere
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin\Siswa.php(97): CodeIgniter\Model->__call('whwere', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('14')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 20:40:57 --> Undefined offset: 0
+in SYSTEMPATH\Router\RouteCollection.php on line 1143.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1143): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offset: 0', 'SYSTEMPATH\\Router\\RouteCollection.php', 1143, [...])
+ 2 SYSTEMPATH\Router\RouteCollection.php(1010): CodeIgniter\Router\RouteCollection->fillRouteParams('webadmin/bank-data/siswa/edit/([0-9]+)', [])
+ 3 SYSTEMPATH\Common.php(912): CodeIgniter\Router\RouteCollection->reverseRoute('admin_bankdata_update_siswa')
+ 4 APPPATH\Views\admin\bank-data\siswa\edit_siswa.php(189): route_to('admin_bankdata_update_siswa')
+ 5 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\bank-data\\siswa\\edit_siswa.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/bank-data/siswa/edit_siswa', [], true)
+ 8 APPPATH\Controllers\Admin\Siswa.php(98): view('admin/bank-data/siswa/edit_siswa', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('14')
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-05 20:50:04 --> Object of class CodeIgniter\HTTP\RedirectResponse could not be converted to string
+in APPPATH\Views\admin\bank-data\siswa\edit_siswa.php on line 27.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/bank-data/siswa/edit_siswa', [], true)
+ 4 APPPATH\Controllers\Admin\Siswa.php(98): view('admin/bank-data/siswa/edit_siswa', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin\Siswa->edit('14')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Siswa))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
