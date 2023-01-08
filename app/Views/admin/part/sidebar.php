@@ -113,7 +113,7 @@
                                 </a>
                             </li>
                              <li>
-                                <a href="forms/forms.html">
+                                <a href="<?= base_url(route_to('admin_bankdata_komli')) ?>">
                                     <span class="sub-item">Kopetensi Keahlian</span>
                                 </a>
                             </li>

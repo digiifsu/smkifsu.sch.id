@@ -16,8 +16,11 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-//ROUTES
+/**
+ * ROUTE FOR FRONTEND
+ */
 $routes->get('/', 'Home::index');
+$routes->get('post/(:num)/(:any).html',"Home::detailPost/$1/$2",['as'=>'frontend_detail_post']);
 /*
  * --------------------------------------------------------------------
  * Route for admin
@@ -69,6 +72,9 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 			$routes->get('edit/(:num)', "Admin\Siswa::edit/$1", ['as' => 'admin_bankdata_edit_siswa']);
 			$routes->post('edit/(:num)', "Admin\Siswa::update/$1", ['as' => 'admin_bankdata_update_siswa']);
 
+		});
+		$routes->group('komli', function ($routes) {
+			$routes->get('/','Admin\KompetensiKeahlian::index',['as'=>'admin_bankdata_komli']);
 		});
 	});
 	/*
