@@ -4,17 +4,17 @@ namespace App\Models\Admin;
 
 use CodeIgniter\Model;
 
-class KopetensiKeahlian extends Model
+class Komli extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'kopetensikeahlians';
+    protected $table            = 'tb_kompetensi_keahlian';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = array ('nama_komli', 'deskripsi','slug' , 'visi', 'misi', 'kepala_jurusan' , 'karir');
 
     // Dates
     protected $useTimestamps = false;

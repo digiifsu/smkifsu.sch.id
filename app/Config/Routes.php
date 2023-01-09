@@ -75,6 +75,10 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 		});
 		$routes->group('komli', function ($routes) {
 			$routes->get('/','Admin\KompetensiKeahlian::index',['as'=>'admin_bankdata_komli']);
+            $routes->post('/', 'Admin\KompetensiKeahlian::store',['as'=>'admin_bankdata_tambah_komli']);
+            $routes->get('delete/(:num)','Admin\KompetensiKeahlian::delete/$1', ['as'=>'admin_bankdata_delete_komli']);
+            $routes->get('update/(:num)','Admin\KompetensiKeahlian::update/$1', ['as'=>'admin_bankdata_update_komli']);
+			$routes->post('updates/(:num)', 'Admin\KompetensiKeahlian::postEdit/$1',['as'=>'admin_bankdata_updates_komli']);
 		});
 	});
 	/*

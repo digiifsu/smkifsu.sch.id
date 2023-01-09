@@ -1,0 +1,79 @@
+<?php $this->extend('admin\layout\app_layout'); ?>
+<?php $this->section('head');
+echo link_tag('elfinder/css/elfinder.min.css'),
+link_tag('elfinder/css/Material/css/theme-light.css');
+?>
+    <style>
+        .upload-box {
+            margin-top: 10px;
+            width: 150px;
+            border-radius: 4px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px dashed;
+            background-color: #dedede;
+            text-align: center;
+        }
+    </style>
+<?php $this->endSection() ?>
+<?php $this->section('content') ?>
+    <div class='page-inner'>
+
+        <h4 class="page-title">Edit Siswa</h4>
+        <div class="page-category">
+            <a href="<?php  redirect()->back(); ?>"  class="btn btn-sm btn-primary" id="btn-tambah-siswa">
+                <i class='fa fa-arrow-lefts'></i> Back
+            </a>
+            <!-- <a class="btn btn-sm btn-primary btn-rounded" href=""><i class="fas fa-plus-circle"></i> Tambah Kategori</a> -->
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 bg-white rounded shadow-sm">
+                    <div class="-body">
+                        <?= form_open(route_to('admin_bankdata_updates_komli',$data->id), ['id' => 'update_siswa']) ?>
+                        <div class="form-group">
+                            <label for="" class="form-label">Nama Komli</label>
+                            <input value="<?= $data->nama_komli ?>" required type="text" name="nama_komli" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Deskrpsi</label>
+                            <textarea name="deskripsi" id="" cols="30" rows="10" class="form-control"><?= $data->deskripsi; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">visi</label>
+                            <textarea name="visi" id="" cols="30" rows="10" class="form-control"><?= $data->visi; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">misi</label>
+                            <textarea name="misi" id="" cols="30" rows="10" class="form-control"><?= $data->misi; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">Kepala Jurusan</label>
+                            <select required name="kepala_jurusan" id="" class="form-control">
+                                <option value="1">RPL</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">karir</label>
+                            <textarea name="karir" id="" cols="30" rows="10" class="form-control"><?= $data->karir; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class='btn btn-primary'>UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+<?php $this->endSection(); ?>
+
+<?php $this->section('footer');
+?>
+
+<?php $this->endSection() ?>
