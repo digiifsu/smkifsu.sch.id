@@ -98,7 +98,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="forms/forms.html">
+                                <a href="<?= site_url(route_to('admin_bankdata_guru')) ?>">
                                     <span class="sub-item">Guru/Pegawai</span>
                                 </a>
                             </li>

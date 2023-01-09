@@ -80,6 +80,9 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
             $routes->get('update/(:num)','Admin\KompetensiKeahlian::update/$1', ['as'=>'admin_bankdata_update_komli']);
 			$routes->post('updates/(:num)', 'Admin\KompetensiKeahlian::postEdit/$1',['as'=>'admin_bankdata_updates_komli']);
 		});
+		$routes->group('guru', function ($routes) {
+			$routes->get('/', 'Admin\Guru::index', ['as' => 'admin_bankdata_guru']);
+		});
 	});
 	/*
 		    * --------------------------------------------------------------------
