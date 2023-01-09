@@ -82,6 +82,9 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 		});
 		$routes->group('guru', function ($routes) {
 			$routes->get('/', 'Admin\Guru::index', ['as' => 'admin_bankdata_guru']);
+			$routes->post('/', 'Admin\Guru::store', ['as' => 'admin_bankdata_tambah_guru']);
+			$routes->get('delete/(:num)', 'Admin\Guru::destroy/$1', ['as' => 'admin_bankdata_delete_guru']);
+			$routes->get('update/(:num)', 'Admin\Guru::edit/$1', ['as' => 'admin_bangdata_update_guru']);
 		});
 	});
 	/*

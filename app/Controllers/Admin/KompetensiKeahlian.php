@@ -3,16 +3,31 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\Admin\Guru;
 use App\Models\Admin\Komli;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class KompetensiKeahlian extends BaseController
 {
+    public function _dataGuru()
+    {
+        return new Guru();
+    }
     public function index()
     {
         $data = new Komli();
-        $result = $data->get()->getResult();
-        return view('admin/bank-data/komli/show_all', ['title' => 'kompetensi keahlian', 'data' => $result]);
+        $result = $data->select('tb_lembaga.nama as nama_kajur, tb_kompetensi_keahlian.*')
+            ->join('tb_lembaga', 'tb_lembaga.id = tb_kompetensi_keahlian.kepala_jurusan','LEFT')
+            ->get()
+            ->getResult();
+        return view(
+            'admin/bank-data/komli/show_all',
+            [
+                'title' => 'kompetensi keahlian',
+                'data' => $result,
+                'data_guru' => $this->_dataGuru()->get()->getResult()
+            ]
+        );
     }
     public function store()
     {
@@ -37,17 +52,27 @@ class KompetensiKeahlian extends BaseController
     }
     public function update($id = null)
     {
-        if (is_null($id)) throw PageNotFoundException::forPageNotFound();
+        if (is_null($id)) {
+            throw PageNotFoundException::forPageNotFound();
+        }
         $data = (new Komli())->where('id', $id)->get()->getRow();
-        return view('admin/bank-data/komli/edit', ['title' => 'Edit', 'data' => $data]);
+        return view(
+            'admin/bank-data/komli/edit',
+            [
+                'title' => 'Edit',
+                'data' => $data,
+                'data_guru' => $this->_dataGuru()->get()->getResult(),
+            ]
+        );
     }
     public function postEdit($id = null)
     {
-        if (is_null($id)) throw PageNotFoundException::forPageNotFound();
+        if (is_null($id))
+            throw PageNotFoundException::forPageNotFound();
         $data = $this->request->getPost();
         $data['slug'] = str_replace(' ', '-', strtolower($this->request->getPost('nama_komli')));
         $model = new Komli();
-        if ($model->where('id', $id)->countAllResults()  > 0) {
+        if ($model->where('id', $id)->countAllResults() > 0) {
             if ($model->update($id, $data)) {
                 return redirect()->route('admin_bankdata_komli')->with('message', 'Data berhasil di update!');
             }

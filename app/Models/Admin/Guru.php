@@ -14,7 +14,15 @@ class Guru extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'nama',
+        'jenis_kelamin',
+        'image',
+        'email',
+        'status',
+        'kategori',
+        'agama'
+    ];
 
     // Dates
     protected $useTimestamps = false;

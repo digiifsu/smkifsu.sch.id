@@ -35,7 +35,7 @@ $this->section("content")
                             <td><?= substr($result->deskripsi,0,300).'...' ?></td>
                             <td><?= substr($result->visi,0,300).'...' ?></td>
                             <td><?= substr($result->misi,0,300).'...' ?></td>
-                            <td><?= $result->kepala_jurusan ?></td>
+                            <td><?= $result->nama_kajur ?></td>
                             <td>
                                 <a onclick="return confirm('Apakah anda yakin!')" class="btn btn-sm btn-warning" href="<?= site_url(route_to('admin_bankdata_delete_komli',$result->id)) ?>">Delete</a>
                                 <a href="<?= site_url(route_to('admin_bankdata_update_komli',$result->id)) ?>" class="btn btn-sm btn-danger">Update</a>
@@ -80,7 +80,9 @@ $this->section("content")
                 <div class="form-group">
                     <label for="" class="form-label">Kepala Jurusan</label>
                     <select required name="kepala_jurusan" id="" class="form-control">
-                        <option value="agus">Agus</option>
+                       <?php foreach($data_guru as $guru): ?>
+                            <option value="<?= $guru->id ?>"><?= $guru->nama ?></option>
+                        <?php endforeach ?>
                     </select>
                 </div>
                 <div class="form-group">

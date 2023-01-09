@@ -36,7 +36,7 @@ echo $this->section('content')
         <div class="card" style="box-shadow:none;border-radius:0;">
             <div class="card-header">
                 <div class="d-flex  align-items-center">
-                    <h4 class="card-title">Data Siswa</h4>
+                    <h4 class="card-title">Data Guru / Pegawai</h4>
 
                     <button class="btn btn-primary btn-sm ml-auto" data-toggle="modal" data-target="#addRowModal">
                         <i class="fa fa-file-excel"></i>
@@ -45,15 +45,16 @@ echo $this->section('content')
                 </div>
             </div>
             <div class="card-body">
-
-
+                <?php if(session()->has('message')): ?>
+                    <p class="alert alert-info"><?= session()->getFlashdata('message'); ?></p>
+                <?php endif ?>
                 <div class="table-responsive">
                     <table id="komli-tabel" class="display table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
-                                <th>Pekerjaan</th>
+                                <th>Kategori</th>
                                 <th>Email</th>
                                 <th>Agama</th>
                                 <th>Jenis Kelamin</th>
@@ -73,21 +74,21 @@ echo $this->section('content')
                                     <tr>
                                         <td><?= $i; ?></td>
                                         <td><?= $row->nama ?></td>
-                                        <td><?= $row->pekerjaan ?></td>
+                                        <td><?= $row->kategori ?></td>
                                         <td><?= $row->email ?></td>
                                         <td><?= $row->agama ?></td>
                                         <td><?= $row->jenis_kelamin ?></td>
                                         <td>
-                                            <?php if (!empty($row->gambar)) : ?>
-                                                <img style="border:1px solid;" width="50px" height="50px" class="rounded-circle" src="<?= base_url($row->gambar) ?>" alt="">
+                                            <?php if (!empty($row->image)) : ?>
+                                                <img style="border:1px solid;" width="50px" height="50px" class="rounded-circle" src="<?= base_url($row->image) ?>" alt="">
                                             <?php endif; ?>
                                         </td>
                                         <td>
                                             <div class="form-button-action">
-                                                <a href="<?= site_url(route_to('admin_bankdata_edit_siswa', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit data <?= $row->nama ?>">
+                                                <a href="<?= site_url(route_to('admin_bangdata_update_guru', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit data <?= $row->nama ?>">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a onclick="confirm(event)" href="<?= site_url(route_to('admin_bankdata_hapus_siswa', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
+                                                <a onclick="confirm(event)" href="<?= site_url(route_to('admin_bankdata_delete_guru', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
                                                     <i class="fa fa-times"></i>
                                                 </a>
                                             </div>
@@ -119,13 +120,13 @@ echo script_tag('assets/js/tinymceElfinder.js');
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add_siswaLabel">Modal title</h5>
+                <h5 class="modal-title" id="add_siswaLabel">Tambah Guru / Pegawai</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <?= form_open('', ['id' => 'tambah_siswa']) ?>
+                <?= form_open('', ['id' => 'tambah_guru']) ?>
 
                 <div class="form-group">
                     <label for="" class="form-label">Nama Lengkap</label>
@@ -133,15 +134,15 @@ echo script_tag('assets/js/tinymceElfinder.js');
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Email</label>
-                    <input required type="number" name="email" class="form-control">
+                    <input required type="email" name="email" class="form-control">
                 </div>
                 <!-- <div class="form-group">
                     <label for="" class="form-label">Agama</label>
                     <input required type="text" name="kelas" class="form-control">
                 </div> -->
                 <div class="form-group">
-                    <label for="" class="form-label">Pekerjaan / profesi</label>
-                    <select required name="jenis_kelamin" id="" class="form-control">
+                    <label for="" class="form-label">Kategori</label>
+                    <select required name="kategori" id="" class="form-control">
                         <?php foreach ($pekerjaan as $job) : ?>
                             <option value="<?= $job ?>"><?= $job ?></option>
                         <?php endforeach; ?>
@@ -164,7 +165,7 @@ echo script_tag('assets/js/tinymceElfinder.js');
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Foto Siswa</label>
-                    <input hidden id="img-siswa" name="gambar" type="text">
+                    <input hidden id="img-guru" name="image" type="text">
                     <div class="upload-box">
                         <i class="fa fa-image"></i>
                     </div>
@@ -189,6 +190,17 @@ echo script_tag('assets/js/tinymceElfinder.js');
         // elFinder dialog node id
         nodeId: 'elfinder' // Any ID you decide
     });
+
+    //tambah gambar untuk guru
+    $('.upload-box').on('click', function () {
+        mceElf.browser(function (e) {
+            document.querySelector('.upload-box').innerHTML = `<img src="${e}" width="100%" height='100%'>`;
+            document.getElementById('img-guru').value = e.replace('<?= base_url() ?>', '');
+        }, '', {
+            filetype: 'image'
+        })
+    });
+
     //modal tambah siswa
     $('#btn-tambah-guru').on('click', () => {
         $('#add_guru').modal('show')
@@ -197,11 +209,8 @@ echo script_tag('assets/js/tinymceElfinder.js');
         "pageLength": 5,
     });
 
-    $('#tambah_guru').on('submit', function(e){
-        e.preventDefault();
-        save($('#tambah_guru').serialize());
-    });
-    function save(data){
+  
+    async function save(data){
         $.ajax({
             url : `<?=site_url(route_to('admin_bankdata_tambah_guru')) ?>`,
             data : data,
@@ -222,6 +231,12 @@ echo script_tag('assets/js/tinymceElfinder.js');
             }
         })
     }
+
+
+    $('#tambah_guru').on('submit', async function(event){
+        event.preventDefault();
+        save($('#tambah_guru').serialize());
+    });
 
 </script>
 <?php $this->endSection() ?>
