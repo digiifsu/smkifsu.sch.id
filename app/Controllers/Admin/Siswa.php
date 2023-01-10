@@ -3,16 +3,24 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\Admin\Komli;
 use App\Models\Admin\Siswa as ModelSiswa;
 
 class Siswa extends BaseController
 {
+    public function getModel(){
+        $model_siswa = new ModelSiswa;
+        $model_komli = new Komli();
+        return [
+            'data_siswa' => $model_siswa->get()->getResult(),
+            'data_komli' => $model_komli->get()->getResult(),
+        ];
+    }
     public function index()
     {
-        $title = 'Data Siswa';
-        $model_siswa = new ModelSiswa;
-        $data_siswa = $model_siswa->get()->getResult();
-        return view('admin/bank-data/siswa/show_all.php', compact('title','data_siswa'));
+        $data = $this->getModel();
+        $data['title'] = 'Data Siswa';
+        return view('admin/bank-data/siswa/show_all.php', $data);
     }
     public function store()
     {
@@ -95,7 +103,10 @@ class Siswa extends BaseController
             return redirect()->route('admin_bankdata_siswa');
         }
         $data_siswa = $model->where('id',$id)->get()->getRow();
-        return view('admin/bank-data/siswa/edit_siswa', compact('title','data_siswa'));
+        $data = $this->getModel();
+        $data['title'] = 'Edit Data Siswa';
+        $data['data_siswa'] = $data_siswa;
+        return view('admin/bank-data/siswa/edit_siswa', $data);
     }
     public function update($id = null){
         $model = new ModelSiswa();

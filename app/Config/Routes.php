@@ -86,11 +86,18 @@ $routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
 			$routes->get('delete/(:num)', 'Admin\Guru::destroy/$1', ['as' => 'admin_bankdata_delete_guru']);
 			$routes->get('update/(:num)', 'Admin\Guru::edit/$1', ['as' => 'admin_bangdata_update_guru']);
 		});
+		$routes->group('kelas',function ($routes) {
+				$routes->get('/', 'Admin\Kelas::index', ['as' => 'admin_bankdata_kelas']);
+				$routes->post('/', 'Admin\Kelas::store', ['as' => 'admin_bankdata_tambah_kelas']);
+				$routes->get('edit/(:num)', 'Admin\Kelas::edit/$1', ['as' => 'admin_bankdata_update_kelas']);
+				$routes->post('edit/(:num)', 'Admin\Kelas::update/$1', ['as' => 'admin_bankdata_post_update_kelas']);
+
+		});
 	});
 	/*
-		    * --------------------------------------------------------------------
-		    * Route group upload
-		    * --------------------------------------------------------------------
+	* --------------------------------------------------------------------
+	* Route group upload
+	* --------------------------------------------------------------------
 	*/
 	$routes->group('storage', function ($routes) {
 		$routes->get('/', 'Storage::index', ['as' => 'admin_storage']);

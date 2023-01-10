@@ -4,26 +4,17 @@ namespace App\Models\Admin;
 
 use CodeIgniter\Model;
 
-class Siswa extends Model
+class Kelas extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_siswa';
+    protected $table            = 'tb_kelas';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'nis',
-        'nama',
-        'kelas',
-        'status',
-        'agama',
-        'jenis_kelamin','
-         id_komli',
-        'gambar'
-    ];
+    protected $allowedFields    = ['nama_kelas'];
 
     // Dates
     protected $useTimestamps = false;

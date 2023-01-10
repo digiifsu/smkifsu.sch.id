@@ -89,8 +89,16 @@ echo link_tag('elfinder/css/elfinder.min.css'),
                     <div class="form-group">
                         <label for="" class="form-label">Kopotensi Keahlian</label>
                         <select required name="id_komli" id="" class="form-control">
-                            <option value="1">RPL</option>
-                        </select>
+                        <?php if(!empty($data_komli)): ?>
+                            <?php foreach($data_komli as $row): ?>
+                                <?php if($row->id === $data_siswa->id_komli): ?>
+                                    <option selected value="<?= $row->id ?>"><?= $row->nama_komli; ?></option>
+                                    <?php else: ?>
+                                        <option value="<?= $row->id ?>"><?= $row->nama_komli; ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </select>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Agama</label>

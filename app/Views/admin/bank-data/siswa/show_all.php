@@ -149,7 +149,11 @@ echo script_tag('assets/js/tinymceElfinder.js');
                 <div class="form-group">
                     <label for="" class="form-label">Kopotensi Keahlian</label>
                     <select required name="id_komli" id="" class="form-control">
-                        <option value="1">RPL</option>
+                        <?php if(!empty($data_komli)): ?>
+                            <?php foreach($data_komli as $row): ?>
+                                <option value="<?= $row->id ?>"><?= $row->nama_komli; ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </select>
                 </div>
                 <div class="form-group">
@@ -166,7 +170,7 @@ echo script_tag('assets/js/tinymceElfinder.js');
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>
