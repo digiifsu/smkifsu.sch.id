@@ -32,9 +32,9 @@ $this->section("content")
                         <tr>
                             <td><?= $i; ?></td>
                             <td><?= $result->nama_komli ?></td>
-                            <td><?= substr($result->deskripsi,0,300).'...' ?></td>
-                            <td><?= substr($result->visi,0,300).'...' ?></td>
-                            <td><?= substr($result->misi,0,300).'...' ?></td>
+                            <td><?= potongString($result->deskripsi,300); ?></td>
+                            <td><?= potongString($result->visi,300); ?></td>
+                            <td><?= potongString($result->misi,300); ?></td>
                             <td><?= $result->nama_kajur ?></td>
                             <td>
                                 <a onclick="return confirm('Apakah anda yakin!')" class="btn btn-sm btn-warning" href="<?= site_url(route_to('admin_bankdata_delete_komli',$result->id)) ?>">Delete</a>

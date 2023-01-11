@@ -17,3 +17,10 @@
  function buat_slug($string){
     return trim(str_replace(' ', '-', preg_replace("/[^a-zA-Z0-9_-]/", ' ', $string)), '-');
  }
+
+function potongString($string,$batas){
+   if(strlen($string) > $batas){
+      return substr($string, 0, $batas).'...';
+   }
+   return $string;
+}
