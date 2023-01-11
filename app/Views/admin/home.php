@@ -30,7 +30,7 @@
                         <div class="col-7 col-stats">
                             <div class="numbers">
                                 <p class="card-category">Post</p>
-                                <h4 class="card-title">29</h4>
+                                <h4 class="card-title"><?= $count_data['post'] ?? 0; ?></h4>
                             </div>
                         </div>
                     </div>
@@ -92,8 +92,8 @@
                         </div>
                         <div class="col-7 col-stats">
                             <div class="numbers">
-                                <p class="card-category">Category</p>
-                                <h4 class="card-title">6</h4>
+                                <p class="card-category">Post Categories</p>
+                                <h4 class="card-title"><?= $count_data['post_categories'] ?? 0; ?></h4>
                             </div>
                         </div>
                     </div>

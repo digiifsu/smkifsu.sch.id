@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title> <?= esc($title ?? null)  ?> - "Dashbaord" </title>
+    <title> <?= esc($title ?? null)  ?> . Dashboard </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="<?= base_url('assets/img/icon.ico'); ?>" type="image/x-icon" />
 

@@ -8,7 +8,7 @@ class Categories extends BaseController {
 	public function index() {
 		if ($this->request->getMethod("POST", true) === "POST") {
 			$this->validation();
-			$model = model('Admin/Categories');
+			$model = model('Admin/PostsCategories');
 			$data = $this->request->getPost();
 
 			//cek slug
@@ -25,7 +25,7 @@ class Categories extends BaseController {
 			}
 		} else {
 			$title = 'Manage Categories';
-			$categories = model('Admin/Categories')->get()->getResultArray();
+			$categories = model('Admin/PostsCategories')->get()->getResultArray();
 			return view('admin/categories/all_categories', compact('title', 'categories'));
 		}
 
@@ -45,7 +45,7 @@ class Categories extends BaseController {
 		if (is_null($id)) {
 			return redirect()->route('admin_categories');
 		}
-		$model = model('Admin/Categories');
+		$model = model('Admin/PostsCategories');
 		if($model->where('id',$id)->countAllResults() > 0){
 			if($model->delete($id)){
 				return redirect()->back()->with('message', 'Data berhasil di hapus');

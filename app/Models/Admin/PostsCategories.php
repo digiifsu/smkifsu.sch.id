@@ -4,7 +4,7 @@ namespace App\Models\Admin;
 
 use CodeIgniter\Model;
 
-class Categories extends Model
+class PostsCategories extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'tb_post_categories';

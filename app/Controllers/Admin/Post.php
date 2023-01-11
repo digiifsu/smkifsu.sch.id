@@ -10,7 +10,7 @@ class Post extends BaseController
 {
     public function index()
     {
-        $title = "Manage Article";
+        $title = "Manage Post";
 
         $tb_post = model('Admin/Posts');
         //get data categories from model
@@ -70,8 +70,8 @@ class Post extends BaseController
                 return redirect()->route('admin_post_addNew')->with('error_danger', "Post gagal dibuat");
             }
         } else {
-            $title = "Manager Article";
-            $categories = model('Admin/Categories')->findAll();
+            $title = "Add Post";
+            $categories = model('Admin/PostsCategories')->findAll();
             return view("admin/post/add_post", compact('title', 'categories'));
         }
     }
@@ -113,7 +113,7 @@ class Post extends BaseController
        else{
             $data = $model->withCategory()->where('tb_post.id', $id)->get()->getRow();
             $title = "Edit post {$data->id}";
-            $categories = model('Admin/Categories')->findAll();
+            $categories = model('Admin/PostsCategories')->findAll();
             return view('admin/post/edit_post', compact('data', 'title', 'categories'));
        }
     }
