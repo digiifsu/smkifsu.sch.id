@@ -1,7 +1,7 @@
 <?php $this->extend('admin\layout\app_layout'); ?>
 <?php $this->section('head');
 echo link_tag('elfinder/css/elfinder.min.css'),
-    link_tag('elfinder/css/Material/css/theme-light.css');
+link_tag('elfinder/css/Material/css/theme-light.css');
 ?>
 <style>
     .upload-box {
@@ -21,7 +21,7 @@ echo link_tag('elfinder/css/elfinder.min.css'),
 <?php $this->endSection() ?>
 <?php
 echo $this->section('content')
-    ?>
+?>
 <div class="page-inner">
     <h4 class="page-title">Data Siswa</h4>
     <div class="page-category">
@@ -69,33 +69,31 @@ echo $this->section('content')
                                 $i = 0;
                                 foreach ($data_siswa as $row) {
                                     $i++;
-                                    ?>
+                            ?>
                                     <tr>
                                         <td><?= $i; ?></td>
                                         <td><?= $row->nis ?></td>
                                         <td><?= $row->nama ?></td>
                                         <td><?= $row->agama ?></td>
                                         <td><?= $row->jenis_kelamin ?></td>
-                                        <td><?= $row->id_komli ?></td>
+                                        <td><?= $row->nama_komli ?? '-' ?></td>
                                         <td>
-                                            <?php if(!empty($row->gambar)): ?>
+                                            <?php if (!empty($row->gambar)) : ?>
                                                 <img style="border:1px solid;" width="50px" height="50px" class="rounded-circle" src="<?= base_url($row->gambar) ?>" alt="">
                                             <?php endif; ?>
                                         </td>
                                         <td>
                                             <div class="form-button-action">
-                                                <a href="<?= site_url(route_to('admin_bankdata_edit_siswa',strip_tags($row->id))) ?>" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-primary btn-lg" data-original-title="Edit data <?= $row->nama ?>">
+                                                <a href="<?= site_url(route_to('admin_bankdata_edit_siswa', $row->id)) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit data <?= $row->nama ?>">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a onclick="confirm(event)" href="<?= site_url(route_to('admin_bankdata_hapus_siswa',strip_tags($row->id))) ?>" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-danger" data-original-title="Hapus">
+                                                <a onclick="confirm(event)" href="<?= site_url(route_to('admin_bankdata_hapus_siswa', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
                                                     <i class="fa fa-times"></i>
-                                                 </a>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>
-                                    <?php
+                            <?php
                                 }
                             }
                             ?>
@@ -149,8 +147,8 @@ echo script_tag('assets/js/tinymceElfinder.js');
                 <div class="form-group">
                     <label for="" class="form-label">Kopotensi Keahlian</label>
                     <select required name="id_komli" id="" class="form-control">
-                        <?php if(!empty($data_komli)): ?>
-                            <?php foreach($data_komli as $row): ?>
+                        <?php if (!empty($data_komli)) : ?>
+                            <?php foreach ($data_komli as $row) : ?>
                                 <option value="<?= $row->id ?>"><?= $row->nama_komli; ?></option>
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -158,7 +156,13 @@ echo script_tag('assets/js/tinymceElfinder.js');
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Agama</label>
-                    <input required type="text" name="agama" class="form-control">
+                    <select required name="agama" id="" class="form-control">
+                        <?php foreach ($agama as $ag) : ?>
+                            <option value="<?= $ag ?>">
+                                <?= $ag ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Foto Siswa</label>
@@ -196,8 +200,8 @@ echo script_tag('assets/js/tinymceElfinder.js');
         "pageLength": 5,
     });
     //untuk upload file gambar siswa
-    $('.upload-box').on('click', function () {
-        mceElf.browser(function (e) {
+    $('.upload-box').on('click', function() {
+        mceElf.browser(function(e) {
             document.querySelector('.upload-box').innerHTML = `<img src="${e}" width="100%" height='100%'>`;
             document.getElementById('img-siswa').value = e.replace('<?= base_url() ?>', '');
         }, '', {
@@ -207,7 +211,7 @@ echo script_tag('assets/js/tinymceElfinder.js');
     /**
      * ajax for add siswa
      */
-    $('#tambah_siswa').on('submit', function (e) {
+    $('#tambah_siswa').on('submit', function(e) {
         //mencegah form mengarahkan ke halaman lain
         e.preventDefault();
         swal({
@@ -244,7 +248,7 @@ echo script_tag('assets/js/tinymceElfinder.js');
             url: '<?= site_url(route_to('admin_tambah_siswa')) ?>',
             method: 'post',
             data: e,
-            success: function (e) {
+            success: function(e) {
                 if (e.success === false) {
                     if (e.errorType == 'validation') {
                         for (const key in e.errors) {
@@ -272,7 +276,7 @@ echo script_tag('assets/js/tinymceElfinder.js');
                 }
             }
 
-        }).fail(function (e) {
+        }).fail(function(e) {
             const response = JSON.parse(e.responseText);
             swal({
                 title: `Error ${response.code}`,
@@ -284,19 +288,19 @@ echo script_tag('assets/js/tinymceElfinder.js');
 
     //notofication
     <?php if (session()->has('message')) : ?>
-          
-          $.notify({
-              icon: 'flaticon-alarm-1',
-              title: 'Notifikasi',
-              message: '<?php echo session()->getFlashdata('message'); ?>',
-          }, {
-              type: 'info',
-              placement: {
-                  from: "top",
-                  align: "right"
-              },
-              time: 1000,
-          });
-      <?php endif; ?>
+
+        $.notify({
+            icon: 'flaticon-alarm-1',
+            title: 'Notifikasi',
+            message: '<?php echo session()->getFlashdata('message'); ?>',
+        }, {
+            type: 'info',
+            placement: {
+                from: "top",
+                align: "right"
+            },
+            time: 1000,
+        });
+    <?php endif; ?>
 </script>
 <?php $this->endSection() ?>

@@ -45,13 +45,13 @@ echo link_tag('elfinder/css/elfinder.min.css'),
                         <?= $data_siswa->kelas; ?>
                     </dd>
                     <dt>KOMLI</dt>
-                    <dd><?= $data_siswa->id_komli ?? '-'; ?></dd>
+                    <dd><?= $data_siswa->nama_komli ?? '-'; ?></dd>
                     <dt>Jenis Kelamin</dt>
                     <dd>
                         <?= $data_siswa->jenis_kelamin ?? '-'; ?>
                     </dd>
                     <dt>Agama</dt>
-                    <dd><?= $data_siswa->agama ?? 'ateis'; ?></dd>
+                    <dd><?= $data_siswa->agama ?? '-'; ?></dd>
 
                     <dt>Foto</dt>
                     <dd class="dont-break-out">
@@ -102,8 +102,19 @@ echo link_tag('elfinder/css/elfinder.min.css'),
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Agama</label>
-                        <input value="<?= $data_siswa->agama ?>" required type="text" name="agama" class="form-control">
-                    </div>
+                        <select required name="agama" id="" class="form-control">
+                        <?php foreach ($agama as $ag): ?>
+                            <?php if ($ag === $data_siswa->agama): ?>
+                                <option selected value="<?= $ag ?>">
+                                    <?= $ag ?>
+                                </option>
+                            <?php else: ?>
+                                <option value="<?= $ag ?>">
+                                    <?= $ag ?>
+                                </option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </select>                    </div>
                     <div class="form-group">
                         <label for="" class="form-label">Foto Siswa</label>
                         <input hidden id="img-siswa" name="gambar" value="<?= $data_siswa->gambar ?>" type="text">

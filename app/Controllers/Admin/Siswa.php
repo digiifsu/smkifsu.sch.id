@@ -8,18 +8,34 @@ use App\Models\Admin\Siswa as ModelSiswa;
 
 class Siswa extends BaseController
 {
-    public function getModel(){
+    public function getDataSiswa()
+    {
         $model_siswa = new ModelSiswa;
         $model_komli = new Komli();
         return [
             'data_siswa' => $model_siswa->get()->getResult(),
             'data_komli' => $model_komli->get()->getResult(),
+            'agama' =>  [
+                    'Islam',
+                    'Kristen',
+                    'Budha',
+                    'Hindu',        
+            ],
+
         ];
     }
     public function index()
     {
-        $data = $this->getModel();
+        $data = $this->getDataSiswa();
+        $model = new ModelSiswa();
+        $data_siswa = $model->select('tb_kompetensi_keahlian.nama_komli, tb_siswa.*')
+            ->join('tb_kompetensi_keahlian', 'tb_kompetensi_keahlian.id=tb_siswa.id_komli', "LEFT")
+            ->get()
+            ->getResult();
+
         $data['title'] = 'Data Siswa';
+        $data['data_siswa'] = $data_siswa;
+      
         return view('admin/bank-data/siswa/show_all.php', $data);
     }
     public function store()
@@ -64,7 +80,8 @@ class Siswa extends BaseController
             $model_siswa = new ModelSiswa();
             //cek dulu nis nya ada belum?
             $nis = $this->request->getPost('nis');
-            if($model_siswa->where('nis', $nis)->countAllResults() === 0){
+
+            if ($model_siswa->where('nis', $nis)->countAllResults() === 0) {
                 $model_siswa->insert($this->request->getPost());
                 return $this->response->setJSON([
                     'success' => true,
@@ -74,58 +91,63 @@ class Siswa extends BaseController
                 return $this->response->setJSON([
                     'success' => false,
                     'errorType' => 'duplicated_data',
-                    'error' =>'Nis sudah ada di database',
+                    'error' => 'Nis sudah ada di database',
                 ]);
             }
         }
-
     }
-    public function destroy($id = null){
-        if(!is_null($id)){
+    public function destroy($id = null)
+    {
+        if (!is_null($id)) {
             //cek dulu ada gak di db
             $model = new ModelSiswa();
-            if($model->where('id',$id)->countAllResults() === 1) {
-               if($model->delete($id)){
+            if ($model->where('id', $id)->countAllResults() === 1) {
+                if ($model->delete($id)) {
                     return redirect()->route('admin_bankdata_siswa')->with('message', 'Data Berhasil di hapus');
-               }
+                }
             }
         }
     }
-    public function edit($id = null){
-        $title = "Edit siswa";
-        if(empty($id)){
+    public function edit($id = null)
+    {
+        if (empty($id)) {
             return redirect()->back();
         }
         $model = new ModelSiswa();
-        //cek dul
+        //cek dulu
         $data = $model->where('id', $id);
-        if($data->countAllResults() <= 0){
+        if ($data->countAllResults() <= 0) {
             return redirect()->route('admin_bankdata_siswa');
         }
-        $data_siswa = $model->where('id',$id)->get()->getRow();
-        $data = $this->getModel();
+        $data_siswa = $model->select('tb_kompetensi_keahlian.nama_komli, tb_siswa.*')
+            ->where('tb_siswa.id', $id)
+            ->join('tb_kompetensi_keahlian', 'tb_kompetensi_keahlian.id=tb_siswa.id_komli', "LEFT")
+            ->get()
+            ->getRow();
+        $data = $this->getDataSiswa();
         $data['title'] = 'Edit Data Siswa';
         $data['data_siswa'] = $data_siswa;
         return view('admin/bank-data/siswa/edit_siswa', $data);
     }
-    public function update($id = null){
+    public function update($id = null)
+    {
         $model = new ModelSiswa();
-        if(is_null($id)){
+        if (is_null($id)) {
             return $this->response->setJSON([
                 'success' => false,
                 'errorType' => 'not_parameter',
-                'error' =>'Tidak ada parameter',
+                'error' => 'Tidak ada parameter',
             ]);
         }
         $data = $model->where('id', $id);
-        if($data->countAllResults() <= 0){
+        if ($data->countAllResults() <= 0) {
             return $this->response->setJSON([
                 'success' => false,
                 'errorType' => 'nis_notfound',
-                'error' =>'Nis tidak di temukan',
+                'error' => 'Nis tidak di temukan',
             ]);
         }
-        if($model->update($id,$this->request->getPost())){
+        if ($model->update($id, $this->request->getPost())) {
             return $this->response->setJSON([
                 'success' => true,
                 'message' => 'data berhasil di update',
@@ -134,7 +156,7 @@ class Siswa extends BaseController
             return $this->response->setJSON([
                 'success' => false,
                 'errorType' => 'nis_notfound',
-                'error' =>'Data Gagal Di update',
+                'error' => 'Data Gagal Di update',
             ]);
         }
     }

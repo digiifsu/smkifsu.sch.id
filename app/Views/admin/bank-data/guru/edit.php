@@ -64,7 +64,7 @@ echo link_tag('elfinder/css/elfinder.min.css'),
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Agama</label>
-                    <select required name="id_komli" id="" class="form-control">
+                    <select required name="agama" id="" class="form-control">
                         <?php foreach ($agama as $ag): ?>
                             <?php if ($ag === $data_guru->agama): ?>
                                 <option selected value="<?= $ag ?>">
