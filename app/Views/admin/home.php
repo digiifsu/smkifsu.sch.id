@@ -6,11 +6,11 @@
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
                 <h2 class="pb-2 fw-bold">Dashboard</h2>
-                <h5 class="op-7 mb-2">Selamat <span class="badge badge-info">Malam</span> di sistem informasi IFSU</h5>
+                <h5 class="op-7 mb-2">Selamat <span id="ucapanselamat"></span> di sistem informasi IFSU</h5>
             </div>
             <div class="ml-md-auto py-2 py-md-0">
                 <a href="#" class="btn btn-success btn-border btn-round mr-2">Add Pages</a>
-                <a href="#" class="btn btn-secondary btn-round">Add Post</a>
+                <a href="<?= site_url(route_to('admin_post_addNew')) ?>" class="btn btn-secondary btn-round">Add Post</a>
             </div>
         </div>
     </div>
@@ -161,4 +161,5 @@
     <!-- e:row2 -->
 
 </div>
+
 <?php $this->endSection() ?>

@@ -46,4 +46,8 @@ class Account extends BaseController {
 			}
 		}
 	}
+	public function akun_saya(){
+		//jika sudah login!
+		return view('admin/account/akun_saya',['title'=>"Akun Saya"]);
+	}
 }

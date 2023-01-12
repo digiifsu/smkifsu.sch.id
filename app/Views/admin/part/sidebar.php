@@ -165,6 +165,14 @@
                         <p>Message</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="widgets.html">
+                        <i class="fas fa-calendar"></i>
+                        <p>Agenda</p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="<?= site_url(route_to('admin_akun_saya')) ?>">
                         <i class="fas fa-user-cog"></i>
