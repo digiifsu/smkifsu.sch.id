@@ -80,7 +80,7 @@ echo link_tag('assets/vendors/tagin/tagin.min.css')
 
                                                 <div class="dropdown-menu" aria-labelledby="dropdown_menu">
                                                     <a class="dropdown-item" onclick="confirm(event)" href="<?= base_url(route_to('admin_categories_delete', $categori['id'])); ?>"><i class="fa fa-trash fa-1x"></i>&nbsp; Delete</a>
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
+                                                    <a class="dropdown-item" href="<?= site_url(route_to('admin_categories_edit',$categori['id'])); ?>"><i class="fa fa-edit fa-1x"></i>&nbsp; Update</a>
                                                 </div>
                                             </div>
                                         </td>

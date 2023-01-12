@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Categories extends BaseController {
 	public function index() {
@@ -53,5 +54,12 @@ class Categories extends BaseController {
 		}
 		return redirect()->back()->with('message', 'data gagal di hapus');
 	}
+    public function edit($id = null){
+        if (is_null($id)){
+            return PageNotFoundException::forMethodNotFound();
+        }
+        return view('admin/categories/edit_category');
+
+    }
 
 }
