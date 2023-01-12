@@ -59,7 +59,8 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			$routes->match(['GET', 'POST'], '/', 'Admin\Categories::index', ['as' => 'admin_categories']);
 			$routes->get('delete/(:alphanum)', 'Admin\Categories::delete/$1', ['as' => 'admin_categories_delete']);
 			$routes->get('update/(:alphanum)', 'Admin\Categories::edit/$1', ['as' => 'admin_categories_edit']);
-			
+			$routes->post('update/(:alphanum)', 'Admin\Categories::update/$1', ['as' => 'admin_categories_edit_post']);
+
 		});
 	});/*
 	* --------------------------------------------------------------------
@@ -95,9 +96,7 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 				$routes->post('edit/(:num)', 'Admin\Kelas::update/$1', ['as' => 'admin_bankdata_post_update_kelas']);
 
 		});
-		$routes->group('file_download', fucntion($routes){
-			$routes->get('file_download', "");
-		});
+		
 	});
 	/*
 	* --------------------------------------------------------------------

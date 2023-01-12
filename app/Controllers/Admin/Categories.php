@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\Admin\PostsCategories;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Categories extends BaseController {
@@ -58,8 +59,22 @@ class Categories extends BaseController {
         if (is_null($id)){
             return PageNotFoundException::forMethodNotFound();
         }
-        return view('admin/categories/edit_category');
-
+		$model = new PostsCategories();
+		$data['categories'] = $model->get()->getRow();
+		$data['title'] = "Edit";
+        return view('admin/categories/edit_category', $data);
+    }
+    public function update($id = null){
+        if(is_null($id)){
+            return PageNotFoundException::forMethodNotFound();
+        }
+        $model = new PostsCategories();
+        $data['slug'] = str_replace(' ','-',strip_tags($this->request->getPost('slug')));
+        $data['nama'] = strip_tags($this->request->getPost('nama'));
+        if($model->update($id,$data)){
+            return redirect()->route('admin_categories')->with('message','data berhasil di update');
+        }
+        throw PageNotFoundException::forPageNotFound();
     }
 
 }
