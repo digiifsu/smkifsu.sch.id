@@ -19,7 +19,7 @@
             </div>
             <ul class="nav nav-primary">
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#admin">
+                    <a data-toggle="collapse" href="<?= site_url(); ?>">
                         <i class="fas fa-home"></i>
                         <p>Beranda</p>
                     </a>

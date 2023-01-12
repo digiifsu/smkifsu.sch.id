@@ -26,14 +26,14 @@ $routes->get('post/(:num)/(:any).html',"Home::detailPost/$1/$2",['as'=>'frontend
  * Route for admin
  * --------------------------------------------------------------------
  */
-$routes->get('webadmin/login', "Admin\Account::loginView", ['as' => 'admin_login']);
-$routes->post('webadmin/check_login', 'Admin\Account::loginProccess', ['as' => 'admin_login_post']);
+$routes->get('ifsu-admin/login', "Admin\Account::loginView", ['as' => 'admin_login']);
+$routes->post('ifsu-admin/check_login', 'Admin\Account::loginProccess', ['as' => 'admin_login_post']);
 /*
  * --------------------------------------------------------------------
  * Route group guarded with admin
  * --------------------------------------------------------------------
  */
-$routes->group('webadmin', ['filter' => 'auth'], function ($routes) {
+$routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 	$routes->get("/", "Admin\Dashboard::index", ['as' => 'admin_dashboard']);
     /*
 	* --------------------------------------------------------------------
