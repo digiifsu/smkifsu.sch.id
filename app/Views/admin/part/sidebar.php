@@ -108,7 +108,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="forms/forms.html">
+                                <a href="<?= site_url(route_to('admin_bankdata_kelas')) ?>">
                                     <span class="sub-item">Kelas</span>
                                 </a>
                             </li>
@@ -166,7 +166,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="widgets.html">
+                    <a href="<?= site_url(route_to('admin_akun_saya')) ?>">
                         <i class="fas fa-user-cog"></i>
                         <p>Akun Saya</p>
                     </a>

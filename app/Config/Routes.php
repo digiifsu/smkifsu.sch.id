@@ -28,6 +28,7 @@ $routes->get('post/(:num)/(:any).html',"Home::detailPost/$1/$2",['as'=>'frontend
  */
 $routes->get('ifsu-admin/login', "Admin\Account::loginView", ['as' => 'admin_login']);
 $routes->post('ifsu-admin/check_login', 'Admin\Account::loginProccess', ['as' => 'admin_login_post']);
+$routes->get('ifsu-admin/akun_saya', 'Admin\Account::akun_saya',['as'=>'admin_akun_saya']);
 /*
  * --------------------------------------------------------------------
  * Route group guarded with admin
