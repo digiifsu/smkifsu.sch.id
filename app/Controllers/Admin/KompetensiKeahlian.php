@@ -39,7 +39,7 @@ class KompetensiKeahlian extends BaseController
         //            ]
         //        );
         $data = $this->request->getPost();
-        $data['slug'] = str_replace(' ', '-', strtolower($this->request->getPost('nama_komli')));
+        $data['slug'] = buat_slug($this->request->getPost('nama_komli'));
         $model = new Komli();
         if ($model->where('slug', $data['slug'])->countAllResults() <= 0) {
             if ($model->insert($data)) {
@@ -70,7 +70,7 @@ class KompetensiKeahlian extends BaseController
         if (is_null($id))
             throw PageNotFoundException::forPageNotFound();
         $data = $this->request->getPost();
-        $data['slug'] = str_replace(' ', '-', strtolower($this->request->getPost('nama_komli')));
+        $data['slug'] = buat_slug($this->request->getPost('nama_komli'));
         $model = new Komli();
         if ($model->where('id', $id)->countAllResults() > 0) {
             if ($model->update($id, $data)) {

@@ -8,8 +8,9 @@ class Home extends BaseController
     {
         //mendapatkan postingan dari database
         $blogModel = new \App\Models\Admin\Posts();
+        $komliModel = new \App\Models\Admin\Komli();
         $blog = $blogModel->withCategory()->where('status','publish')->limit(3)->get()->getResult();
-        return view('frontend/home',['blog'=>$blog]);
+        return view('frontend/home',['blog'=>$blog,'komli'=>$komliModel->getAll(2)->get()->getResult()]);
     }
     public function detailPost($id = null,$slug = null){
         $blogModel = new \App\Models\Admin\Posts();

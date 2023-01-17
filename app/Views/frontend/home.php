@@ -11,7 +11,7 @@
                 </div>
                 <h1>SMK INFORMATIKA SUMEDANG</h1>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the
-                    industry's standard dummy text ever since the</p>
+                industry's standard dummy text ever since the</p>
                 <div class="header_btn">
                     <a href="" class="btn btn-md"><i class="fa-regular fa-circle-play text-lg"></i>PROFIL IFSU</a>
                     <a href="" class="btn btn-md"><i class="fa-regular fa-compass text-lg"></i></i>Metaverse</a>
@@ -33,28 +33,32 @@
                 </div>
             </div>
             <div class="kompetensi_list grid grid-cols-1 md-grid-cols-2 gap-10">
-                <div class="list">
-                    <div class="icon">
-                        <img data-src="assets/icons/pplg.png" alt="">
-                    </div>
-                    <h2>Pemrograman Perangkat Lunak dan Gim (PPLG)</h2>
-                    <p>Mengembangkan skill siswa sesuai kompetisi keahliannya masing masing</p>
-                    <div class="btn">
-                        <a href="pages/pplg_profile.html">Profil Jurusan</a><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="icon">
-                        <img data-src="assets/icons/dkv.png" alt="">
-                    </div>
-                    <h2>Design Visual dan Komunikasi (DKV)</h2>
-                    <p>Mengembangkan skill siswa sesuai kompetisi keahliannya masing masing</p>
-                    <div class="btn">
-                        <a href="pages/dkv_profile.html">Profil Jurusan</a><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
+
+                <?php if (!empty($komli)): ?>
+                    <?php foreach ($komli as  $value): ?>
+                        <div class="list">
+                            <div class="icon">
+                                <img data-src="<?php echo base_url('assets/frontend'); ?>/assets/icons/pplg.png" alt="">
+                            </div>
+                            <h2><?php echo $value->nama_komli; ?></h2>
+                            <p>
+                                <?php if (strlen($value->deskripsi) >= 120): ?>
+                                    <?php echo substr(strip_tags(ucwords($value->deskripsi)), 0,120); ?>
+                                <?php else: ?>
+                                    <?php echo strip_tags(ucwords($value->deskripsi)) ?>
+                                <?php endif ?>
+                            </p>
+                            <div class="btn">
+                                <a href="<?php echo site_url(route_to('frontend_detail_komli',$value->id, $value->slug)); ?>">Profil Jurusan</a><i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <span>Not Data found!</span>
+                <?php endif ?>
             </div>
         </div>
+
     </div>
 </section>
 <section id="home_sec3" class="w-full">
@@ -70,29 +74,29 @@
             </div>
             <div class="w-full grid grid-cols-1 md-grid-cols-3 lg-grid-cols-4 xl-grid-cols-5 gap-5">
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-red"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-green"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-yellow"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-aqua"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-pink"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-orange"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-brown"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-blue"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-red"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-green"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-yellow"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
                 <div class="facility_list"><i class="fa-regular fa-building text-3xl text-aqua"></i>Ruang Praktik
-                    Siswa</div>
+                Siswa</div>
             </div>
             <a href="pages/facility_list.html" class="btn btn-md btn-more">
                 Selengkapnya
@@ -111,7 +115,7 @@
                     </div>
                     <h2>Beragam Karya <span class="text-yellow">Digital</span> Ciptaan Siswa-Siswi IFSU</h2>
                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                        classical Latin literature from</p>
+                    classical Latin literature from</p>
                 </div>
                 <div class="control_btn">
                     <div class="btn button_prev"><i class="fa-solid fa-chevron-left text-white text-sm"></i></div>
@@ -165,7 +169,7 @@
                             <h2>Photography</h2>
                             <p>L orem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,orem ipsum dolor
                                 sit amet, consectetur adipisicing elit. Eligendi,orem ipsum dolor sit amet,
-                                consectetur adipisicing elit. Eligendi,</p>
+                            consectetur adipisicing elit. Eligendi,</p>
                         </div>
                     </div>
                 </div>
@@ -283,51 +287,28 @@
                 <h2>BERITA TERKINI</h2>
             </div>
             <div class="berita_galery grid grid-cols-1 md-grid-cols-3 gap-10 md-gap-5">
-                <div class="berita_border">
-                    <img data-src="assets/img/banner_news.png">
-                    <a href="pages/berita_detail.html" class="berita_desc">
-                        <div class="category">
-                            Nasional
+
+                <?php if (!empty($blog)): ?>
+                    <?php foreach ($blog as $row): ?>
+                        <div class="berita_border">
+                            <img data-src="<?php echo base_url($row->thumbnail); ?>">
+                            <a href="<?php echo site_url(route_to('frontend_detail_post',$row->id,$row->slug)) ?>" class="berita_desc">
+                                <div class="category">
+                                    <?php echo $row->nama_category ?? 'Unknown';  ?>
+                                </div>
+                                <div class="title">
+                                    <div class="date flex items-center">
+                                        <i class="fa-regular fa-calendar-days text-white text-sm"></i>
+                                        <p><?= date('D,d-M-Y',strtotime($row->create_at)) ?></p>
+                                    </div>
+                                    <h2><?= $row->title ?? '' ?></h2>
+                                </div>
+                            </a>
                         </div>
-                        <div class="title">
-                            <div class="date flex items-center">
-                                <i class="fa-regular fa-calendar-days text-white text-sm"></i>
-                                <p>Jum'at, 04 November 2022</p>
-                            </div>
-                            <h2>Workshop Kewirausahaan Berbasis Digital Marketing</h2>
-                        </div>
-                    </a>
-                </div>
-                <div class="berita_border">
-                    <img data-src="assets/img/banner_news.png">
-                    <a href="pages/berita_detail.html" class="berita_desc">
-                        <div class="category">
-                            Nasional
-                        </div>
-                        <div class="title">
-                            <div class="date flex items-center">
-                                <i class="fa-regular fa-calendar-days text-white text-sm"></i>
-                                <p>Jum'at, 04 November 2022</p>
-                            </div>
-                            <h2>Workshop Kewirausahaan Berbasis Digital Marketing</h2>
-                        </div>
-                    </a>
-                </div>
-                <div class="berita_border">
-                    <img data-src="assets/img/banner_news.png">
-                    <a href="pages/berita_detail.html" class="berita_desc">
-                        <div class="category">
-                            Nasional
-                        </div>
-                        <div class="title">
-                            <div class="date flex items-center">
-                                <i class="fa-regular fa-calendar-days text-white text-sm"></i>
-                                <p>Jum'at, 04 November 2022</p>
-                            </div>
-                            <h2>Workshop Kewirausahaan Berbasis Digital Marketing</h2>
-                        </div>
-                    </a>
-                </div>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <span>Not Data</span>
+                <?php endif ?>
             </div>
         </div>
         <a href="pages/berita_list.html" class="btn btn-md btn-more">
@@ -363,25 +344,5 @@
         </div>
     </div>
 </section>
-<section>
-    <div class="container">
-        <div class="sponsor grid grid-cols-2 md-grid-cols-3 lg-grid-cols-5 gap-15 md-gap-18 xl-gap-20">
-            <div class="sponsor_icon">
-                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/axioo.png" alt="" class="ease">
-            </div>
-            <div class="sponsor_icon">
-                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/intel.png" alt="" class="ease">
-            </div>
-            <div class="sponsor_icon">
-                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/microsoft.png" alt="" class="ease">
-            </div>
-            <div class="sponsor_icon">
-                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/mikrotik.png" alt="" class="ease">
-            </div>
-            <div class="sponsor_icon">
-                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/telkom.png" alt="" class="ease">
-            </div>
-        </div>
-    </div>
-</section>
+<?= $this->include('frontend/shared/sponsor') ?>
 <?php $this->endSection(); ?>

@@ -39,4 +39,9 @@ class Komli extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public function getAll($limit = null){
+     $result = $this->select('tb_lembaga.nama as nama_kajur, tb_kompetensi_keahlian.*')
+     ->join('tb_lembaga', 'tb_lembaga.id = tb_kompetensi_keahlian.kepala_jurusan','LEFT');
+     return $result;
+ }
 }

@@ -63,6 +63,9 @@ class Guru extends BaseController
     {
         return new \App\Models\Admin\Guru();
     }
+    /**
+     * Untuk menghapus guru
+     * */
     public function destroy($id = null)
     {
         $model = new \App\Models\Admin\Guru();
