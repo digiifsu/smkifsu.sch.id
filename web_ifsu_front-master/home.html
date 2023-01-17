@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/comp.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="assets/js/lozad.js"></script>
+    <title>SMKS INFORMATIKA SUMEDANG</title>
+</head>
+
+<body>
+    <!-- this used home header -->
+    <header class="home_header" style="background: url('assets/img/header_bg.png');">
+        <nav class="w-full">
+            <div class="container">
+                <div class="navbar flex w-full h-full items-center justify-between">
+                    <a href="#" class="logo">
+                        <img data-src="assets/icons/logo-ifsu.svg" class="w-full h-full">
+                    </a>
+
+                    <div class="nav_menu nav_hidden">
+                        <div class="container">
+                            <div class="sidebar">
+                                <div class="logo">
+                                    <img data-src="assets/icons/logo-ifsu.svg" class="w-full h-full">
+                                </div>
+                                <div class="toggle_close">
+                                    <i class="fa-solid fa-xmark text-4xl"></i>
+                                </div>
+                            </div>
+                            <ul class="nav_items home_nav">
+                                <li class="dropdown">
+                                    <div class="nav_link">Profil<i class="fa-solid fa-chevron-down text-sm"></i></div>
+                                    <div class="dropdown-content">
+                                        <a href="pages/school_profile.html">Profil Sekolah</a>
+                                        <a href="pages/pplg_profile.html">Profil PPLG</a>
+                                        <a href="pages/dkv_profile.html">Profil DKV</a>
+                                        <a href="pages/school_leader.html">Sambutan Kepala Sekolah</a>
+                                        <a href="pages/school_organize.html">Stuktur Organisasi</a>
+                                        <a href="pages/school_visimisi.html">Visi & Misi</a>
+                                        <a href="pages/school_culture.html">Budaya Sekolah</a>
+                                    </div>
+                                </li>
+                                <li class="dropdown">
+                                    <div class="nav_link">Kurikulum<i class="fa-solid fa-chevron-down text-sm"></i>
+                                    </div>
+                                    <div class="dropdown-content">
+                                        <a href="#kompetensi">Kompetisi Keahlian</a>
+                                        <a href="pages/prospek_pplg.html">Prospek Kelulusan</a>
+                                        <a href="pages/ekskul_list.html">Ektrakulikuler</a>
+                                        <a href="#">Gambaran Pembelajaran</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="pages/prestasi_list.html" class="nav_link">Prestasi</a>
+                                </li>
+                                <li class="dropdown">
+                                    <div class="nav_link">Kelas Industri<i class="fa-solid fa-chevron-down text-sm"></i>
+                                    </div>
+                                    <div class="dropdown-content">
+                                        <a href="#">Teaching Factory</a>
+                                        <a href="#">Axioo Class Program</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="pages/berita_list.html" class="nav_link">Berita</a>
+                                </li>
+                                <li>
+                                    <a href="pages/school_contact.html" class="nav_link">Kontak Kami</a>
+                                </li>
+                                <a href="ppdb.html" id="nav_btn" class="btn btn-sm btn_v2 btn_scrolled">PPDB</a>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="toggle_open">
+                        <i class="fa-solid fa-bars text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="header_content">
+            <div class="container">
+                <div class="header_items">
+                    <div class="title">
+                        <p>Website Official</p>
+                        <div class="line"></div>
+                    </div>
+                    <h1>SMK INFORMATIKA SUMEDANG</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the
+                        industry's standard dummy text ever since the</p>
+                    <div class="header_btn">
+                        <a href="" class="btn btn-md"><i class="fa-regular fa-circle-play text-lg"></i>PROFIL IFSU</a>
+                        <a href="" class="btn btn-md"><i class="fa-regular fa-compass text-lg"></i></i>Metaverse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="kompetensi" class="w-full">
+        <div class="container">
+            <div class="kompetensi grid grid-cols-1 md-grid-cols-2 gap-12 items-center w-full">
+                <div class="kompetensi_title">
+                    <div class="title_group">
+                        <div class="title">
+                            <p>KOMPETENSI KEAHLIAN</p>
+                        </div>
+                        <h2>Menciptakan Bibit <span class="text-yellow">Unggul</span> dan <span
+                                class="text-yellow">Terampil</span></h2>
+                        <p>Mengembangkan skill siswa sesuai kompetisi keahliannya masing masing</p>
+                    </div>
+                </div>
+                <div class="kompetensi_list grid grid-cols-1 md-grid-cols-2 gap-10">
+                    <div class="list">
+                        <div class="icon">
+                            <img data-src="assets/icons/pplg.png" alt="">
+                        </div>
+                        <h2>Pemrograman Perangkat Lunak dan Gim (PPLG)</h2>
+                        <p>Mengembangkan skill siswa sesuai kompetisi keahliannya masing masing</p>
+                        <div class="btn">
+                            <a href="pages/pplg_profile.html">Profil Jurusan</a><i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="icon">
+                            <img data-src="assets/icons/dkv.png" alt="">
+                        </div>
+                        <h2>Design Visual dan Komunikasi (DKV)</h2>
+                        <p>Mengembangkan skill siswa sesuai kompetisi keahliannya masing masing</p>
+                        <div class="btn">
+                            <a href="pages/dkv_profile.html">Profil Jurusan</a><i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="home_sec3" class="w-full">
+        <div class="container">
+            <div class="fasilitas">
+                <div class="title_group title_centered">
+                    <div class="title">
+                        <p>FASILITAS</p>
+                    </div>
+                    <h2>
+                        Membantu Para Siswa <span class="text-yellow">Berkembang</span>
+                    </h2>
+                </div>
+                <div class="w-full grid grid-cols-1 md-grid-cols-3 lg-grid-cols-4 xl-grid-cols-5 gap-5">
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-red"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-green"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-yellow"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-aqua"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-pink"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-orange"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-brown"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-blue"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-red"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-green"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-yellow"></i>Ruang Praktik
+                        Siswa</div>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-aqua"></i>Ruang Praktik
+                        Siswa</div>
+                </div>
+                <a href="pages/facility_list.html" class="btn btn-md btn-more">
+                    Selengkapnya
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <section id="karyaSiswa" class="w-full">
+        <div class="karya_siswa">
+            <div class="container">
+                <div class="control">
+                    <div class="title_group title_centered">
+                        <div class="title">
+                            <p>KARYA SISWA</p>
+                        </div>
+                        <h2>Beragam Karya <span class="text-yellow">Digital</span> Ciptaan Siswa-Siswi IFSU</h2>
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                            classical Latin literature from</p>
+                    </div>
+                    <div class="control_btn">
+                        <div class="btn button_prev"><i class="fa-solid fa-chevron-left text-white text-sm"></i></div>
+                        <div class="btn button_next"><i class="fa-solid fa-chevron-right text-white text-sm"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blank"></div>
+            <div class="list swiper karyaSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="karya_card">
+                            <div class="text_group">
+                                <div class="icon">
+                                    <img data-src="assets/icons/web.png" alt="">
+                                </div>
+                                <h2>Web Apps</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="karya_card">
+                            <div class="text_group">
+                                <div class="icon">
+                                    <img data-src="assets/icons/mobile.png" alt="">
+                                </div>
+                                <h2>Mobile Apps</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="karya_card">
+                            <div class="text_group">
+                                <div class="icon">
+                                    <img data-src="assets/icons/film.png" alt="">
+                                </div>
+                                <h2>Film & Animasi</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="karya_card">
+                            <div class="text_group">
+                                <div class="icon">
+                                    <img data-src="assets/icons/photo.png" alt="">
+                                </div>
+                                <h2>Photography</h2>
+                                <p>L orem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,orem ipsum dolor
+                                    sit amet, consectetur adipisicing elit. Eligendi,orem ipsum dolor sit amet,
+                                    consectetur adipisicing elit. Eligendi,</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="karya_card">
+                            <div class="text_group">
+                                <div class="icon">
+                                    <img data-src="assets/icons/bot.png" alt="">
+                                </div>
+                                <h2>Robotic</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="home_sec5" class="w-full">
+        <div class="container">
+            <div class="testimoni">
+                <div class="title_group">
+                    <div class="title">
+                        <p>TESTIMONI</p>
+                    </div>
+                    <h2>LULUSAN KAMI</h2>
+                </div>
+                <div class="swiper testiSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testi_card">
+                                <div class="profile">
+                                    <div class="profile_icon">
+                                        <img data-src="assets/img/cameraman-holding-camera.jpg" alt="">
+                                    </div>
+                                    <div class="profile_name">
+                                        <h2>Jamal</h2>
+                                        <p>Programmer</p>
+                                    </div>
+                                </div>
+                                <p class="text">
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                    piece of classical Latin literature from 45 BC, making it over 2000 years
+                                    old.Contrary to popular belief,
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testi_card">
+                                <div class="profile">
+                                    <div class="profile_icon">
+                                        <img data-src="assets/img/ahit.jpg" alt="">
+                                    </div>
+                                    <div class="profile_name">
+                                        <h2>Ahmad Hidayat</h2>
+                                        <p>Programmer</p>
+                                    </div>
+                                </div>
+                                <p class="text">
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                    piece of classical Latin literature from 45 BC, making it over 2000 years
+                                    old.Contrary to popular belief,
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testi_card">
+                                <div class="profile">
+                                    <div class="profile_icon">
+                                        <img data-src="assets/img/cameraman-holding-camera.jpg" alt="">
+                                    </div>
+                                    <div class="profile_name">
+                                        <h2>S. Putri</h2>
+                                        <p>Programmer</p>
+                                    </div>
+                                </div>
+                                <p class="text">
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                    piece of classical Latin literature from 45 BC, making it over 2000 years
+                                    old.Contrary to popular belief,
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testi_card">
+                                <div class="profile">
+                                    <div class="profile_icon">
+                                        <img data-src="assets/img/cameraman-holding-camera.jpg" alt="">
+                                    </div>
+                                    <div class="profile_name">
+                                        <h2>Jamal</h2>
+                                        <p>Programmer</p>
+                                    </div>
+                                </div>
+                                <p class="text">
+                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                    piece of classical Latin literature from 45 BC, making it over 2000 years
+                                    old.Contrary to popular belief,
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="beritaPost" class="w-full">
+        <div class="container">
+            <div class="berita">
+                <div class="title_group">
+                    <div class="title">
+                        <p>SMKIFSU</p>
+                    </div>
+                    <h2>BERITA TERKINI</h2>
+                </div>
+                <div class="berita_galery grid grid-cols-1 md-grid-cols-3 gap-10 md-gap-5">
+                    <div class="berita_border">
+                        <img data-src="assets/img/banner_news.png">
+                        <a href="pages/berita_detail.html" class="berita_desc">
+                            <div class="category">
+                                Nasional
+                            </div>
+                            <div class="title">
+                                <div class="date flex items-center">
+                                    <i class="fa-regular fa-calendar-days text-white text-sm"></i>
+                                    <p>Jum'at, 04 November 2022</p>
+                                </div>
+                                <h2>Workshop Kewirausahaan Berbasis Digital Marketing</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="berita_border">
+                        <img data-src="assets/img/banner_news.png">
+                        <a href="pages/berita_detail.html" class="berita_desc">
+                            <div class="category">
+                                Nasional
+                            </div>
+                            <div class="title">
+                                <div class="date flex items-center">
+                                    <i class="fa-regular fa-calendar-days text-white text-sm"></i>
+                                    <p>Jum'at, 04 November 2022</p>
+                                </div>
+                                <h2>Workshop Kewirausahaan Berbasis Digital Marketing</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="berita_border">
+                        <img data-src="assets/img/banner_news.png">
+                        <a href="pages/berita_detail.html" class="berita_desc">
+                            <div class="category">
+                                Nasional
+                            </div>
+                            <div class="title">
+                                <div class="date flex items-center">
+                                    <i class="fa-regular fa-calendar-days text-white text-sm"></i>
+                                    <p>Jum'at, 04 November 2022</p>
+                                </div>
+                                <h2>Workshop Kewirausahaan Berbasis Digital Marketing</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="pages/berita_list.html" class="btn btn-md btn-more">
+                Selengkapnya
+            </a>
+        </div>
+    </section>
+    <section id="home_sec7" class="w-full">
+        <div class="container">
+            <div class="contact w-full">
+                <div class="title_group">
+                    <div class="title">
+                        <p>KONTAK</p>
+                    </div>
+                    <h2>HUBUNGI KAMI</h2>
+                </div>
+                <div class="contact_grid grid grid-cols-1 md-grid-cols-2 gap-5">
+                    <div class="contact_form">
+                        <form action="">
+                            <input type="text" class="form_control mb-2" placeholder="Pengirim"></input>
+                            <input type="text" class="form_control mb-2" placeholder="Email"></input>
+                            <input type="text" class="form_control mb-2" placeholder="Subject"></input>
+                            <textarea name="pesan" id="pesan" rows="8" placeholder="Pesan"
+                                class="form_control pesan"></textarea>
+                            <button type="submit" class="btn btn-submit">
+                                Kirim
+                            </button>
+                        </form>
+                    </div>
+                    <div class="maps">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.4564104195706!2d107.92178571539691!3d-6.835753768770058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68d6cca33a73eb%3A0xafda24d08020430d!2sSMK%20Informatika%20Sumedang!5e0!3m2!1sen!2sid!4v1671603360520!5m2!1sen!2sid"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="sponsor grid grid-cols-2 md-grid-cols-3 lg-grid-cols-5 gap-15 md-gap-18 xl-gap-20">
+                <div class="sponsor_icon">
+                    <img data-src="assets/icons/axioo.png" alt="" class="ease">
+                </div>
+                <div class="sponsor_icon">
+                    <img data-src="assets/icons/intel.png" alt="" class="ease">
+                </div>
+                <div class="sponsor_icon">
+                    <img data-src="assets/icons/microsoft.png" alt="" class="ease">
+                </div>
+                <div class="sponsor_icon">
+                    <img data-src="assets/icons/mikrotik.png" alt="" class="ease">
+                </div>
+                <div class="sponsor_icon">
+                    <img data-src="assets/icons/telkom.png" alt="" class="ease">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer grid grid-cols-1 md-grid-cols-2 lg-grid-cols-10 gap-15">
+                <div class="footer_title lg-col-span-4">
+                    <div class="profile">
+                        <img data-src="assets/icons/logo-ifsu.svg" class="icon">
+                        <h2>SMK INFORMATIKA SUMEDANG</h2>
+                    </div>
+                    <p>Selamat Datang di Website resmi SMK Informatika Sumedang Bagian ini merupakan bagian except yang
+                        berfungsi untuk menjelaskan secara singkat dari keseluruhan isi berita/blog</p>
+                    <div class="sosmed_group">
+                        <a href="#" class="icon">
+                            <i class="fa-brands fa-instagram text-white text-md"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fa-brands fa-square-facebook text-white text-md"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fa-brands fa-youtube text-white text-md"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fa-brands fa-tiktok text-white text-md"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer_nav lg-col-span-6 grid grid-cols-1 lg-grid-cols-10 gap-8">
+                    <div class="nav_menu lg-col-span-3">
+                        <h2>OUR PAGES</h2>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Profil
+                                Sekolah</span>
+                        </a>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Berita</span>
+                        </a>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Agenda</span>
+                        </a>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Kontak Kami</span>
+                        </a>
+                    </div>
+                    <div class="nav_menu lg-col-span-3">
+                        <h2>KATEGORI</h2>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Layanan Kami</span>
+                        </a>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Berita
+                                Terkini</span>
+                        </a>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Prestasi
+                                Sekolah</span>
+                        </a>
+                        <a href="#" class="nav_item flex items-center">
+                            <i class="fa-solid fa-chevron-right text-white text-xs ease"></i><span>Pendataan
+                                Siswa</span>
+                        </a>
+                    </div>
+                    <div class="nav_menu lg-col-span-4">
+                        <h2>IKUTI KAMI</h2>
+                        <div class="nav_item">
+                            <p>Jl. Angkrek Situ No.19, Situ, Kec. Sumedang Utara, Kabupaten Sumedang, Jawa Barat 45621
+                            </p>
+                        </div>
+                        <div class="nav_item">
+                            <p>Phone : (603) 555-0123</p>
+                        </div>
+                        <div class="nav_item">
+                            <p>Email : admin.smkifsu@sch.id</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                Copyright &copy; 2022 Digifsu - Teaching Factory
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/swiper.js"></script>
+
+    <script>
+        // Home Navbar Scrolling Effect
+        // window.onscroll = function () {
+        //     if (window.pageYOffset > fixedNav) {
+        //         header.classList.add("header_fixed")
+        //         btnNav.classList.add("btn_scrolled")
+        //         toggleOpen.classList.add("text-black")
+        //         for (i = 0; i < linkNav.length; ++i) {
+        //             linkNav[i].classList.remove("link_v2")
+        //             linkNav[i].classList.replace("active_v2", "active")
+        //         }
+        //     } else {
+        //         header.classList.remove("header_fixed")
+        //         btnNav.classList.remove("btn_scrolled")
+        //         toggleOpen.classList.remove("text-black")
+        //         for (i = 0; i < linkNav.length; ++i) {
+        //             linkNav[i].classList.add("link_v2")
+        //             linkNav[i].classList.replace("active", "active_v2")
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
