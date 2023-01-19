@@ -1,7 +1,7 @@
 <?php $this->extend('admin\layout\app_layout'); ?>
 <?php $this->section('head');
 echo link_tag('elfinder/css/elfinder.min.css'),
-    link_tag('elfinder/css/Material/css/theme-light.css');
+link_tag('elfinder/css/Material/css/theme-light.css');
 ?>
 <style>
     .upload-box {
@@ -38,22 +38,16 @@ echo link_tag('elfinder/css/elfinder.min.css'),
                     <div class="form-group">
                         <label for="" class="form-label">Nama Komli</label>
                         <input value="<?= $data->nama_komli ?>" required type="text" name="nama_komli"
-                            class="form-control">
+                        class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Deskrpsi</label>
-                        <textarea name="deskripsi" id="" cols="30" rows="10"
-                            class="form-control"><?= $data->deskripsi; ?></textarea>
+                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"
+                        class="form-control"><?= $data->deskripsi; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="" class="form-label">visi</label>
-                        <textarea name="visi" id="" cols="30" rows="10"
-                            class="form-control"><?= $data->visi; ?></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="form-label">misi</label>
-                        <textarea name="misi" id="" cols="30" rows="10"
-                            class="form-control"><?= $data->misi; ?></textarea>
+                        <label for="" class="form-label">Link Video Profile</label>
+                        <input type="text" class="form-control" name="video_profile" value="<?= $data->video_profile; ?>">
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Kepala Jurusan</label>
@@ -72,9 +66,9 @@ echo link_tag('elfinder/css/elfinder.min.css'),
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="" class="form-label">karir</label>
-                        <textarea name="karir" id="" cols="30" rows="10"
-                            class="form-control"><?= $data->karir; ?></textarea>
+                        <label for="" class="form-label">kata ajakan</label>
+                        <textarea name="kata_ajakan" id="" cols="30" rows="10"
+                        class="form-control"><?= $data->kata_ajakan; ?></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class='btn btn-primary'>UPDATE</button>
@@ -87,8 +81,17 @@ echo link_tag('elfinder/css/elfinder.min.css'),
 
 </div>
 <?php $this->endSection(); ?>
+<?php $this->section('footer');?>
+<?php echo script_tag('assets/vendors/tinymce/tinymce.min.js'); ?>
+<script>
 
-<?php $this->section('footer');
-?>
-
+    window.onload = () =>{
+        tinymce.init({
+            menubar : true,
+            selector : '#deskripsi',
+            plugins : 'lists',
+            toolbar : ['bullist | bold | numlist | formatselect'],
+        })
+    }
+</script>
 <?php $this->endSection() ?>

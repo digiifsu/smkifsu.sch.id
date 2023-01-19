@@ -14,7 +14,7 @@ class Komli extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = array ('nama_komli', 'deskripsi','slug' , 'visi', 'misi', 'kepala_jurusan' , 'karir');
+    protected $allowedFields    = array ('nama_komli', 'deskripsi','slug' , 'video_profile', 'kepala_jurusan' , 'kata_ajakan');
 
     // Dates
     protected $useTimestamps = false;
@@ -39,9 +39,12 @@ class Komli extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public function joinKajur(){
+        
+    }
     public function getAll($limit = null){
      $result = $this->select('tb_lembaga.nama as nama_kajur, tb_kompetensi_keahlian.*')
      ->join('tb_lembaga', 'tb_lembaga.id = tb_kompetensi_keahlian.kepala_jurusan','LEFT');
      return $result;
- }
+    }
 }

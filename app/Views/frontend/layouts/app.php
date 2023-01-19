@@ -18,6 +18,15 @@
     <link rel="stylesheet" href="<?= base_url('assets/frontend/assets/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="<?= base_url('assets/frontend/assets/js/lozad.js'); ?>"></script>
+    <style>
+        ul,ol{
+            margin: 0px 18px;
+            padding:0px 18px;
+        }
+        .head_about .desc .text_group p{
+            margin: 10px 0px;
+        }
+    </style>
     <title>SMKS INFORMATIKA SUMEDANG</title>
 </head>
 

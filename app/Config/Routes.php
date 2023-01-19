@@ -22,6 +22,8 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('post/(:num)/(:any)', "Home::detailPost/$1/$2", ['as' => 'frontend_detail_post']);
 $routes->get('komli/show/(:num)/(:any)', "Komli::detail/$1/$2",['as'=>'frontend_detail_komli']);
+$routes->get('struktur_organisasi', "StrukturOrganisasi::index",['as'=>'frontend_struktur_organisasi']);
+
 /*
  * --------------------------------------------------------------------
  * Route for admin

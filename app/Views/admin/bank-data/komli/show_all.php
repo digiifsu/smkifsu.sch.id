@@ -19,8 +19,7 @@ $this->section("content")
                     <th>ID</th>
                     <th>Nama</th>
                     <th>Deskripsi</th>
-                    <th>Visi</th>
-                    <th>Misi</th>
+                    <th>video profile</th>
                     <th>Kepala Jursan</th>
                     <th>Action</th>
 
@@ -32,9 +31,8 @@ $this->section("content")
                         <tr>
                             <td><?= $i; ?></td>
                             <td><?= $result->nama_komli ?></td>
-                            <td><?= potongString($result->deskripsi,300); ?></td>
-                            <td><?= potongString($result->visi,300); ?></td>
-                            <td><?= potongString($result->misi,300); ?></td>
+                            <td><?= potongString(strip_tags($result->deskripsi),300); ?></td>
+                            <td><a href="<?= $result->video_profile ?? ''; ?>">video Profile</a></td>
                             <td><?= $result->nama_kajur ?></td>
                             <td>
                                 <a onclick="return confirm('Apakah anda yakin!')" class="btn btn-sm btn-warning" href="<?= site_url(route_to('admin_bankdata_delete_komli',$result->id)) ?>">Delete</a>
@@ -67,15 +65,11 @@ $this->section("content")
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Deskripsi</label>
-                    <textarea name="deskripsi" class="form-control" id="" cols="30" rows="3"></textarea>
+                    <textarea name="deskripsi" class="form-control" id="deskripsi" cols="30" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Visi</label>
-                    <textarea name="visi" id="" cols="30" class="form-control" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="" class="form-label">Misi</label>
-                    <textarea name="misi" class="form-control" id="" cols="30" rows="3"></textarea>
+                    <label for="" class="form-label">Link Video Profile</label>
+                    <input type="text" name='video_profile' class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Kepala Jurusan</label>
@@ -86,8 +80,8 @@ $this->section("content")
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Prospek Karir</label>
-                    <textarea name="karir" class="form-control" id="" cols="30" rows="3"></textarea>
+                    <label for="" class="form-label">Kata Ajakan</label>
+                    <textarea name="kata_ajakan" class="form-control" id="" cols="30" rows="3"></textarea>
                 </div>
 
             </div>
@@ -99,7 +93,18 @@ $this->section("content")
         </div>
     </div>
 </div>
+<?php echo script_tag('assets/vendors/tinymce/tinymce.min.js'); ?>
 <script>
+
+    window.onload = () =>{
+        tinymce.init({
+            menubar : true,
+            selector : '#deskripsi',
+            plugins : 'lists',
+            toolbar : ['bullist | bold | numlist | formatselect'],
+        })
+    }
+
     $('#btn-tambah-komli').on('click', () => {
         $('#add_komli').modal('show')
     });

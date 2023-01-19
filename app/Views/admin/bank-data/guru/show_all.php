@@ -46,65 +46,65 @@ echo $this->section('content')
             </div>
             <div class="card-body">
                 <?php if(session()->has('message')): ?>
-                    <p class="alert alert-info"><?= session()->getFlashdata('message'); ?></p>
-                <?php endif ?>
-                <div class="table-responsive">
-                    <table id="komli-tabel" class="display table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nama</th>
-                                <th>Kategori</th>
-                                <th>Email</th>
-                                <th>Agama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>
-                                    Gambar
-                                </th>
-                                <th style="width: 10%">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if (!empty($data) && is_array($data)) {
-                                $i = 0;
-                                foreach ($data as $row) {
-                                    $i++;
-                            ?>
-                                    <tr>
-                                        <td><?= $i; ?></td>
-                                        <td><?= $row->nama ?></td>
-                                        <td><?= $row->kategori ?></td>
-                                        <td><?= $row->email ?></td>
-                                        <td><?= $row->agama ?></td>
-                                        <td><?= $row->jenis_kelamin ?></td>
-                                        <td>
-                                            <?php if (!empty($row->image)) : ?>
-                                                <img style="border:1px solid;" width="50px" height="50px" class="rounded-circle" src="<?= base_url($row->image) ?>" alt="">
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <div class="form-button-action">
-                                                <a href="<?= site_url(route_to('admin_bangdata_update_guru', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit data <?= $row->nama ?>">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <a onclick="confirm(event)" href="<?= site_url(route_to('admin_bankdata_delete_guru', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
-                                                    <i class="fa fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                            <?php
-                                }
+                <p class="alert alert-info"><?= session()->getFlashdata('message'); ?></p>
+            <?php endif ?>
+            <div class="table-responsive">
+                <table id="komli-tabel" class="display table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Kategori</th>
+                            <th>Email</th>
+                            <th>Agama</th>
+                            <th>Jenis Kelamin</th>
+                            <th>
+                                Gambar
+                            </th>
+                            <th style="width: 10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if (!empty($data) && is_array($data)) {
+                            $i = 0;
+                            foreach ($data as $row) {
+                                $i++;
+                                ?>
+                                <tr>
+                                    <td><?= $i; ?></td>
+                                    <td><?= $row->nama ?></td>
+                                    <td><?= $row->kategori ?></td>
+                                    <td><?= $row->email ?></td>
+                                    <td><?= $row->agama ?></td>
+                                    <td><?= $row->jenis_kelamin ?></td>
+                                    <td>
+                                        <?php if (!empty($row->image)) : ?>
+                                            <img style="border:1px solid;" width="50px" height="50px" class="rounded-circle" src="<?= base_url($row->image) ?>" alt="">
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <div class="form-button-action">
+                                            <a href="<?= site_url(route_to('admin_bangdata_update_guru', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit data <?= $row->nama ?>">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a onclick="confirm(event)" href="<?= site_url(route_to('admin_bankdata_delete_guru', strip_tags($row->id))) ?>" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Hapus">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php
                             }
-                            ?>
+                        }
+                        ?>
 
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <?php $this->endSection(); ?>
@@ -157,6 +157,22 @@ echo script_tag('assets/js/tinymceElfinder.js');
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="ig_link">Instagram</label>
+                    <input type="url" name="ig_link" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="fb_link">facebook</label>
+                    <input type="url" name="fb_link" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="yt_link">Youtube</label>
+                    <input type="url" name="yt_link" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="tiktok_link">Tiktok</label>
+                    <input type="url" name="tiktok_link" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="" class="form-label">Jenis Kelamin</label>
                     <select required name="jenis_kelamin" id="" class="form-control">
                         <option value="L">L</option>
@@ -174,10 +190,10 @@ echo script_tag('assets/js/tinymceElfinder.js');
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 <script>
     const mceElf = new tinymceElfinder({
@@ -209,7 +225,7 @@ echo script_tag('assets/js/tinymceElfinder.js');
         "pageLength": 5,
     });
 
-  
+
     async function save(data){
         $.ajax({
             url : `<?=site_url(route_to('admin_bankdata_tambah_guru')) ?>`,

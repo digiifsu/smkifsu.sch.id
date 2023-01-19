@@ -21,7 +21,11 @@ class Guru extends Model
         'email',
         'status',
         'kategori',
-        'agama'
+        'agama',
+        'yt_link',
+        'fb_link',
+        'yt_link',
+        'tiktok_link',
     ];
 
     // Dates

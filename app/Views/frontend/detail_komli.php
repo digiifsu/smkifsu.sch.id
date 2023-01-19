@@ -6,12 +6,12 @@
     <div class="pages_nav">
         <div class="container">
             <h2>
-                Profil <?php echo $data_komli->nama_komli; ?>
+                Profil <?php echo ucwords($data_komli->nama_komli); ?>
             </h2>
             <div class="nav flex items-center gap-3">
                 <a href="../home.html">Beranda</a><i class="fa-solid fa-chevron-right text-white"></i><a
                 href="">Profil Jurusan</a><i class="fa-solid fa-chevron-right text-white"></i><a class="active"
-                href=""><?php echo $data_komli->nama_komli; ?></a>
+                href=""><?php echo ucwords($data_komli->nama_komli); ?></a>
             </div>
         </div>
     </div>
@@ -27,16 +27,16 @@
                     <h2><?php echo $data_komli->nama_komli; ?></h2>
                 </div>
                 <div class="text_group">
-                    <p>
+                    <p class="deskripsi_komli"> 
                         <?php echo $data_komli->deskripsi; ?>
                     </p>
-                    <a href="" class="btn btn-md">Tonton Vidio Profil</a>
+                    <a href="<?= $data_komli->video_profile ?>" target="__blank" class="btn btn-md">Tonton Vidio Profil</a>
                 </div>
             </div>
             <div class="banner md-col-span-2">
                 <div class="namecard">
                     <p>Kepala Jurusan</p>
-                    <h6><?= $data_komli->nama_kajur; ?></h6>
+                    <h6><?= ucwords($data_komli->nama_kajur); ?></h6>
                 </div>
                 <img data-src="<?php echo base_url($data_komli->foto_kajur); ?>">
             </div>
@@ -87,20 +87,19 @@
                     <div class="title">
                         <p>KARYA SISWA</p>
                     </div>
-                    <h2>Desain Komunikasi Visual</h2>
+                    <h2><?php echo ucwords($data_komli->nama_komli); ?></h2>
                 </div>
                 <div class="desc">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the
-                        industry's standard dummy text ever since theLorem Ipsum is simply dummy text of the
-                        printing and typesetting industry. has been the industry's standard dummy text ever since
-                    theLorem Ipsum is simply dummy text of the printing </p>
+                    <p>
+                        Semua karya siswa bisa di lihat di link bawah ini!
+                    </p>
                 </div>
                 <a href="" class="btn btn-md gap-4">
                     <i class="fa-brands fa-instagram text-lg"></i>Pusat Karya Ifsu
                 </a>
             </div>
             <div class="project lg-col-span-3">
-             <img src="../assets/img/prototype.png">
+             <img src="<?php base_url('assets/frontend') ?>/assets/img/prototype.png">
          </div>
      </div>
  </div>
@@ -116,9 +115,11 @@
                     <div class="title">
                         <p>YUK GABUNG DALAM JURUSAN</p>
                     </div>
-                    <h2>Pengembangan Perangkat Lunak Dan Gim</h2>
+                    <h2><?php echo ucwords($data_komli->nama_komli); ?></h2>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. n the industry's standard  has been the industry's standard dummy text ever since</p>
+                <p>
+                    <?php echo ucwords($data_komli->kata_ajakan); ?>
+                </p>
                 <a href="" class="btn btn-sm">Daftar Sekarang</a>
             </div>
         </div>

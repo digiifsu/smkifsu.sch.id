@@ -42,11 +42,7 @@
                             </div>
                             <h2><?php echo $value->nama_komli; ?></h2>
                             <p>
-                                <?php if (strlen($value->deskripsi) >= 120): ?>
-                                    <?php echo substr(strip_tags(ucwords($value->deskripsi)), 0,120); ?>
-                                <?php else: ?>
-                                    <?php echo strip_tags(ucwords($value->deskripsi)) ?>
-                                <?php endif ?>
+                                <?php echo substr(strip_tags(ucwords($value->deskripsi)), 0,130); ?>
                             </p>
                             <div class="btn">
                                 <a href="<?php echo site_url(route_to('frontend_detail_komli',$value->id, $value->slug)); ?>">Profil Jurusan</a><i class="fa-solid fa-arrow-right"></i>
