@@ -20,8 +20,8 @@
     <script src="<?= base_url('assets/frontend/assets/js/lozad.js'); ?>"></script>
     <style>
         ul,ol{
-            margin: 0px 18px;
-            padding:0px 18px;
+            margin: 18px;
+            padding: 10px;
         }
         .head_about .desc .text_group p{
             margin: 10px 0px;

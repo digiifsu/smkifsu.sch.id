@@ -20,7 +20,7 @@ class Pengaturan extends Model
          'favicon',
          'video_profile',
     ];
-    public function updateProfile($content){
-        return $this->query("UPDATE ".$this->table." SET profile_sekolah='{$content}'");
+    public function updateProfile($content,$visi_misi,$budaya_sekolah){
+        return $this->query("UPDATE ".$this->table." SET profile_sekolah='{$content}',visi_misi='{$visi_misi}',budaya_sekolah='{$budaya_sekolah}'");
     }
 }

@@ -19,7 +19,12 @@ class Pengaturan extends BaseController
     }
     public function profile(){
         $profile = $this->model()->get()->getRow();
-        return view('admin/pengaturan/profile_sekolah', ['title'=>"Pengaturan Profile Sekolah",'profile_sekolah'=>$profile->profile_sekolah]);
+        return view('admin/pengaturan/profile_sekolah',[
+            'title'=>"Pengaturan Profile Sekolah",
+            'profile_sekolah'=>$profile->profile_sekolah,
+            'visi_misi'=>$profile->visi_misi,
+            'budaya_sekolah' => $profile->budaya_sekolah,
+        ]);
     }
     public function generalUpdate(){
         $data = $this->request->getPost();
@@ -30,8 +35,9 @@ class Pengaturan extends BaseController
     }
     public function profileUpdate(){
         $profile_sekolah = $this->request->getPost('profile_sekolah');
-        echo $profile_sekolah;
-        if ($this->model()->updateProfile($profile_sekolah)) {
+        $visi_misi = $this->request->getPost('visi_misi');
+        $budaya_sekolah = $this->request->getPost('budaya_sekolah');
+        if ($this->model()->updateProfile($profile_sekolah,$visi_misi,$budaya_sekolah)) {
             return redirect()->route('admin_pengaturan_profile')->with('success','Pengaturan Berhasil di update');
         }
     }

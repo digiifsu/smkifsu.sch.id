@@ -7,41 +7,32 @@ use CodeIgniter\Pager\PagerRenderer;
  */
 $pager->setSurroundCount(2);
 ?>
+<div class="berita_pagination" aria-label="<?= lang('Pager.pageNavigation') ?>">
 
-<nav aria-label="<?= lang('Pager.pageNavigation') ?>">
-	<ul class="pagination">
-		<?php if ($pager->hasPrevious()) : ?>
-			<li>
-				<a href="<?= $pager->getFirst() ?>" aria-label="<?= lang('Pager.first') ?>">
-					<span aria-hidden="true"><?= lang('Pager.first') ?></span>
-				</a>
-			</li>
-			<li>
-				<a href="<?= $pager->getPrevious() ?>" aria-label="<?= lang('Pager.previous') ?>">
-					<span aria-hidden="true"><?= lang('Pager.previous') ?></span>
-				</a>
-			</li>
-		<?php endif ?>
-
-		<?php foreach ($pager->links() as $link) : ?>
-			<li <?= $link['active'] ? 'class="active"' : '' ?>>
-				<a href="<?= $link['uri'] ?>">
-					<?= $link['title'] ?>
-				</a>
-			</li>
-		<?php endforeach ?>
-
-		<?php if ($pager->hasNext()) : ?>
-			<li>
-				<a href="<?= $pager->getNext() ?>" aria-label="<?= lang('Pager.next') ?>">
-					<span aria-hidden="true"><?= lang('Pager.next') ?></span>
-				</a>
-			</li>
-			<li>
-				<a href="<?= $pager->getLast() ?>" aria-label="<?= lang('Pager.last') ?>">
-					<span aria-hidden="true"><?= lang('Pager.last') ?></span>
-				</a>
-			</li>
-		<?php endif ?>
-	</ul>
-</nav>
+	
+	<?php if ($pager->hasPrevious()) : ?>
+		<a class="btn_page page_prev page_control" href="<?= $pager->getFirst() ?>" aria-label="<?= lang('Pager.first') ?>">
+			<i class="fa-solid fa-chevron-left text-xs"></i>
+		</a>
+		<a class="btn_page page_next page_control" href="<?= $pager->getPrevious() ?>" aria-label="<?= lang('Pager.previous') ?>">
+			<i class="fa-solid fa-chevron-right text-xs"></i>
+		</a>
+	<?php endif ?>
+	<?php foreach ($pager->links() as $link) : ?>
+		<a class="btn_page active <?= $link['active'] ? 'active' : '' ?>" href="<?= $link['uri'] ?>">
+			<?= $link['title'] ?>
+		</a>
+	<?php endforeach ?>
+	<?php if ($pager->hasNext()) : ?>
+		<li>
+			<a href="<?= $pager->getNext() ?>" aria-label="<?= lang('Pager.next') ?>">
+				<span aria-hidden="true"><?= lang('Pager.next') ?></span>
+			</a>
+		</li>
+		<li>
+			<a href="<?= $pager->getLast() ?>" aria-label="<?= lang('Pager.last') ?>">
+				<span aria-hidden="true"><?= lang('Pager.last') ?></span>
+			</a>
+		</li>
+	<?php endif ?>
+</div>

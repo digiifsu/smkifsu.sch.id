@@ -3,7 +3,7 @@
 <?php 
 $pengaturan = model("Admin\Pengaturan")->get()->getRow();
  ?>
-<header class="pages_header w-full" style="background: url('../assets/img/header_bg.png');">
+<header class="pages_header w-full" style="background: url('<?php echo base_url('assets/frontend/assets/img/header_bg.png') ?>');">
 	<?= $this->include('frontend/partials/nav_menu'); ?>
 	<div class="pages_nav">
 		<div class="container">

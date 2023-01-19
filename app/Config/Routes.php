@@ -24,6 +24,10 @@ $routes->get('post/(:num)/(:any)', "Home::detailPost/$1/$2", ['as' => 'frontend_
 $routes->get('komli/show/(:num)/(:any)', "Komli::detail/$1/$2",['as'=>'frontend_detail_komli']);
 $routes->get('struktur_organisasi', "StrukturOrganisasi::index",['as'=>'frontend_struktur_organisasi']);
 $routes->get('profile', "Home::profile",['as'=>'frontend_profile']);
+$routes->get('profile/visi_misi',"Home::visi_misi",['as'=>'frontend_visimisi']);
+$routes->get('profile/budaya_sekolah',"Home::budaya_sekolah",['as'=>'frontend_budaya_sekolah']);
+$routes->get('post','Home::post',['as'=>'frontend_post']);
+
 /*
  * --------------------------------------------------------------------
  * Route for admin
