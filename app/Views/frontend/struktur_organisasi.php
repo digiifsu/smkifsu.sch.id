@@ -9,8 +9,8 @@
                 Stuktur Organisasi
             </h2>
             <div class="nav flex items-center gap-3">
-                <a href="../home.html">Beranda</a><i class="fa-solid fa-chevron-right text-white"></i><a
-                href="#" class="active">Struktur Organisasi</a><i class="fa-solid fa-chevron-right text-white"></i>
+                <a href="<?php echo site_url('frontend'); ?>">Beranda</a><i class="fa-solid fa-chevron-right text-white"></i><a
+                href="#" class="active">Struktur Organisasi</a>
             </div>
         </div>
     </div>
@@ -26,37 +26,41 @@
             </div>
             <div class="line"></div>
             <div class="pengurus grid grid-cols-1 lg-grid-cols-2 gap-5">
-             <?php 
-             $guru = model("admin/guru");
-             ?>
-             <?php if ($data = $guru->get()->getResult()): ?>
-             <?php foreach ($data as $row): ?>
-               <div class="pengurus_card grid grid-cols-8 gap-5 md-gap-7">
-                <div class="profile_img col-span-3">
-                    <img style="width:100%;height:100%;object-fit: cover;" data-src="<?php echo base_url($row->image) ?? '' ?>" alt="<?php echo $row->nama; ?>">
-                </div>
-                <div class="bio col-span-5">
-                    <p><?php echo $row->kategori; ?></p>
-                    <h2><?php echo ucwords($row->nama ?? '?'); ?></h2>
-                    <div class="sosmed_group flex gap-3">
-                        <a href="<?php echo $row->ig_link ?? '#'; ?>" class="icon">
-                            <i class="fa-brands fa-instagram text-white text-md"></i>
-                        </a>
-                        <a href="<?php echo $row->fb_link ?? '#'; ?>" class="icon">
-                            <i class="fa-brands fa-square-facebook text-white text-md"></i>
-                        </a>
-                        <a href="<?php echo $row->yt_link ?? '#'; ?>" class="icon">
-                            <i class="fa-brands fa-youtube text-white text-md"></i>
-                        </a>
-                        <a href="<?php echo $row->tiktok_link ?? '#'; ?>" class="icon">
-                            <i class="fa-brands fa-tiktok text-white text-md"></i>
-                        </a>
+               <?php 
+               $guru = model("admin/guru");
+               ?>
+               <?php if ($data = $guru->get()->getResult()): ?>
+               <?php foreach ($data as $row): ?>
+                   <div class="pengurus_card grid grid-cols-8 gap-5 md-gap-7">
+                    <div class="profile_img col-span-3">
+                       <?php if (!empty($row->image)): ?>
+                            <img width="100%" height="100%" style="object-fit: cover;" data-src="<?= base_url($row->image); ?>">
+                        <?php else: ?>
+                             <img width="100%" height="100%" style="object-fit: cover;" data-src="https://via.placeholder.com/150">
+                       <?php endif ?>
+                    </div>
+                    <div class="bio col-span-5">
+                        <p><?= $row->kategori; ?></p>
+                        <h2><?= ucwords($row->nama); ?></h2>
+                        <div class="sosmed_group flex gap-3">
+                            <a href="<?= $row->ig_link; ?>" class="icon">
+                                <i class="fa-brands fa-instagram text-white text-md"></i>
+                            </a>
+                            <a href="<?= $row->fb_link; ?>" class="icon">
+                                <i class="fa-brands fa-square-facebook text-white text-md"></i>
+                            </a>
+                            <a href="<?= $row->yt_link; ?>" class="icon">
+                                <i class="fa-brands fa-youtube text-white text-md"></i>
+                            </a>
+                            <a href="<?= $row->tiktok_link; ?>" class="icon">
+                                <i class="fa-brands fa-tiktok text-white text-md"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach ?>
-    <?php endif ?>
-</div>
+            <?php endforeach ?>
+        <?php endif ?>
+    </div>
 </article>
 </div>
 </section>

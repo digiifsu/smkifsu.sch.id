@@ -19,11 +19,11 @@ $routes->set404Override();
 /**
  * ROUTE FOR FRONTEND
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::index',['as'=>'frontend']);
 $routes->get('post/(:num)/(:any)', "Home::detailPost/$1/$2", ['as' => 'frontend_detail_post']);
 $routes->get('komli/show/(:num)/(:any)', "Komli::detail/$1/$2",['as'=>'frontend_detail_komli']);
 $routes->get('struktur_organisasi', "StrukturOrganisasi::index",['as'=>'frontend_struktur_organisasi']);
-
+$routes->get('profile', "Home::profile",['as'=>'frontend_profile']);
 /*
  * --------------------------------------------------------------------
  * Route for admin
@@ -76,6 +76,15 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			);
 		}
 	);
+	/**
+	 * ROUTES PENGATURAN
+	 * */
+	$routes->group('pengaturan',function($routes){
+		$routes->get('profile', 'Admin\Pengaturan::profile', ['as'=>'admin_pengaturan_profile']);
+		$routes->post('profile', 'Admin\Pengaturan::profileUpdate', ['as'=>'admin_pengaturan_profile_update']);
+		$routes->get('general', 'Admin\Pengaturan::general',['as'=>'admin_pengaturan_general']);
+		$routes->post('general', 'Admin\Pengaturan::generalUpdate',['as'=>'admin_pengaturan_update']);
+	});
 	/*
 	 * --------------------------------------------------------------------
 	 * Route group bankdata
@@ -92,13 +101,13 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			$routes->group(
 				'siswa',
 				function ($routes) {
-						$routes->get('', "Admin\Siswa::index", ['as' => 'admin_bankdata_siswa']);
-						$routes->post('add_new', "Admin\Siswa::store", ['as' => 'admin_tambah_siswa']);
-						$routes->get('delete/(:any)', "Admin\Siswa::destroy/$1", ['as' => 'admin_bankdata_hapus_siswa']);
-						$routes->get('edit/(:num)', "Admin\Siswa::edit/$1", ['as' => 'admin_bankdata_edit_siswa']);
-						$routes->post('edit/(:num)', "Admin\Siswa::update/$1", ['as' => 'admin_bankdata_update_siswa']);
+					$routes->get('', "Admin\Siswa::index", ['as' => 'admin_bankdata_siswa']);
+					$routes->post('add_new', "Admin\Siswa::store", ['as' => 'admin_tambah_siswa']);
+					$routes->get('delete/(:any)', "Admin\Siswa::destroy/$1", ['as' => 'admin_bankdata_hapus_siswa']);
+					$routes->get('edit/(:num)', "Admin\Siswa::edit/$1", ['as' => 'admin_bankdata_edit_siswa']);
+					$routes->post('edit/(:num)', "Admin\Siswa::update/$1", ['as' => 'admin_bankdata_update_siswa']);
 
-					}
+				}
 			);
 			/*
 			 * --------------------------------------------------------------------
@@ -108,13 +117,14 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			$routes->group(
 				'komli',
 				function ($routes) {
-						$routes->get('/', 'Admin\KompetensiKeahlian::index', ['as' => 'admin_bankdata_komli']);
-						$routes->post('/', 'Admin\KompetensiKeahlian::store', ['as' => 'admin_bankdata_tambah_komli']);
-						$routes->get('delete/(:num)', 'Admin\KompetensiKeahlian::delete/$1', ['as' => 'admin_bankdata_delete_komli']);
-						$routes->get('update/(:num)', 'Admin\KompetensiKeahlian::update/$1', ['as' => 'admin_bankdata_update_komli']);
-						$routes->post('updates/(:num)', 'Admin\KompetensiKeahlian::postEdit/$1', ['as' => 'admin_bankdata_updates_komli']);
-					}
+					$routes->get('/', 'Admin\KompetensiKeahlian::index', ['as' => 'admin_bankdata_komli']);
+					$routes->post('/', 'Admin\KompetensiKeahlian::store', ['as' => 'admin_bankdata_tambah_komli']);
+					$routes->get('delete/(:num)', 'Admin\KompetensiKeahlian::delete/$1', ['as' => 'admin_bankdata_delete_komli']);
+					$routes->get('update/(:num)', 'Admin\KompetensiKeahlian::update/$1', ['as' => 'admin_bankdata_update_komli']);
+					$routes->post('updates/(:num)', 'Admin\KompetensiKeahlian::postEdit/$1', ['as' => 'admin_bankdata_updates_komli']);
+				}
 			);
+
 			/*
 			 * --------------------------------------------------------------------
 			 * Route group guru
@@ -123,11 +133,11 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			$routes->group(
 				'guru',
 				function ($routes) {
-						$routes->get('/', 'Admin\Guru::index', ['as' => 'admin_bankdata_guru']);
-						$routes->post('/', 'Admin\Guru::store', ['as' => 'admin_bankdata_tambah_guru']);
-						$routes->get('delete/(:num)', 'Admin\Guru::destroy/$1', ['as' => 'admin_bankdata_delete_guru']);
-						$routes->get('update/(:num)', 'Admin\Guru::edit/$1', ['as' => 'admin_bangdata_update_guru']);
-					}
+					$routes->get('/', 'Admin\Guru::index', ['as' => 'admin_bankdata_guru']);
+					$routes->post('/', 'Admin\Guru::store', ['as' => 'admin_bankdata_tambah_guru']);
+					$routes->get('delete/(:num)', 'Admin\Guru::destroy/$1', ['as' => 'admin_bankdata_delete_guru']);
+					$routes->get('update/(:num)', 'Admin\Guru::edit/$1', ['as' => 'admin_bangdata_update_guru']);
+				}
 			);
 			/*
 			 * --------------------------------------------------------------------
@@ -137,12 +147,12 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			$routes->group(
 				'kelas',
 				function ($routes) {
-						$routes->get('/', 'Admin\Kelas::index', ['as' => 'admin_bankdata_kelas']);
-						$routes->post('/', 'Admin\Kelas::store', ['as' => 'admin_bankdata_tambah_kelas']);
-						$routes->get('edit/(:num)', 'Admin\Kelas::edit/$1', ['as' => 'admin_bankdata_update_kelas']);
-						$routes->post('edit/(:num)', 'Admin\Kelas::update/$1', ['as' => 'admin_bankdata_post_update_kelas']);
+					$routes->get('/', 'Admin\Kelas::index', ['as' => 'admin_bankdata_kelas']);
+					$routes->post('/', 'Admin\Kelas::store', ['as' => 'admin_bankdata_tambah_kelas']);
+					$routes->get('edit/(:num)', 'Admin\Kelas::edit/$1', ['as' => 'admin_bankdata_update_kelas']);
+					$routes->post('edit/(:num)', 'Admin\Kelas::update/$1', ['as' => 'admin_bankdata_post_update_kelas']);
 
-					}
+				}
 			);
 			/*
 			 * --------------------------------------------------------------------
@@ -153,7 +163,7 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 				'eskul',
 				function ($routes) {
 
-					}
+				}
 			);
 			/*
 			 * --------------------------------------------------------------------
@@ -164,7 +174,7 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 				'agenda',
 				function ($routes) {
 
-					}
+				}
 			);
 			/*
 			 * --------------------------------------------------------------------
@@ -175,7 +185,7 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 				"pages",
 				function ($routes) {
 
-					}
+				}
 			);
 
 		}

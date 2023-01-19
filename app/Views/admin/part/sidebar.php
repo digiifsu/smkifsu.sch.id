@@ -135,12 +135,12 @@
                     <div class="collapse" id="tables">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="tables/tables.html">
-                                    <span class="sub-item">Slider</span>
+                                <a href="<?= site_url(route_to('admin_pengaturan_profile')) ?>">
+                                    <span class="sub-item">Profile Sekolah</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="tables/datatables.html">
+                                <a href="<?= site_url(route_to('admin_pengaturan_general')) ?>">
                                     <span class="sub-item">General</span>
                                 </a>
                             </li>
