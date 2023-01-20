@@ -167,10 +167,8 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			 * Route group eskul
 			 * --------------------------------------------------------------------
 			 */
-			$routes->group(
-				'eskul',
-				function ($routes) {
-
+			$routes->group('eskul',function ($routes) {
+					$routes->get('/', "Admin\Eskul::index",['as'=>"admin_eskul_all"]);
 				}
 			);
 			/*

@@ -41,7 +41,6 @@ abstract class BaseController extends Controller
         'form',
         'filesystem'
     ];
-
     /**
      * Constructor.
      */
