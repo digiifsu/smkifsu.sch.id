@@ -24,6 +24,10 @@
        <input type="text" value="<?= $pengaturan->title ?>" name="title" class="form-control">
    </div>
    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" value="<?= $pengaturan->email ?>" name="email" class="form-control">
+  </div>
+   <div class="form-group">
        <label for="video_profile">Video Profile</label>
        <input type="text" value="<?= $pengaturan->video_profile ?>" name="video_profile" class="form-control">
    </div>

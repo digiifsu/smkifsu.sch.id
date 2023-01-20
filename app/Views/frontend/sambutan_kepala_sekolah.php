@@ -13,7 +13,7 @@ $pengaturan = model('Admin/Pengaturan')->get()->getRow();
                    Profil Sekolah
                </h2>
                <div class="nav flex items-center gap-3">
-                   <a href="../home.html">Beranda</a><i class="fa-solid fa-chevron-right text-white"></i><a href="">Profil Sekolah</a><i class="fa-solid fa-chevron-right text-white"></i><a href="" class="active">Sambutan Kepala Sekolah</a>
+                   <a href="">Beranda</a><i class="fa-solid fa-chevron-right text-white"></i><a href="">Profil Sekolah</a><i class="fa-solid fa-chevron-right text-white"></i><a href="" class="active">Sambutan Kepala Sekolah</a>
                </div>
            </div>
        </div>
@@ -28,7 +28,7 @@ $pengaturan = model('Admin/Pengaturan')->get()->getRow();
                    <h2>Kepala Sekolah</h2>
                </div>
                <div class="banner_img">
-                   <!-- banner image -->
+                  <img src="<?php echo $pengaturan->foto_kepsek; ?>" width="100%" height="100%" style="object-fit:cover" alt="">
                </div>
                <div class="article_text">
                  <?php if (!empty($pengaturan->sambutan_kepala_sekolah)): ?>
@@ -43,4 +43,5 @@ $pengaturan = model('Admin/Pengaturan')->get()->getRow();
            </article>
        </div>
    </section>
+
 <?php $this->endSection(); ?>

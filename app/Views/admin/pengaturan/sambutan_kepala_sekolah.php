@@ -43,12 +43,14 @@ link_tag('elfinder/css/Material/css/theme-light.css');
   <label for="foto-kepsek">Foto kepsek</label>
   <input type="text" id="img-kepsek" name="foto_kepsek" class="form-control" hidden value="<?php echo $pengaturan->foto_kepsek; ?>">
   <div class="upload-box">
-
+      <?php if (!empty($pengaturan->foto_kepsek)): ?>
+          <img width="100%" height="100%" src="<?= base_url($pengaturan->foto_kepsek); ?>" alt="">
+      <?php endif; ?>
   </div>
 </div>
 <div class="form-group">
     <label for="budaya_sekolah">Sambutan Kepala Sekolah</label>
-    <textarea name="sambutan_kepala_sekolah" class="form-control" id="sambutan_kepala_sekolah" cols="30" rows="50">
+    <textarea name="sambutan_kepala_sekolah" class="form-control" id="sambutan_kepala_sekolah" cols="30" rows="20">
         <?php echo $pengaturan->sambutan_kepala_sekolah; ?>
     </textarea>
 </div>

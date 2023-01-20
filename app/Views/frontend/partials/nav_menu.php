@@ -34,7 +34,7 @@
                                         }
                                     }
                                     ?>
-                                    <a href="pages/school_leader.html">Sambutan Kepala Sekolah</a>
+                                    <a href="<?php echo site_url(route_to('frontend_sambutan_kepala_sekolah')) ?>">Sambutan Kepala Sekolah</a>
                                     <a href="<?php echo site_url(route_to('frontend_struktur_organisasi')); ?>">Stuktur Organisasi</a>
                                     <a href="<?php echo site_url(route_to('frontend_visimisi')); ?>">Visi & Misi</a>
                                     <a href="<?php echo site_url(route_to('frontend_budaya_sekolah')); ?>">Budaya Sekolah</a>

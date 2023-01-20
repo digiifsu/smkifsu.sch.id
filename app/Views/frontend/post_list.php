@@ -20,21 +20,27 @@
 		<section class="berita_group lg-col-span-2">
 			<div class="berita_banner swiper newsSwiper">
 				<div class="swiper-wrapper">
-					<?php 
+					<?php
 					$model_berita = model("Admin/Posts");
 					$post = $model_berita->orderBy('create_at','asc')->get()->getResult();
 					?>
 					<?php if (!empty($post)): ?>
 						<?php foreach ($post as $value): ?>
 							<a href="<?php echo site_url(route_to('frontend_detail_post',$value->id,$value->slug)); ?>" class="swiper-slide card_news_banner">
-								<img data-src="<?php echo base_url($value->thumbnail ?? 'assets/frontend/assets/img/berita_banner.png') ?>" width="100%" height="100%">
+								<img width="100%" height="100%" data-src="<?php echo base_url($value->thumbnail) ?>">
 								<div class="title_news_banner flex flex-center">
 									<div class="date flex items-center">
 										<i class="fa-regular fa-calendar-days text-white text-sm"></i>
 										<p><?= tanggal_indo(date('Y-m-y',strtotime($value->create_at))) ?></p>
 
 									</div>
-									<h2><?php echo $value->title ?? '-' ?></h2>
+									<h2>
+										<?php if (strlen($value->title) > 200): ?>
+											<?php echo substr($value->title, 0,200).'...'; ?>
+											<?php else: ?>
+												<?php echo $value->title; ?>
+										<?php endif; ?>
+									</h2>
 								</div>
 							</a>
 						<?php endforeach ?>
@@ -50,7 +56,7 @@
 				</div>
 			</div>
 			<div class="berita_galery grid grid-cols-1 md-grid-cols-2 gap-6">
-				<?php 
+				<?php
 				$post_with_paginate = $model_berita->paginate(40);
 				$categori = model('Admin/PostsCategories');
 				$pager = $model_berita->pager;

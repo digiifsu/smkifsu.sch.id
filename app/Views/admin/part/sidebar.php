@@ -24,7 +24,7 @@
                         <p>Beranda</p>
                     </a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#artikel">
                         <i class="far fa-newspaper"></i>
@@ -122,7 +122,7 @@
                                     <span class="sub-item">File Download</span>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </li>
@@ -145,7 +145,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="tables/datatables.html">
+                                <a href="<?php echo site_url(route_to('admin_sambutan_kepsek')) ?>">
                                     <span class="sub-item">Sambutan</span>
                                 </a>
                             </li>
@@ -157,8 +157,8 @@
                         </ul>
                     </div>
                 </li>
-                
-              
+
+
                 <li class="nav-item">
                     <a href="widgets.html">
                         <i class="fas fa-comment-alt"></i>

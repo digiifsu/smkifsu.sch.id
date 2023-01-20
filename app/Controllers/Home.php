@@ -15,8 +15,8 @@ class Home extends BaseController
     //detail post
     public function detailPost($id = null,$slug = null){
         $blogModel = new \App\Models\Admin\Posts();
-        $blog = $blogModel->withCategory()->where('status','publish')->where('tb_post.slug',$slug)->where('tb_post.id',$id)->limit(3)->get()->getRow();
-        return view("frontend/detail_berita");
+        $blog = $blogModel->withCategory()->where('status','publish')->where('tb_post.slug',$slug)->where('tb_post.id',$id)->get()->getRow();
+        return view("frontend/detail_berita",['detail_berita'=>$blog]);
     }
     public function profile(){
         return view('frontend/profile_sekolah');
