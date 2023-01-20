@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jan 2023 pada 18.33
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 7.4.30
+-- Generation Time: Jan 20, 2023 at 03:27 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -38,7 +38,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -60,7 +60,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_ekstrakurikuler`
+-- Table structure for table `tb_ekstrakurikuler`
 --
 
 CREATE TABLE `tb_ekstrakurikuler` (
@@ -77,7 +77,7 @@ CREATE TABLE `tb_ekstrakurikuler` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_fasilitas`
+-- Table structure for table `tb_fasilitas`
 --
 
 CREATE TABLE `tb_fasilitas` (
@@ -90,7 +90,7 @@ CREATE TABLE `tb_fasilitas` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_imgfasilitas`
+-- Table structure for table `tb_imgfasilitas`
 --
 
 CREATE TABLE `tb_imgfasilitas` (
@@ -102,7 +102,7 @@ CREATE TABLE `tb_imgfasilitas` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kelas`
+-- Table structure for table `tb_kelas`
 --
 
 CREATE TABLE `tb_kelas` (
@@ -111,7 +111,7 @@ CREATE TABLE `tb_kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_kelas`
+-- Dumping data for table `tb_kelas`
 --
 
 INSERT INTO `tb_kelas` (`id`, `nama_kelas`) VALUES
@@ -124,7 +124,7 @@ INSERT INTO `tb_kelas` (`id`, `nama_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kompetensi_keahlian`
+-- Table structure for table `tb_kompetensi_keahlian`
 --
 
 CREATE TABLE `tb_kompetensi_keahlian` (
@@ -139,7 +139,7 @@ CREATE TABLE `tb_kompetensi_keahlian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_kompetensi_keahlian`
+-- Dumping data for table `tb_kompetensi_keahlian`
 --
 
 INSERT INTO `tb_kompetensi_keahlian` (`id`, `slug`, `nama_komli`, `deskripsi`, `video_profile`, `misi`, `kepala_jurusan`, `kata_ajakan`) VALUES
@@ -149,7 +149,7 @@ INSERT INTO `tb_kompetensi_keahlian` (`id`, `slug`, `nama_komli`, `deskripsi`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_lembaga`
+-- Table structure for table `tb_lembaga`
 --
 
 CREATE TABLE `tb_lembaga` (
@@ -162,26 +162,26 @@ CREATE TABLE `tb_lembaga` (
   `jenis_kelamin` enum('L','P') NOT NULL DEFAULT 'L',
   `image` varchar(128) NOT NULL,
   `status` enum('aktif','tidak') NOT NULL,
-  `ig_link` varchar(10) NOT NULL,
-  `tiktok_link` varchar(10) NOT NULL,
-  `yt_link` varchar(10) NOT NULL,
-  `fb_link` varchar(10) NOT NULL
+  `ig_link` varchar(102) NOT NULL,
+  `tiktok_link` varchar(102) NOT NULL,
+  `yt_link` varchar(102) NOT NULL,
+  `fb_link` varchar(102) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_lembaga`
+-- Dumping data for table `tb_lembaga`
 --
 
 INSERT INTO `tb_lembaga` (`id`, `nama`, `pekerjaan`, `kategori`, `email`, `agama`, `jenis_kelamin`, `image`, `status`, `ig_link`, `tiktok_link`, `yt_link`, `fb_link`) VALUES
-(5, 'Tatang Suryana', NULL, 'Guru Adaftif', 'dadan@dadan.com', 'Islam', 'L', '', 'aktif', '', '', '', ''),
-(7, 'Dadan Hidayat, S.Crud, S.Com,S.Ch.id', NULL, 'Kesiswaan', 'dadan@dadan.com', 'Islam', 'L', '', 'aktif', '', '', '', ''),
-(8, 'Anwar Maulna, S.Kom', NULL, 'Guru Produktif', 'aw@gmail.com', 'Islam', 'L', '/storage/post/teaching-factory-app.JPG', 'aktif', '', '', '', ''),
-(9, 'Dadan Hdyt, S.Crud,S.Php', NULL, 'Guru Normatif', 'dadanhidyt@gmail.com', 'Islam', 'L', '/storage/foto_siswa/IMG_20221202_171732.jpg', 'aktif', '', 'https://ig', 'https://ig', 'https://ig');
+(5, 'Gwen Rosy Vanigara, S.T', NULL, 'Guru Produktif', 'dadan@dadan.com', 'Islam', 'L', '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg', 'aktif', 'https://github.com/digiifsu/smkifsu.sch.id', 'https://github.com/digiifsu/smkifsu.sch.id', 'https://github.com/digiifsu/smkifsu.sch.id', 'https://github.com/digiifsu/smkifsu.sch.id'),
+(7, 'Dadan Hidayat, S.Crud, S.Com,S.Ch.id', NULL, 'Kesiswaan', 'dadan@dadan.com', 'Islam', 'L', '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg', 'aktif', '', '', '', ''),
+(8, 'Anwar Maulna, S.Kom', NULL, 'Guru Produktif', 'aw@gmail.com', 'Islam', 'L', '/storage/post/teaching-factory-app.JPG', 'tidak', '', '', '', ''),
+(9, 'Dadan Hidayat', NULL, 'Satpam', 'dadanhidyt@gmail.com', 'Islam', 'P', '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg', 'aktif', 'https://github.com/digiifsu/smkifsu.sch.id', 'https://github.com/digiifsu/smkifsu.sch.id', 'https://github.com/digiifsu/smkifsu.sch.id', 'https://github.com/digiifsu/smkifsu.sch.id');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_message`
+-- Table structure for table `tb_message`
 --
 
 CREATE TABLE `tb_message` (
@@ -194,7 +194,7 @@ CREATE TABLE `tb_message` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pages`
+-- Table structure for table `tb_pages`
 --
 
 CREATE TABLE `tb_pages` (
@@ -213,7 +213,7 @@ CREATE TABLE `tb_pages` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pages_categories`
+-- Table structure for table `tb_pages_categories`
 --
 
 CREATE TABLE `tb_pages_categories` (
@@ -225,7 +225,7 @@ CREATE TABLE `tb_pages_categories` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengaturan`
+-- Table structure for table `tb_pengaturan`
 --
 
 CREATE TABLE `tb_pengaturan` (
@@ -237,6 +237,7 @@ CREATE TABLE `tb_pengaturan` (
   `budaya_sekolah` text NOT NULL,
   `email` varchar(121) NOT NULL,
   `sambutan_kepala_sekolah` text NOT NULL,
+  `foto_kepsek` varchar(121) NOT NULL,
   `visi_misi` text NOT NULL,
   `yt_link` varchar(100) NOT NULL,
   `tiktok_link` varchar(100) NOT NULL,
@@ -249,22 +250,22 @@ CREATE TABLE `tb_pengaturan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tb_pengaturan`
+-- Dumping data for table `tb_pengaturan`
 --
 
-INSERT INTO `tb_pengaturan` (`title`, `keywords`, `profile_sekolah`, `favicon`, `video_profile`, `budaya_sekolah`, `email`, `sambutan_kepala_sekolah`, `visi_misi`, `yt_link`, `tiktok_link`, `fb_link`, `ig_link`, `alamat_sekolah`, `head_script`, `footer_script`, `head_style`) VALUES
-('SMK INFORMATIKA SUMEDANG', '', '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>', '', 'https://youyube.com/video?2', '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>', '', '', '<h4>VISI</h4>\r\n<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>\r\n<p>&nbsp;</p>\r\n<h4>MISI</h4>\r\n<p>&nbsp;</p>\r\n<ul>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque&nbsp;</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n</ul>', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'Jl angkrek situ', '', '', '');
+INSERT INTO `tb_pengaturan` (`title`, `keywords`, `profile_sekolah`, `favicon`, `video_profile`, `budaya_sekolah`, `email`, `sambutan_kepala_sekolah`, `foto_kepsek`, `visi_misi`, `yt_link`, `tiktok_link`, `fb_link`, `ig_link`, `alamat_sekolah`, `head_script`, `footer_script`, `head_style`) VALUES
+('SMK INFORMATIKA SUMEDANG', '', '<p>SMK Informatika Sumedang merupakan sebuah sekolah menengah kejuruan yang berada di bawah naungan Yayasan Pendidikan Sumedang (YPS). Sekolah ini didirikan pada tahun 2005 dengan ijin Dinas Pendidikan Kabupaten Sumedang berupa Surat Keputusan Kepala Dinas Pendidikan Kabupaten Sumedang Nomor 642.2/1820.Kep./Disdik/2005.</p>\r\n<p>SMK Informatika Sumedang ini didirikan dengan tujuan untuk menjawab tantangan jaman ke depan yang semakin dinamis dan perkembangan teknologi informasi di jaman globalisasi. Program studi yang ada di SMK Informatika Sumedang diarahkan untuk mencetak tenaga-tenaga yang terampil, profesional dan terlatih di bidang teknologi informasi serta menerapkannya di lingkungan masyarakat sesuai dengan kebutuhan baik sektor swasta maupun pemerintah.</p>\r\n<p>Sekolah ini memiliki visi untuk menjadikan sekolah sebagai pusat pendidikan dan latihan untuk menciptakan sumber daya manusia profesional, beriman dan bertaqwa terhadap Tuhan Yang Maha Esa ini. Sementara misinya adalah menghasilkan tamatan yang bertaqwa kepada Tuhan Yang Maha Esa; menghasilkan tenaga kerja yang profesional dengan memiliki kompetensi tinggi, mampu bersaing di pasar tenaga kerja nasional dan internasional dan menghasilkan tamatan yang mampu memenuhi dan mengikuti tuntutan ilmu pengetahuan dan teknologi. SMK Informatika Sumedang memiliki tujuan yaitu mempersiapkan peserta didik agar menjadi manusia produktif, mampu bekerja mandiri, mengisi lowongan pekerjaan yang ada di Dunia Usaha/Dunia Industri sebagai tenaga kerja tingkat menengah, sesuai dengan kompetensi dalam program keahlian pilihannya. Ditambah dengan membekali peserta didik agar mampu memilih karir, ulet dan gigih dalam berkompetensi, beradaptasi dilingkungan kerja dan mengembangkan sikap professional dalam bidang keahlian yang diminatinya. Serta membekali peserta didik dengan ilmu pengetahuan, teknologi, dan seni agar mampu mengembangkan diri di kemudian hari baik secara mandiri maupun melalui jenjang pendidikan yang lebih tinggi.</p>\r\n<p>SMK Informatika Sumedang menyelenggarakan kegiatan kependidikannya dengan melingkupi dua kompetisi keahlian yaitu Rekayasa Perangkat Lunak (RPL) dan Multimedia (MM).</p>', '', 'https://youyube.com/video?2', '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>', 'dadan@gmail.com', '<p>Assalamualaikum Wr. Wb.<br /><br />Pertama-tama, saya panjatkan puji syukur kepada Allah SWT, karena berkat rahmat dan karunia-Nya kita semua dapat berkumpul di tempat ini dengan kondisi bagaimanapun. Kita juga dapat menyaksikan putra dan putri kita berwisuda hari ini.<br /><br />Tentu saja hari ini adalha hari yang sangat mengharukan dan paling kita tunggu-tunggu. Kemudian, saya juga mengucapkan terima kasih kepada Bapak Kepala Sekolah dan juga pembawa acara yang telah memberikan kesempatan untuk dapat mengucapkan beberapa kata sambutan.<br /><br />Saya merupakan perwakilan dari salah satu dari siswa SDN 4 Kalijaga ingin menyampaikan rasa terima kasih yang sangat besar atas bimbingannya terhadap anak saya dan juga anak-anak lainnya. Terima kasih atas ilmu yang telah diberikan.<br /><br />Kami yakin segala ilmu yang sudah diberikan selama ini akan bermanfaat di masa depan. Terutama bagi siswa-siswa itu sendiri demi menyiapkan jenjang pendidikan yang lebih tinggi lagi. Hal ini tentu saja tidaklah mudah dalam membimbing siswa-siswa, karena dibutuhkan ketelatenan dan juga kesabaran dalam jumlah yang banyak.<br /><br />Kami juga berharap agar ketelatenan dan kesabaran dari para guru sekalian dapat dicontoh oleh para siswa-siswa sekalian. Kami berharap agar suatu hari nanti putra dan putri kami dapat meraih apa yang dicita-citakan.<br /><br />Selain itu, kami juga menyadari bahwa pasti ada banyak sekali kenakalan atau kebandelan putra putri kami yang seringkali membuat para bapak dan ibu guru kesal. Misalkan saja seperti sering mengobrol pada saat pelajaran sedang berlangsung. Bisa juga, karena ada putra putri kami yang senang berlarian di lorong sekolahan sambil berteriak.<br /><br />Semata-mata itu semua, karena putra dan putri kami masih anak kecil. Kami memohon maaf atas kejadian tersebut. Yang jelas, ingatkan saja putra putri kami mengenai tindakan bagaimana yang baik dan benar dengan lembut.<br /><br />Yang jelas kami tidak akan bisa membalas semua kebaikan dan jasa dari para guru sekalian. Berkat jasa kalian, seluruh siswa-siswa dapat memahami cara membaca, menulis, dan juga berhitung. Selain itu, masih banyak sekali hal-hal yang telah diajarkan kepada siswa siswa di sini, yang tentunya tidak dapat kmai sebutkan secara satu-persatu.<br /><br />Sekian pidato yang saya sampaikan. Saya hanya manusia biasa yang tidak luput dari dosa. Jadi apabila terdapat kesalahan dalam perkataan saya, melalui pidato ini juga saya mohon maaf yang sebesar-besarnya. Jangan sampai dimasukkan ke dalam hati. Terima kasih atas perhatiannya.<br />Wassalamualaikum Wr.Wb.</p>', '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg', '<h4>VISI</h4>\r\n<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>\r\n<p>&nbsp;</p>\r\n<h4>MISI</h4>\r\n<p>&nbsp;</p>\r\n<ul>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque&nbsp;</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n</ul>', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'Jl. Angkrek Situ No. 19 Sumedang 45323.\r\n', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_post`
+-- Table structure for table `tb_post`
 --
 
 CREATE TABLE `tb_post` (
   `id` int(14) UNSIGNED NOT NULL,
   `slug` varchar(225) NOT NULL,
-  `title` varchar(40) NOT NULL,
+  `title` varchar(225) NOT NULL,
   `keywords` varchar(225) DEFAULT NULL,
   `deskripsi_singkat` text DEFAULT NULL,
   `thumbnail` varchar(225) NOT NULL,
@@ -279,17 +280,20 @@ CREATE TABLE `tb_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_post`
+-- Dumping data for table `tb_post`
 --
 
 INSERT INTO `tb_post` (`id`, `slug`, `title`, `keywords`, `deskripsi_singkat`, `thumbnail`, `isi`, `id_tag`, `id_category`, `create_at`, `update_at`, `author`, `views`, `status`) VALUES
-(1, 'smk-informatika-sumedang', 'smk informatika sumedang', 'dada', 'sugoiii', '/storage/post/teaching-factory-app.JPG', '<p><img src=\"http://localhost/smkifsu.sch.id/storage/post/teaching-factory-app.JPG\" alt=\"teaching-factory-app.JPG (19 KB)\" width=\"357\" height=\"201\" /></p>\r\n<p>Teaching factory adalah</p>\r\n<pre class=\"language-php\"><code>&lt;?php\r\n\r\nerror_reporting(0); // Set E_ALL for debuging\r\n\r\n// // Optional exec path settings (Default is called with command name only)\r\n// define(\'ELFINDER_TAR_PATH\',      \'/PATH/TO/tar\');\r\n// define(\'ELFINDER_GZIP_PATH\',     \'/PATH/TO/gzip\');\r\n// define(\'ELFINDER_BZIP2_PATH\',    \'/PATH/TO/bzip2\');\r\n// define(\'ELFINDER_XZ_PATH\',       \'/PATH/TO/xz\');\r\n// define(\'ELFINDER_ZIP_PATH\',      \'/PATH/TO/zip\');\r\n// define(\'ELFINDER_UNZIP_PATH\',    \'/PATH/TO/unzip\');\r\n// define(\'ELFINDER_RAR_PATH\',      \'/PATH/TO/rar\');\r\n// define(\'ELFINDER_UNRAR_PATH\',    \'/PATH/TO/unrar\');\r\n// define(\'ELFINDER_7Z_PATH\',       \'/PATH/TO/7za\');\r\n// define(\'ELFINDER_CONVERT_PATH\',  \'/PATH/TO/convert\');\r\n// define(\'ELFINDER_IDENTIFY_PATH\', \'/PATH/TO/identify\');\r\n// define(\'ELFINDER_EXIFTRAN_PATH\', \'/PATH/TO/exiftran\');\r\n// define(\'ELFINDER_JPEGTRAN_PATH\', \'/PATH/TO/jpegtran\');\r\n// define(\'ELFINDER_FFMPEG_PATH\',   \'/PATH/TO/ffmpeg\');\r\n\r\n// define(\'ELFINDER_CONNECTOR_URL\', \'URL to this connector script\');  // see elFinder::getConnectorUrl()\r\n\r\n// define(\'ELFINDER_DEBUG_ERRORLEVEL\', -1); // Error reporting level of debug mode\r\n\r\n// // To Enable(true) handling of PostScript files by ImageMagick\r\n// // It is disabled by default as a countermeasure \r\n// // of Ghostscript multiple -dSAFER sandbox bypass vulnerabilities\r\n// // see https://www.kb.cert.org/vuls/id/332928\r\n// define(\'ELFINDER_IMAGEMAGICK_PS\', true);\r\n// ===============================================\r\n\r\n// // load composer autoload before load elFinder autoload If you need composer\r\n// // You need to run the composer command in the php directory.\r\ndefine(\'DIR\', __DIR__ . DIRECTORY_SEPARATOR);\r\nis_readable(DIR.\'vendor/autoload.php\') &amp;&amp; require DIR.\'vendor/autoload.php\';\r\n\r\n// // elFinder autoload\r\nrequire DIR.\'autoload.php\';\r\n// ===============================================\r\n\r\n// // Enable FTP connector netmount\r\nelFinder::$netDrivers[\'ftp\'] = \'FTP\';\r\n// ===============================================\r\n\r\n// // Required for Dropbox network mount\r\n// // Installation by composer\r\n// // `composer require kunalvarma05/dropbox-php-sdk` on php directory\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'dropbox2\'] = \'Dropbox2\';\r\n// // Dropbox2 Netmount driver need next two settings. You can get at https://www.dropbox.com/developers/apps\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=dropbox2&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_DROPBOX_APPKEY\',    \'\');\r\n// define(\'ELFINDER_DROPBOX_APPSECRET\', \'\');\r\n// ===============================================\r\n\r\n// // Required for Google Drive network mount\r\n// // Installation by composer\r\n// // `composer require google/apiclient:^2.0` on php directory\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'googledrive\'] = \'GoogleDrive\';\r\n// // GoogleDrive Netmount driver need next two settings. You can get at https://console.developers.google.com\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=googledrive&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTSECRET\', \'\');\r\n// // Required case when Google API is NOT added via composer\r\n// define(\'ELFINDER_GOOGLEDRIVE_GOOGLEAPICLIENT\', \'/path/to/google-api-php-client/vendor/autoload.php\');\r\n// ===============================================\r\n\r\n// // Required for Google Drive network mount with Flysystem\r\n// // Installation by composer\r\n// // `composer require nao-pon/flysystem-google-drive:~1.1 nao-pon/elfinder-flysystem-driver-ext` on php directory\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'googledrive\'] = \'FlysystemGoogleDriveNetmount\';\r\n// // GoogleDrive Netmount driver need next two settings. You can get at https://console.developers.google.com\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=googledrive&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTSECRET\', \'\');\r\n// // And \"php/.tmp\" directory must exist and be writable by PHP.\r\n// ===============================================\r\n\r\n// // Required for One Drive network mount\r\n// //  * cURL PHP extension required\r\n// //  * HTTP server PATH_INFO supports required\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'onedrive\'] = \'OneDrive\';\r\n// // OneDrive Netmount driver need next two settings. You can get at\r\n// // https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL/netmount/onedrive/1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"/1\" to \"/ElementID\"\r\n// define(\'ELFINDER_ONEDRIVE_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_ONEDRIVE_CLIENTSECRET\', \'\');\r\n// ===============================================\r\n\r\n// // Required for Box network mount\r\n// //  * cURL PHP extension required\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'box\'] = \'Box\';\r\n// // Box Netmount driver need next two settings. You can get at https://developer.box.com\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=box&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_BOX_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_BOX_CLIENTSECRET\', \'\');\r\n// ===============================================\r\n\r\n\r\n// // Zoho Office Editor APIKey\r\n// // https://www.zoho.com/docs/help/office-apis.html\r\n// define(\'ELFINDER_ZOHO_OFFICE_APIKEY\', \'\');\r\n// ===============================================\r\n\r\n// // Online converter (online-convert.com) APIKey\r\n// // https://apiv2.online-convert.com/docs/getting_started/api_key.html\r\n// define(\'ELFINDER_ONLINE_CONVERT_APIKEY\', \'\');\r\n// ===============================================\r\n\r\n// // Zip Archive editor\r\n// // Installation by composer\r\n// // `composer require nao-pon/elfinder-flysystem-ziparchive-netmount` on php directory\r\n// define(\'ELFINDER_DISABLE_ZIPEDITOR\', false); // set `true` to disable zip editor\r\n// ===============================================\r\n\r\n/**\r\n * Simple function to demonstrate how to control file access using \"accessControl\" callback.\r\n * This method will disable accessing files/folders starting from \'.\' (dot)\r\n *\r\n * @param  string    $attr    attribute name (read|write|locked|hidden)\r\n * @param  string    $path    absolute file path\r\n * @param  string    $data    value of volume option `accessControlData`\r\n * @param  object    $volume  elFinder volume driver object\r\n * @param  bool|null $isDir   path is directory (true: directory, false: file, null: unknown)\r\n * @param  string    $relpath file path relative to volume root directory started with directory separator\r\n * @return bool|null\r\n **/\r\nfunction access($attr, $path, $data, $volume, $isDir, $relpath) {\r\n  $basename = basename($path);\r\n  return $basename[0] === \'.\'                  // if file/folder begins with \'.\' (dot)\r\n       &amp;&amp; strlen($relpath) !== 1           // but with out volume root\r\n    ? !($attr == \'read\' || $attr == \'write\') // set read+write to false, other (locked+hidden) set to true\r\n    :  null;                                 // else elFinder decide it itself\r\n}\r\n\r\n// Documentation for connector options:\r\n// https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options\r\n$opts = array(\r\n // \'debug\' =&gt; true,\r\n  \'roots\' =&gt; array(\r\n    // Items volume\r\n   array(\r\n      \'driver\'        =&gt; \'LocalFileSystem\',           // driver for accessing file system (REQUIRED)\r\n     \'path\'          =&gt; FCPATH .DIRECTORY_SEPARATOR. \'storage\'.DIRECTORY_SEPARATOR,                 // path to files (REQUIRED)\r\n     \'URL\'           =&gt; base_url(\'storage\'), // URL to files (REQUIRED)\r\n     \'trashHash\'     =&gt; \'t1_Lw\',                     // elFinder\'s hash of trash folder\r\n      \'winHashFix\'    =&gt; DIRECTORY_SEPARATOR !== \'/\', // to make hash same to Linux one on windows too\r\n     \'uploadDeny\'    =&gt; array(\'all\'),                // All Mimetypes not allowed to upload\r\n     \'uploadAllow\'   =&gt; array(\'image/x-ms-bmp\', \'image/gif\', \'image/jpeg\', \'image/png\', \'image/x-icon\', \'text/plain\'), // Mimetype `image` and `text/plain` allowed to upload\r\n     \'uploadOrder\'   =&gt; array(\'deny\', \'allow\'),      // allowed Mimetype `image` and `text/plain` only\r\n      \'accessControl\' =&gt; \'access\'                     // disable and hide dot starting files (OPTIONAL)\r\n    ),\r\n    // Trash volume\r\n   array(\r\n      \'id\'            =&gt; \'1\',\r\n      \'driver\'        =&gt; \'Trash\',\r\n      \'path\'          =&gt; FCPATH .DIRECTORY_SEPARATOR. \'storage\'.DIRECTORY_SEPARATOR.\'.trash\'.DIRECTORY_SEPARATOR,\r\n      \'tmbURL\'        =&gt; base_url(\'.trash/.tmb/\'),\r\n     \'winHashFix\'    =&gt; DIRECTORY_SEPARATOR !== \'/\', // to make hash same to Linux one on windows too\r\n     \'uploadDeny\'    =&gt; array(\'all\'),                // Recomend the same settings as the original volume that uses the trash\r\n     \'uploadAllow\'   =&gt; array(\'image/x-ms-bmp\', \'image/gif\', \'image/jpeg\', \'image/png\', \'image/x-icon\', \'text/plain\'), // Same as above\r\n     \'uploadOrder\'   =&gt; array(\'deny\', \'allow\'),      // Same as above\r\n     \'accessControl\' =&gt; \'access\',                    // Same as above\r\n   ),\r\n  )\r\n);\r\n\r\n// run elFinder\r\n$connector = new elFinderConnector(new elFinder($opts));\r\n$connector-&gt;run();\r\n\r\n</code></pre>\r\n<p>&nbsp;</p>', NULL, 2, '2023-01-02T10:57:18', '', 4, 0, 'publish'),
-(3, 'kenapa-orang-orang-didunia-wkwkw-yang-addan-saya-suka', 'kenapa orang orang didunia wkwkw yang ad', 'baik', 'dada', '/storage/post/teaching-factory-app.JPG', '<p>dada</p>', NULL, 2, '2023-01-06T09:42:37', '', 4, 0, 'publish');
+(1, 'smk-informatika-sumedang', 'Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan\r\n', 'dada', 'sugoiii', '/storage/post/teaching-factory-app.JPG', '<p><img src=\"http://localhost/smkifsu.sch.id/storage/post/teaching-factory-app.JPG\" alt=\"teaching-factory-app.JPG (19 KB)\" width=\"357\" height=\"201\" /></p>\r\n<p>Teaching factory adalah</p>\r\n<pre class=\"language-php\"><code>&lt;?php\r\n\r\nerror_reporting(0); // Set E_ALL for debuging\r\n\r\n// // Optional exec path settings (Default is called with command name only)\r\n// define(\'ELFINDER_TAR_PATH\',      \'/PATH/TO/tar\');\r\n// define(\'ELFINDER_GZIP_PATH\',     \'/PATH/TO/gzip\');\r\n// define(\'ELFINDER_BZIP2_PATH\',    \'/PATH/TO/bzip2\');\r\n// define(\'ELFINDER_XZ_PATH\',       \'/PATH/TO/xz\');\r\n// define(\'ELFINDER_ZIP_PATH\',      \'/PATH/TO/zip\');\r\n// define(\'ELFINDER_UNZIP_PATH\',    \'/PATH/TO/unzip\');\r\n// define(\'ELFINDER_RAR_PATH\',      \'/PATH/TO/rar\');\r\n// define(\'ELFINDER_UNRAR_PATH\',    \'/PATH/TO/unrar\');\r\n// define(\'ELFINDER_7Z_PATH\',       \'/PATH/TO/7za\');\r\n// define(\'ELFINDER_CONVERT_PATH\',  \'/PATH/TO/convert\');\r\n// define(\'ELFINDER_IDENTIFY_PATH\', \'/PATH/TO/identify\');\r\n// define(\'ELFINDER_EXIFTRAN_PATH\', \'/PATH/TO/exiftran\');\r\n// define(\'ELFINDER_JPEGTRAN_PATH\', \'/PATH/TO/jpegtran\');\r\n// define(\'ELFINDER_FFMPEG_PATH\',   \'/PATH/TO/ffmpeg\');\r\n\r\n// define(\'ELFINDER_CONNECTOR_URL\', \'URL to this connector script\');  // see elFinder::getConnectorUrl()\r\n\r\n// define(\'ELFINDER_DEBUG_ERRORLEVEL\', -1); // Error reporting level of debug mode\r\n\r\n// // To Enable(true) handling of PostScript files by ImageMagick\r\n// // It is disabled by default as a countermeasure \r\n// // of Ghostscript multiple -dSAFER sandbox bypass vulnerabilities\r\n// // see https://www.kb.cert.org/vuls/id/332928\r\n// define(\'ELFINDER_IMAGEMAGICK_PS\', true);\r\n// ===============================================\r\n\r\n// // load composer autoload before load elFinder autoload If you need composer\r\n// // You need to run the composer command in the php directory.\r\ndefine(\'DIR\', __DIR__ . DIRECTORY_SEPARATOR);\r\nis_readable(DIR.\'vendor/autoload.php\') &amp;&amp; require DIR.\'vendor/autoload.php\';\r\n\r\n// // elFinder autoload\r\nrequire DIR.\'autoload.php\';\r\n// ===============================================\r\n\r\n// // Enable FTP connector netmount\r\nelFinder::$netDrivers[\'ftp\'] = \'FTP\';\r\n// ===============================================\r\n\r\n// // Required for Dropbox network mount\r\n// // Installation by composer\r\n// // `composer require kunalvarma05/dropbox-php-sdk` on php directory\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'dropbox2\'] = \'Dropbox2\';\r\n// // Dropbox2 Netmount driver need next two settings. You can get at https://www.dropbox.com/developers/apps\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=dropbox2&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_DROPBOX_APPKEY\',    \'\');\r\n// define(\'ELFINDER_DROPBOX_APPSECRET\', \'\');\r\n// ===============================================\r\n\r\n// // Required for Google Drive network mount\r\n// // Installation by composer\r\n// // `composer require google/apiclient:^2.0` on php directory\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'googledrive\'] = \'GoogleDrive\';\r\n// // GoogleDrive Netmount driver need next two settings. You can get at https://console.developers.google.com\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=googledrive&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTSECRET\', \'\');\r\n// // Required case when Google API is NOT added via composer\r\n// define(\'ELFINDER_GOOGLEDRIVE_GOOGLEAPICLIENT\', \'/path/to/google-api-php-client/vendor/autoload.php\');\r\n// ===============================================\r\n\r\n// // Required for Google Drive network mount with Flysystem\r\n// // Installation by composer\r\n// // `composer require nao-pon/flysystem-google-drive:~1.1 nao-pon/elfinder-flysystem-driver-ext` on php directory\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'googledrive\'] = \'FlysystemGoogleDriveNetmount\';\r\n// // GoogleDrive Netmount driver need next two settings. You can get at https://console.developers.google.com\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=googledrive&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_GOOGLEDRIVE_CLIENTSECRET\', \'\');\r\n// // And \"php/.tmp\" directory must exist and be writable by PHP.\r\n// ===============================================\r\n\r\n// // Required for One Drive network mount\r\n// //  * cURL PHP extension required\r\n// //  * HTTP server PATH_INFO supports required\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'onedrive\'] = \'OneDrive\';\r\n// // OneDrive Netmount driver need next two settings. You can get at\r\n// // https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL/netmount/onedrive/1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"/1\" to \"/ElementID\"\r\n// define(\'ELFINDER_ONEDRIVE_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_ONEDRIVE_CLIENTSECRET\', \'\');\r\n// ===============================================\r\n\r\n// // Required for Box network mount\r\n// //  * cURL PHP extension required\r\n// // Enable network mount\r\n// elFinder::$netDrivers[\'box\'] = \'Box\';\r\n// // Box Netmount driver need next two settings. You can get at https://developer.box.com\r\n// // AND require register redirect url to \"YOUR_CONNECTOR_URL?cmd=netmount&amp;protocol=box&amp;host=1\"\r\n// // If the elFinder HTML element ID is not \"elfinder\", you need to change \"host=1\" to \"host=ElementID\"\r\n// define(\'ELFINDER_BOX_CLIENTID\',     \'\');\r\n// define(\'ELFINDER_BOX_CLIENTSECRET\', \'\');\r\n// ===============================================\r\n\r\n\r\n// // Zoho Office Editor APIKey\r\n// // https://www.zoho.com/docs/help/office-apis.html\r\n// define(\'ELFINDER_ZOHO_OFFICE_APIKEY\', \'\');\r\n// ===============================================\r\n\r\n// // Online converter (online-convert.com) APIKey\r\n// // https://apiv2.online-convert.com/docs/getting_started/api_key.html\r\n// define(\'ELFINDER_ONLINE_CONVERT_APIKEY\', \'\');\r\n// ===============================================\r\n\r\n// // Zip Archive editor\r\n// // Installation by composer\r\n// // `composer require nao-pon/elfinder-flysystem-ziparchive-netmount` on php directory\r\n// define(\'ELFINDER_DISABLE_ZIPEDITOR\', false); // set `true` to disable zip editor\r\n// ===============================================\r\n\r\n/**\r\n * Simple function to demonstrate how to control file access using \"accessControl\" callback.\r\n * This method will disable accessing files/folders starting from \'.\' (dot)\r\n *\r\n * @param  string    $attr    attribute name (read|write|locked|hidden)\r\n * @param  string    $path    absolute file path\r\n * @param  string    $data    value of volume option `accessControlData`\r\n * @param  object    $volume  elFinder volume driver object\r\n * @param  bool|null $isDir   path is directory (true: directory, false: file, null: unknown)\r\n * @param  string    $relpath file path relative to volume root directory started with directory separator\r\n * @return bool|null\r\n **/\r\nfunction access($attr, $path, $data, $volume, $isDir, $relpath) {\r\n  $basename = basename($path);\r\n  return $basename[0] === \'.\'                  // if file/folder begins with \'.\' (dot)\r\n       &amp;&amp; strlen($relpath) !== 1           // but with out volume root\r\n    ? !($attr == \'read\' || $attr == \'write\') // set read+write to false, other (locked+hidden) set to true\r\n    :  null;                                 // else elFinder decide it itself\r\n}\r\n\r\n// Documentation for connector options:\r\n// https://github.com/Studio-42/elFinder/wiki/Connector-configuration-options\r\n$opts = array(\r\n // \'debug\' =&gt; true,\r\n  \'roots\' =&gt; array(\r\n    // Items volume\r\n   array(\r\n      \'driver\'        =&gt; \'LocalFileSystem\',           // driver for accessing file system (REQUIRED)\r\n     \'path\'          =&gt; FCPATH .DIRECTORY_SEPARATOR. \'storage\'.DIRECTORY_SEPARATOR,                 // path to files (REQUIRED)\r\n     \'URL\'           =&gt; base_url(\'storage\'), // URL to files (REQUIRED)\r\n     \'trashHash\'     =&gt; \'t1_Lw\',                     // elFinder\'s hash of trash folder\r\n      \'winHashFix\'    =&gt; DIRECTORY_SEPARATOR !== \'/\', // to make hash same to Linux one on windows too\r\n     \'uploadDeny\'    =&gt; array(\'all\'),                // All Mimetypes not allowed to upload\r\n     \'uploadAllow\'   =&gt; array(\'image/x-ms-bmp\', \'image/gif\', \'image/jpeg\', \'image/png\', \'image/x-icon\', \'text/plain\'), // Mimetype `image` and `text/plain` allowed to upload\r\n     \'uploadOrder\'   =&gt; array(\'deny\', \'allow\'),      // allowed Mimetype `image` and `text/plain` only\r\n      \'accessControl\' =&gt; \'access\'                     // disable and hide dot starting files (OPTIONAL)\r\n    ),\r\n    // Trash volume\r\n   array(\r\n      \'id\'            =&gt; \'1\',\r\n      \'driver\'        =&gt; \'Trash\',\r\n      \'path\'          =&gt; FCPATH .DIRECTORY_SEPARATOR. \'storage\'.DIRECTORY_SEPARATOR.\'.trash\'.DIRECTORY_SEPARATOR,\r\n      \'tmbURL\'        =&gt; base_url(\'.trash/.tmb/\'),\r\n     \'winHashFix\'    =&gt; DIRECTORY_SEPARATOR !== \'/\', // to make hash same to Linux one on windows too\r\n     \'uploadDeny\'    =&gt; array(\'all\'),                // Recomend the same settings as the original volume that uses the trash\r\n     \'uploadAllow\'   =&gt; array(\'image/x-ms-bmp\', \'image/gif\', \'image/jpeg\', \'image/png\', \'image/x-icon\', \'text/plain\'), // Same as above\r\n     \'uploadOrder\'   =&gt; array(\'deny\', \'allow\'),      // Same as above\r\n     \'accessControl\' =&gt; \'access\',                    // Same as above\r\n   ),\r\n  )\r\n);\r\n\r\n// run elFinder\r\n$connector = new elFinderConnector(new elFinder($opts));\r\n$connector-&gt;run();\r\n\r\n</code></pre>\r\n<p>&nbsp;</p>', NULL, 2, '2023-01-02T10:57:18', '', 4, 0, 'publish'),
+(3, 'kenapa-orang-orang-didunia-wkwkw-yang-addan-saya-suka', 'kenapa orang orang didunia wkwkw yang ad', 'baik', 'dada', '/storage/post/teaching-factory-app.JPG', '<p>dada</p>', NULL, 2, '2023-01-06T09:42:37', '', 4, 0, 'publish'),
+(4, 'workshop-penguatan-kelembagaan-smk-sharing-praktik-baik-program-smk-pusat-keunggulan', 'Workshop Penguatan Kelembagaan SMK Shari', 'dada,dadada,hidayat', '                        Selasa, 25 Oktober 2022 - SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan SMK INFORMATIKA SUMEDANG yang dihadiri  oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.  \r\n\r\nKegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri (Dr. Hj. Anne Sukmawati KD, M.M.Pd).                    ', '/public/storage/post/thumbnail/default.jpg', '<p style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Selasa, 25 Oktober 2022&nbsp;- SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan&nbsp;SMK INFORMATIKA SUMEDANG yang dihadiri&nbsp; oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.&nbsp;&nbsp;</span></p>\r\n<p class=\"MsoNormal\" style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Kegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri</span> (Dr. Hj. Anne Sukmawati KD, M.M.Pd).</p>', NULL, 2, '2023-01-20T06:29:41', '', 4, 0, 'publish'),
+(5, 'workshop-penguatan-kelembagaan-smk-sharing-praktik-baik-program-smk-pusat-keunggulan', 'Workshop Penguatan Kelembagaan SMK Shari', 'dada,ddddada,dwriwpoeri', 'Selasa, 25 Oktober 2022 - SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan SMK INFORMATIKA SUMEDANG yang dihadiri  oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.  \r\n\r\nKegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri (Dr. Hj. Anne Sukmawati KD, M.M.Pd).', '/storage/56p1.jpg', '<p style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Selasa, 25 Oktober 2022&nbsp;- SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan&nbsp;SMK INFORMATIKA SUMEDANG yang dihadiri&nbsp; oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.&nbsp;&nbsp;</span></p>\r\n<p class=\"MsoNormal\" style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Kegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri</span> (Dr. Hj. Anne Sukmawati KD, M.M.Pd).<span style=\"font-family: \'times new roman\', times; font-size: medium;\">Selasa, 25 Oktober 2022&nbsp;- SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan&nbsp;SMK INFORMATIKA SUMEDANG yang dihadiri&nbsp; oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.&nbsp;</span><span style=\"font-family: \'times new roman\', times; font-size: medium;\">&nbsp;</span></p>\r\n<p class=\"MsoNormal\" style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Kegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri</span> (Dr. Hj. Anne Sukmawati KD, M.M.Pd).</p>', NULL, 2, '2023-01-20T06:35:03', '', 4, 0, 'publish'),
+(6, 'tutorial-membuat-koneksi-dengan-php', 'tutorial membuat koneksi dengan php', 'dada,dad34,da32rrwer', 'PHP dan MySQL adalah kombinasi bahasa pemograman dan database yang sangat populer. Situs duniailkom yang berbasis wordpress juga menggunakan kombinasi PHP dan MySQL.\r\n\r\nDalam bagian tutorial belajar PHP lanjutan ini, saya akan membuat tutorial mengenai cara membuat koneksi antara PHP dengan database MySQL.\r\n\r\nUntuk dapat mengikuti tutorial ini, saya sarankan anda telah mengetahui dasar penulisan PHP, seperti perulangan, tipe data, dan pemanggilan fungsi, karena kita akan banyak menggunakannya dalam tutorial kali ini. Pengetahuan tentang query MySQL juga akan sangat membantu.\r\n\r\nJika anda belum paham keduanya, atau untuk sekedar me-refresh tentang PHP dan MySQL, duniailkom telah membuat tutorial lengkap tentang keduanya. Untuk Tutorial PHP Dasar, dapat anda baca di Tutorial Belajar PHP Dasar Untuk Pemula dan untuk Tutorial MySQL Dasar, dapat anda baca di Tutorial Belajar MySQL Dasar Untuk Pemula.\r\n\r\nDalam halaman ini, saya akan mengindex seluruh Tutorial Cara Membuat Koneksi PHP ke Database MySQL. Semoga dengan tutorial ini anda bisa mengetahui dan paham c', '/public/storage/post/thumbnail/default.jpg', '<p>PHP&nbsp;dan&nbsp;MySQL&nbsp;adalah kombinasi bahasa pemograman dan database yang sangat populer. Situs duniailkom yang berbasis&nbsp;wordpress&nbsp;juga menggunakan kombinasi PHP dan MySQL.</p>\r\n<p>Dalam bagian&nbsp;tutorial belajar PHP lanjutan&nbsp;ini, saya akan membuat tutorial mengenai&nbsp;<a href=\"https://www.duniailkom.com/tutorial-php-cara-membuat-koneksi-php-ke-database-mysql/\">cara membuat koneksi antara PHP dengan database MySQL</a>.</p>\r\n<p>Untuk dapat mengikuti tutorial ini, saya sarankan anda telah mengetahui dasar penulisan&nbsp;PHP, seperti&nbsp;perulangan,&nbsp;tipe data, dan&nbsp;pemanggilan fungsi, karena kita akan banyak menggunakannya dalam tutorial kali ini. Pengetahuan tentang&nbsp;query&nbsp;MySQL&nbsp;juga akan sangat membantu.</p>\r\n<p>Jika anda belum paham keduanya, atau untuk sekedar me-refresh tentang&nbsp;PHP&nbsp;dan&nbsp;MySQL, duniailkom telah membuat tutorial lengkap tentang keduanya. Untuk&nbsp;Tutorial PHP Dasar, dapat anda baca di&nbsp;<a href=\"https://www.duniailkom.com/tutorial-belajar-php-dasar-untuk-pemula/\">Tutorial Belajar PHP Dasar Untuk Pemula</a>&nbsp;dan untuk&nbsp;Tutorial MySQL Dasar, dapat anda baca di&nbsp;<a href=\"https://www.duniailkom.com/tutorial-belajar-mysql-dan-index-artikel-mysql\">Tutorial Belajar MySQL Dasar Untuk Pemula</a>.</p>\r\n<p>Dalam halaman ini, saya akan mengindex seluruh&nbsp;Tutorial Cara Membuat Koneksi PHP ke Database MySQL. Semoga dengan tutorial ini anda bisa mengetahui dan paham cara menggabungkan PHP dengan MySQL.</p>\r\n<p>&nbsp;</p>\r\n<pre class=\"language-php\"><code>&lt;?php \r\n// isi nama host, username mysql, dan password mysql anda\r\n$host = mysqli_connect(\"localhost\",\"root\",\"\");\r\n\r\nif($host){\r\n	echo \"koneksi host berhasil.&lt;br/&gt;\";\r\n}else{\r\n	echo \"koneksi gagal.&lt;br/&gt;\";\r\n }\r\n// isikan dengan nama database yang akan di hubungkan\r\n$db = mysqli_select_db($host, \"db_sekolah\");\r\n\r\nif($db){\r\n	echo \"koneksi database berhasil.\";\r\n}else{\r\n	echo \"koneksi database gagal.\";\r\n}\r\n?&gt;</code></pre>\r\n<p>&nbsp;</p>', NULL, 2, '2023-01-20T08:21:34', '', 4, 0, 'publish');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_post_categories`
+-- Table structure for table `tb_post_categories`
 --
 
 CREATE TABLE `tb_post_categories` (
@@ -299,7 +303,7 @@ CREATE TABLE `tb_post_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_post_categories`
+-- Dumping data for table `tb_post_categories`
 --
 
 INSERT INTO `tb_post_categories` (`id`, `slug`, `nama`) VALUES
@@ -309,7 +313,7 @@ INSERT INTO `tb_post_categories` (`id`, `slug`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_setting`
+-- Table structure for table `tb_setting`
 --
 
 CREATE TABLE `tb_setting` (
@@ -327,7 +331,7 @@ CREATE TABLE `tb_setting` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_siswa`
+-- Table structure for table `tb_siswa`
 --
 
 CREATE TABLE `tb_siswa` (
@@ -343,18 +347,18 @@ CREATE TABLE `tb_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tb_siswa`
+-- Dumping data for table `tb_siswa`
 --
 
 INSERT INTO `tb_siswa` (`id`, `nis`, `nama`, `kelas`, `status`, `agama`, `jenis_kelamin`, `id_komli`, `gambar`) VALUES
-(13, 20211324, 'Abdulah Dadan', 'XII-40', 'ya', 'Islam', 'L', 2, '/storage/post/IMG_20221202_170449.jpg'),
-(14, 782464234, 'Asep Suharto', 'XII-40', 'ya', 'Islam', 'L', 1, '/storage/post/IMG_20221202_170449.jpg'),
+(13, 20211324, 'Abdulah Dadan', 'XII-40', 'ya', 'Islam', 'L', 2, '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg'),
+(14, 782464234, 'Asep Suharto', 'XII-40', 'ya', 'Islam', 'L', 1, '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg'),
 (15, 23423423, 'dada', 'XII-RPL-10', 'ya', 'Islam', 'L', 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_users`
+-- Table structure for table `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -373,187 +377,187 @@ CREATE TABLE `tb_users` (
 --
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_ekstrakurikuler`
+-- Indexes for table `tb_ekstrakurikuler`
 --
 ALTER TABLE `tb_ekstrakurikuler`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_fasilitas`
+-- Indexes for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_imgfasilitas`
+-- Indexes for table `tb_imgfasilitas`
 --
 ALTER TABLE `tb_imgfasilitas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_kelas`
+-- Indexes for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_kompetensi_keahlian`
+-- Indexes for table `tb_kompetensi_keahlian`
 --
 ALTER TABLE `tb_kompetensi_keahlian`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `slug` (`slug`);
 
 --
--- Indeks untuk tabel `tb_lembaga`
+-- Indexes for table `tb_lembaga`
 --
 ALTER TABLE `tb_lembaga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_message`
+-- Indexes for table `tb_message`
 --
 ALTER TABLE `tb_message`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pages`
+-- Indexes for table `tb_pages`
 --
 ALTER TABLE `tb_pages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_pages_categories`
+-- Indexes for table `tb_pages_categories`
 --
 ALTER TABLE `tb_pages_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_post`
+-- Indexes for table `tb_post`
 --
 ALTER TABLE `tb_post`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_post_categories`
+-- Indexes for table `tb_post_categories`
 --
 ALTER TABLE `tb_post_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_setting`
+-- Indexes for table `tb_setting`
 --
 ALTER TABLE `tb_setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_siswa`
+-- Indexes for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_users`
+-- Indexes for table `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_ekstrakurikuler`
+-- AUTO_INCREMENT for table `tb_ekstrakurikuler`
 --
 ALTER TABLE `tb_ekstrakurikuler`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_fasilitas`
+-- AUTO_INCREMENT for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_imgfasilitas`
+-- AUTO_INCREMENT for table `tb_imgfasilitas`
 --
 ALTER TABLE `tb_imgfasilitas`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_kelas`
+-- AUTO_INCREMENT for table `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_kompetensi_keahlian`
+-- AUTO_INCREMENT for table `tb_kompetensi_keahlian`
 --
 ALTER TABLE `tb_kompetensi_keahlian`
   MODIFY `id` int(22) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_lembaga`
+-- AUTO_INCREMENT for table `tb_lembaga`
 --
 ALTER TABLE `tb_lembaga`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_message`
+-- AUTO_INCREMENT for table `tb_message`
 --
 ALTER TABLE `tb_message`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pages`
+-- AUTO_INCREMENT for table `tb_pages`
 --
 ALTER TABLE `tb_pages`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pages_categories`
+-- AUTO_INCREMENT for table `tb_pages_categories`
 --
 ALTER TABLE `tb_pages_categories`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_post`
+-- AUTO_INCREMENT for table `tb_post`
 --
 ALTER TABLE `tb_post`
-  MODIFY `id` int(14) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(14) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_post_categories`
+-- AUTO_INCREMENT for table `tb_post_categories`
 --
 ALTER TABLE `tb_post_categories`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_setting`
+-- AUTO_INCREMENT for table `tb_setting`
 --
 ALTER TABLE `tb_setting`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_siswa`
+-- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_users`
+-- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
