@@ -30,5 +30,8 @@ class Home extends BaseController
     public function post(){
         return view('frontend/post_list',['title'=>"Post"]);
     }
+    public function sambutan(){
+      return view('frontend/sambutan_kepala_sekolah',['title'=>'Sambutan Kepala Sekolah']);
+    }
 }
 ?>

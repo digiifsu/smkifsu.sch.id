@@ -27,6 +27,7 @@ $routes->get('profile', "Home::profile",['as'=>'frontend_profile']);
 $routes->get('profile/visi_misi',"Home::visi_misi",['as'=>'frontend_visimisi']);
 $routes->get('profile/budaya_sekolah',"Home::budaya_sekolah",['as'=>'frontend_budaya_sekolah']);
 $routes->get('post','Home::post',['as'=>'frontend_post']);
+$routes->get('profile/sambutan-kepala-sekolah','Home::sambutan',['as'=>'frontend_sambutan_kepala_sekolah']);
 
 /*
  * --------------------------------------------------------------------
@@ -88,6 +89,8 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 		$routes->post('profile', 'Admin\Pengaturan::profileUpdate', ['as'=>'admin_pengaturan_profile_update']);
 		$routes->get('general', 'Admin\Pengaturan::general',['as'=>'admin_pengaturan_general']);
 		$routes->post('general', 'Admin\Pengaturan::generalUpdate',['as'=>'admin_pengaturan_update']);
+		$routes->get('sambutan-kepsek','Admin\Pengaturan::sambutanKepsek',['as'=>'admin_sambutan_kepsek']);
+		$routes->post('sambutan-kepsek','Admin\Pengaturan::updateSambutanKepsek',['as'=>'admin_sambutan_kepsek_post']);
 	});
 	/*
 	 * --------------------------------------------------------------------

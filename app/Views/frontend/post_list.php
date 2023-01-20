@@ -50,7 +50,6 @@
 				</div>
 			</div>
 			<div class="berita_galery grid grid-cols-1 md-grid-cols-2 gap-6">
-
 				<?php 
 				$post_with_paginate = $model_berita->paginate(40);
 				$categori = model('Admin/PostsCategories');
@@ -81,8 +80,6 @@
 						</div>
 					<?php endforeach ?>
 				<?php endif ?>
-
-
 			</div>
 			<?php echo $pager->links(); ?>
 

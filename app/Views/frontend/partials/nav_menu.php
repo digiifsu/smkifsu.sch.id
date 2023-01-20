@@ -23,14 +23,14 @@
                             <li class="dropdown">
                                 <div class="nav_link">Profil<i class="fa-solid fa-chevron-down text-sm"></i></div>
                                 <div class="dropdown-content">
-                                    <a href="pages/school_profile.html">Profil Sekolah</a>
-                                    <?php 
+                                    <a href="<?= base_url(route_to('frontend_profile')) ?>">Profil Sekolah</a>
+                                    <?php
                                     $model = model('admin/komli');
                                     if($data = $model->get()->getResult()){
                                         foreach ($data as  $value) {
                                             ?>
                                             <a href="<?php echo site_url(route_to('frontend_detail_komli',$value->id, $value->slug)); ?>"><?php echo $value->nama_komli; ?></a>
-                                            <?php     
+                                            <?php
                                         }
                                     }
                                     ?>

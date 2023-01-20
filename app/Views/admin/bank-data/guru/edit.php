@@ -30,6 +30,9 @@ link_tag('elfinder/css/Material/css/theme-light.css');
 
     <div class="bg-white p-4">
         <div class="col-md-6 bg-white rounded shadow-sm">
+          <?php if (session()->has('message')): ?>
+            <p class="alert alert-warning"><?php echo session()->getFlashdata('message') ?></p>
+          <?php endif; ?>
             <div class="-body">
                 <?= form_open('', ['id' => 'update_siswa']) ?>
                 <div class="form-group">
@@ -56,6 +59,18 @@ link_tag('elfinder/css/Material/css/theme-light.css');
                         <?php endforeach; ?>
                     </select>
                     </select>
+                </div>
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <select class="form-control" name="status">
+                    <?php foreach (['aktif','tidak'] as  $value): ?>
+                      <?php if ($data_guru->status == $value): ?>
+                        <option selected value="<?php echo $value ?>"><?php echo $value; ?></option>
+                        <?php else: ?>
+                          <option value="<?php echo $value ?>"><?php echo $value; ?></option>
+                      <?php endif; ?>
+                    <?php endforeach; ?>
+                  </select>
                 </div>
                 <div class="form-group">
                     <label for="" class="form-label">Email</label>

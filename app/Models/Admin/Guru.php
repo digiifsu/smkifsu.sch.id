@@ -24,6 +24,7 @@ class Guru extends Model
         'agama',
         'yt_link',
         'fb_link',
+        'status',
         'ig_link',
         'tiktok_link',
     ];

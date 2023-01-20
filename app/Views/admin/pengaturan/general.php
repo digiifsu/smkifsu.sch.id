@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="bg-white p-4">
         <?php if (session()->has('success')): ?>
         <p class="alert alert-success">

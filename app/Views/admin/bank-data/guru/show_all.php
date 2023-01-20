@@ -57,6 +57,7 @@ echo $this->section('content')
                             <th>Kategori</th>
                             <th>Email</th>
                             <th>Agama</th>
+                            <th>Status</th>
                             <th>Jenis Kelamin</th>
                             <th>
                                 Gambar
@@ -77,6 +78,7 @@ echo $this->section('content')
                                     <td><?= $row->kategori ?></td>
                                     <td><?= $row->email ?></td>
                                     <td><?= $row->agama ?></td>
+                                    <td><?= $row->status; ?></td>
                                     <td><?= $row->jenis_kelamin ?></td>
                                     <td>
                                         <?php if (!empty($row->image)) : ?>
@@ -140,6 +142,14 @@ echo script_tag('assets/js/tinymceElfinder.js');
                     <label for="" class="form-label">Agama</label>
                     <input required type="text" name="kelas" class="form-control">
                 </div> -->
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <select class="form-control" name="status">
+                    <?php foreach (['aktif','tidak'] as  $value): ?>
+                      <option value="<?php echo $value ?>"><?php echo $value; ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
                 <div class="form-group">
                     <label for="" class="form-label">Kategori</label>
                     <select required name="kategori" id="" class="form-control">

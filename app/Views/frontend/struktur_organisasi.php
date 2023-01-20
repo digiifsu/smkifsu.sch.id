@@ -26,10 +26,10 @@
             </div>
             <div class="line"></div>
             <div class="pengurus grid grid-cols-1 lg-grid-cols-2 gap-5">
-               <?php 
+               <?php
                $guru = model("admin/guru");
                ?>
-               <?php if ($data = $guru->get()->getResult()): ?>
+               <?php if ($data = $guru->where('status','aktif')->get()->getResult()): ?>
                <?php foreach ($data as $row): ?>
                    <div class="pengurus_card grid grid-cols-8 gap-5 md-gap-7">
                     <div class="profile_img col-span-3">
