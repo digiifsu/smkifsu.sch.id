@@ -62,7 +62,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="pages/berita_list.html" class="nav_link">Berita</a>
+                                <a href="<?= site_url(route_to('frontend_post')) ?>" class="nav_link">Berita</a>
                             </li>
                             <li>
                                 <a href="pages/school_contact.html" class="nav_link">Kontak Kami</a>

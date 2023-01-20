@@ -77,6 +77,15 @@ class Guru extends BaseController
             throw PageNotFoundException::forPageNotFound();
         }
     }
+    public function update($id = null){
+        if(is_null($id)){
+            throw PageNotFoundException::forPageNotFound();
+        }
+        $data = $this->request->getPost();
+        if($this->_getGuru()->update($id,$data)){
+            return redirect()->route('admin_bangdata_update_guru',[$id])->with('message', 'data berhasil di update');
+        }
+    }
     public function edit($id = null)
     {
         if (NULL === $id) {
@@ -90,7 +99,7 @@ class Guru extends BaseController
             'admin/bank-data/guru/edit',
             [
                 'title' => 'Edit Guru',
-                'data_guru' => $guru->get()->getRow(),
+                'data_guru' => $this->_getGuru()->where('id',$id)->get()->getRow(),
                 'agama' => $this->agama(),
                 'kategori' => $this->pekerjaan(),
             ]

@@ -1,6 +1,6 @@
 <?php echo $this->extend('frontend/layouts/app'); ?>
 <?php echo $this->section('content') ?>
-<header class="pages_header w-full" style="background: url('../assets/img/header_bg.png');">
+<header class="pages_header w-full" style="background: url('<?= base_url('assets/frontend/assets/img/header_bg.png') ?>');">
 	<?= $this->include('frontend/partials/nav_menu'); ?>
 	<div class="pages_nav">
 		<div class="container">
@@ -31,9 +31,8 @@
 								<div class="title_news_banner flex flex-center">
 									<div class="date flex items-center">
 										<i class="fa-regular fa-calendar-days text-white text-sm"></i>
-										<p>
-											<?php echo date("d/M/Y",strtotime($value->create_at)); ?>
-										</p>
+										<p><?= tanggal_indo(date('Y-m-y',strtotime($value->create_at))) ?></p>
+
 									</div>
 									<h2><?php echo $value->title ?? '-' ?></h2>
 								</div>
@@ -72,9 +71,7 @@
 								<div class="title">
 									<div class="date flex items-center">
 										<i class="fa-regular fa-calendar-days text-white text-sm"></i>
-										<p>
-											<?php echo date("d/M/Y",strtotime($value['create_at'])); ?>
-										</p>
+										<p><?= tanggal_indo(date('Y-m-y',strtotime($value['create_at']))) ?></p>
 									</div>
 									<h2>
 										<?php echo $value['title'] ?? '' ?>

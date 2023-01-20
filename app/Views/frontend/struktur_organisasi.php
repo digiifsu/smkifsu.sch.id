@@ -36,7 +36,7 @@
                        <?php if (!empty($row->image)): ?>
                             <img width="100%" height="100%" style="object-fit: cover;" data-src="<?= base_url($row->image); ?>">
                         <?php else: ?>
-                             <img width="100%" height="100%" style="object-fit: cover;" data-src="https://via.placeholder.com/150">
+                             <img width="100%" height="100%" style="object-fit: cover;" data-src="<?php echo base_url('assets/img/nophoto_user.jpg'); ?>">
                        <?php endif ?>
                     </div>
                     <div class="bio col-span-5">

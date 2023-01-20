@@ -10,8 +10,17 @@
                     <div class="line"></div>
                 </div>
                 <h1>SMK INFORMATIKA SUMEDANG</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the
-                industry's standard dummy text ever since the</p>
+                <p>
+                    <?php
+                    $pengaturan = model('Admin/Pengaturan');
+                    $text = $pengaturan->get()->getRow();
+                    if(strlen($text->profile_sekolah) >= 200){
+                        echo substr($text->profile_sekolah, 0, 400) . '...';
+                    } else {
+                        echo substr($text->profile_sekolah, 0, 400);
+                    }
+                    ?>
+                </p>
                 <div class="header_btn">
                     <a href="" class="btn btn-md"><i class="fa-regular fa-circle-play text-lg"></i>PROFIL IFSU</a>
                     <a href="" class="btn btn-md"><i class="fa-regular fa-compass text-lg"></i></i>Metaverse</a>
@@ -295,7 +304,7 @@
                                 <div class="title">
                                     <div class="date flex items-center">
                                         <i class="fa-regular fa-calendar-days text-white text-sm"></i>
-                                        <p><?= date('D,d-M-Y',strtotime($row->create_at)) ?></p>
+                                        <p><?= tanggal_indo(date('Y-m-y',strtotime($row->create_at))) ?></p>
                                     </div>
                                     <h2><?= $row->title ?? '' ?></h2>
                                 </div>

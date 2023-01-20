@@ -9,9 +9,7 @@
                 Profil <?php echo ucwords($data_komli->nama_komli); ?>
             </h2>
             <div class="nav flex items-center gap-3">
-                <a href="../home.html">Beranda</a><i class="fa-solid fa-chevron-right text-white"></i><a
-                href="">Profil Jurusan</a><i class="fa-solid fa-chevron-right text-white"></i><a class="active"
-                href=""><?php echo ucwords($data_komli->nama_komli); ?></a>
+                <a href="../home.html">Beranda</a><i class="fa-solid fa-chevron-right text-white"></i><a href="">Profil Jurusan</a><i class="fa-solid fa-chevron-right text-white"></i><a class="active" href=""><?php echo ucwords($data_komli->nama_komli); ?></a>
             </div>
         </div>
     </div>
@@ -27,7 +25,7 @@
                     <h2><?php echo $data_komli->nama_komli; ?></h2>
                 </div>
                 <div class="text_group">
-                    <p class="deskripsi_komli"> 
+                    <p class="deskripsi_komli">
                         <?php echo $data_komli->deskripsi; ?>
                     </p>
                     <a href="<?= $data_komli->video_profile ?>" target="__blank" class="btn btn-md">Tonton Vidio Profil</a>
@@ -38,7 +36,11 @@
                     <p>Kepala Jurusan</p>
                     <h6><?= ucwords($data_komli->nama_kajur); ?></h6>
                 </div>
-                <img data-src="<?php echo base_url($data_komli->foto_kajur); ?>">
+                <?php if (!empty($data->foto_kajur)) : ?>
+                    <img data-src="<?php echo base_url($data_komli->foto_kajur); ?>">
+                <?php else : ?>
+                    <img data-src="<?php echo base_url('assets/img/nophoto_user.jpg'); ?>">
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -58,7 +60,7 @@
                 </div>
                 <h2>Desain Grafis</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the
-                industry's standard dummy</p>
+                    industry's standard dummy</p>
             </div>
             <div class="card ease">
                 <div class="icon">
@@ -66,7 +68,7 @@
                 </div>
                 <h2>Fotografi</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the
-                industry's standard dummy</p>
+                    industry's standard dummy</p>
             </div>
             <div class="card ease">
                 <div class="icon">
@@ -74,7 +76,7 @@
                 </div>
                 <h2>Film</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the
-                industry's standard dummy</p>
+                    industry's standard dummy</p>
             </div>
         </div>
     </div>
@@ -99,10 +101,10 @@
                 </a>
             </div>
             <div class="project lg-col-span-3">
-             <img src="<?php base_url('assets/frontend') ?>/assets/img/prototype.png">
-         </div>
-     </div>
- </div>
+                <img src="<?php base_url('assets/frontend') ?>/assets/img/prototype.png">
+            </div>
+        </div>
+    </div>
 </section>
 <section>
     <div class="container">
