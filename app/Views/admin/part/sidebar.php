@@ -103,7 +103,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="forms/forms.html">
+                                <a href="<?php echo site_url(route_to('admin_eskul_all')); ?>">
                                     <span class="sub-item">Eskul</span>
                                 </a>
                             </li>

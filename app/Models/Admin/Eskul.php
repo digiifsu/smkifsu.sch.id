@@ -14,7 +14,16 @@ class Eskul extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'nama',
+        'sambutan_pembina',
+        'foto',
+        'yang_dipelajari',
+        'ketua',
+        'wakil1',
+        'wakil2',
+        'pembina',
+    ];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,6 +48,7 @@ class Eskul extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
     public function _get_table(){
         return $this->table;
     }

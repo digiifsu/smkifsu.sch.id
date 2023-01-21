@@ -32,6 +32,25 @@ class Home extends BaseController
     }
     public function sambutan(){
       return view('frontend/sambutan_kepala_sekolah',['title'=>'Sambutan Kepala Sekolah']);
-    }
+  }
+  public function eskul(){
+    return view('frontend/eskul',['title'=>'Eskul']);
+}
+public function detail($id = null){
+    $data = [];
+    $model = model('Admin/Eskul');
+    $data_eskul = $model->select('tb_lembaga.nama as nama_pembina,tb_lembaga.image as foto_pembina,'.$model->_get_table().".*")->join('tb_lembaga','tb_lembaga.id='.$model->_get_table().".pembina",'LEFT')->where($model->_get_table().'.id',$id)->get()->getRow();
+    if (!$data_eskul) {
+      return redirect()->back();
+  }
+  $data = $data_eskul;
+  $data->ketua = db_connect()->query("SELECT nama as nama,gambar as foto FROM tb_siswa WHERE tb_siswa.id='".$data->ketua."'")
+  ->getRow();
+  $data->wakil1 = db_connect()->query("SELECT nama as nama,gambar as foto FROM tb_siswa WHERE tb_siswa.id='".$data->wakil1."'")
+  ->getRow();
+  $data->wakil2 = db_connect()->query("SELECT nama as nama,gambar as foto FROM tb_siswa WHERE tb_siswa.id='".$data->wakil2."'")
+  ->getRow();
+  return view('frontend/detail_eskul',['title'=>'Eskul','data_eskul'=>$data]);
+}
 }
 ?>

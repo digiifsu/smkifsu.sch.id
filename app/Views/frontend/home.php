@@ -316,7 +316,7 @@
                 <?php endif ?>
             </div>
         </div>
-        <a href="pages/berita_list.html" class="btn btn-md btn-more">
+        <a href="<?php echo site_url(route_to('frontend_post')); ?>" class="btn btn-md btn-more">
             Selengkapnya
         </a>
     </div>

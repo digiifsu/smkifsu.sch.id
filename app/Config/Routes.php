@@ -28,6 +28,8 @@ $routes->get('profile/visi_misi',"Home::visi_misi",['as'=>'frontend_visimisi']);
 $routes->get('profile/budaya_sekolah',"Home::budaya_sekolah",['as'=>'frontend_budaya_sekolah']);
 $routes->get('post','Home::post',['as'=>'frontend_post']);
 $routes->get('profile/sambutan-kepala-sekolah','Home::sambutan',['as'=>'frontend_sambutan_kepala_sekolah']);
+$routes->get('eskul','Home::eskul',['as'=>'frontend_eskul']);
+$routes->get('eskul/detail/(:num)','Home::detail/$1',['as'=>'frontend_eskul_detail']);
 
 /*
  * --------------------------------------------------------------------
@@ -98,7 +100,7 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 	 * --------------------------------------------------------------------
 	 */
 	$routes->group(
-		'bank-data',
+		'bankdata',
 		function ($routes) {
 			/*
 			 * --------------------------------------------------------------------
@@ -168,9 +170,13 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			 * --------------------------------------------------------------------
 			 */
 			$routes->group('eskul',function ($routes) {
-					$routes->get('/', "Admin\Eskul::index",['as'=>"admin_eskul_all"]);
-				}
-			);
+				$routes->get('/', "Admin\Eskul::index",['as'=>"admin_eskul_all"]);
+				$routes->post('/', "Admin\Eskul::save",['as'=>"admin_eskul_save"]);
+				$routes->get('edit/(:num)', "Admin\Eskul::edit/$1",['as'=>"admin_eskul_edit"]);
+				$routes->post('edit/(:num)', "Admin\Eskul::update/$1",['as'=>"admin_eskul_edit"]);
+				$routes->get('delete/(:num)',"Admin\Eskul::destroy/$1",['as'=>'admin_eskul_delete']);
+			}
+		);
 			/*
 			 * --------------------------------------------------------------------
 			 * Route group agenda
