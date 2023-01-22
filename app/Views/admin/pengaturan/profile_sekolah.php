@@ -21,19 +21,19 @@
 <?php echo form_open(); ?>
 <div class="form-group">
     <label for="profile_sekolah">Profile Sekolah</label>
-    <textarea name="profile_sekolah" class="form-control" id="profile_sekolah" cols="30" rows="10">
+    <textarea name="profile_sekolah" class="form-control" id="profile_sekolah" cols="30" rows="40">
         <?php echo $profile_sekolah; ?>
     </textarea>
 </div>
 <div class="form-group">
     <label for="visi_misi">Visi & Misi</label>
-    <textarea name="visi_misi" class="form-control" id="visi_misi" cols="30" rows="10">
+    <textarea name="visi_misi" class="form-control" id="visi_misi" cols="30" rows="40">
         <?php echo $visi_misi; ?>
     </textarea>
 </div>
 <div class="form-group">
     <label for="budaya_sekolah">Budaya Sekolah</label>
-    <textarea name="budaya_sekolah" class="form-control" id="budaya_sekolah" cols="30" rows="10">
+    <textarea name="budaya_sekolah" class="form-control" id="budaya_sekolah" cols="30" rows="40">
         <?php echo $budaya_sekolah; ?>
     </textarea>
 </div>

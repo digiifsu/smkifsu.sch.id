@@ -30,6 +30,7 @@ $routes->get('post','Home::post',['as'=>'frontend_post']);
 $routes->get('profile/sambutan-kepala-sekolah','Home::sambutan',['as'=>'frontend_sambutan_kepala_sekolah']);
 $routes->get('eskul','Home::eskul',['as'=>'frontend_eskul']);
 $routes->get('eskul/detail/(:num)','Home::detail/$1',['as'=>'frontend_eskul_detail']);
+$routes->get('fasilitas','Home::fasilitas',['as'=>'frontend_fasilitas']);
 
 /*
  * --------------------------------------------------------------------
@@ -194,9 +195,13 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 			 * --------------------------------------------------------------------
 			 */
 			$routes->group(
-				"pages",
+				"fasilitas",
 				function ($routes) {
-
+					$routes->get('/','Admin\Fasilitas::index',['as'=>'admin_fasilitas_all']);
+					$routes->get('delete/(:num)','Admin\Fasilitas::destroy/$1',['as'=>'admin_fasilitas_delete']);
+					$routes->get('edit/(:num)','Admin\Fasilitas::edit/$1',['as'=>'admin_fasilitas_edit']);
+					$routes->post('edit/(:num)','Admin\Fasilitas::update/$1',['as'=>'admin_fasilitas_update']);
+					$routes->post('/','Admin\Fasilitas::store',['as'=>'admin_fasilitas_add']);	
 				}
 			);
 

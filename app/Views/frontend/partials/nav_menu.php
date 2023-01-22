@@ -38,6 +38,8 @@
                                     <a href="<?php echo site_url(route_to('frontend_struktur_organisasi')); ?>">Stuktur Organisasi</a>
                                     <a href="<?php echo site_url(route_to('frontend_visimisi')); ?>">Visi & Misi</a>
                                     <a href="<?php echo site_url(route_to('frontend_budaya_sekolah')); ?>">Budaya Sekolah</a>
+                                    <a href="<?php echo site_url(route_to('frontend_fasilitas')); ?>">Budaya Sekolah</a>
+
                                 </div>
                             </li>
                             <li class="dropdown">
@@ -46,7 +48,7 @@
                                 <div class="dropdown-content">
                                     <a href="#kompetensi">Kompetisi Keahlian</a>
                                     <a href="pages/prospek_pplg.html">Prospek Kelulusan</a>
-                                    <a href="pages/ekskul_list.html">Ektrakulikuler</a>
+                                    <a href="<?php echo site_url(route_to('frontend_eskul')); ?>">Ektrakulikuler</a>
                                     <a href="#">Gambaran Pembelajaran</a>
                                 </div>
                             </li>

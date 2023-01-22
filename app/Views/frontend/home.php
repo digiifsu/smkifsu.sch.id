@@ -78,37 +78,21 @@
                 </h2>
             </div>
             <div class="w-full grid grid-cols-1 md-grid-cols-3 lg-grid-cols-4 xl-grid-cols-5 gap-5">
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-red"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-green"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-yellow"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-aqua"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-pink"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-orange"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-brown"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-blue"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-red"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-green"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-yellow"></i>Ruang Praktik
-                Siswa</div>
-                <div class="facility_list"><i class="fa-regular fa-building text-3xl text-aqua"></i>Ruang Praktik
-                Siswa</div>
-            </div>
-            <a href="pages/facility_list.html" class="btn btn-md btn-more">
-                Selengkapnya
-            </a>
+              <?php $fasilitas = model('Admin/Fasilitas')->limit(5)->findAll(); ?>
+              <?php if (!empty($fasilitas)): ?>
+                  <?php foreach ($fasilitas as  $value): ?>
+                    <div class="facility_list"><i class="fa-regular fa-building text-3xl text-red"></i><?php echo $value->nama ?></div>
+                <?php endforeach ?>
+            <?php endif ?>
         </div>
+        <?php if (count($fasilitas) > 5): ?>
+            <a href="<?php echo site_url(route_to('frontend_fasilitas')) ?>" class="btn btn-md btn-more">
+            Selengkapnya
+        </a>
+    <?php endif ?>
+</div>
 
-    </div>
+</div>
 </section>
 <section id="karyaSiswa" class="w-full">
     <div class="karya_siswa">
@@ -296,7 +280,11 @@
                 <?php if (!empty($blog)): ?>
                     <?php foreach ($blog as $row): ?>
                         <div class="berita_border">
-                            <img data-src="<?php echo base_url($row->thumbnail); ?>">
+                            <?php if (!empty($row->thumbnail)): ?>
+                                <img data-src="<?php echo base_url($row->thumbnail); ?>">
+                            <?php else: ?>
+                                <img data-src="<?php echo base_url($row->thumbnail); ?>">
+                            <?php endif ?>
                             <a href="<?php echo site_url(route_to('frontend_detail_post',$row->id,$row->slug)) ?>" class="berita_desc">
                                 <div class="category">
                                     <?php echo $row->nama_category ?? 'Unknown';  ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2023 at 05:59 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Waktu pembuatan: 22 Jan 2023 pada 02.59
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -38,7 +38,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -60,7 +60,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_ekstrakurikuler`
+-- Struktur dari tabel `tb_ekstrakurikuler`
 --
 
 CREATE TABLE `tb_ekstrakurikuler` (
@@ -76,29 +76,37 @@ CREATE TABLE `tb_ekstrakurikuler` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_ekstrakurikuler`
+-- Dumping data untuk tabel `tb_ekstrakurikuler`
 --
 
 INSERT INTO `tb_ekstrakurikuler` (`id`, `nama`, `foto`, `sambutan_pembina`, `yang_dipelajari`, `ketua`, `wakil1`, `wakil2`, `pembina`) VALUES
-(1, 'wrwer', 'rwerwe', 'werwer', 'wer', 1, '1', '1', 1);
+(3, 'JEPRET IFSU', '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg', '<p>da</p>', '<p>da</p>', 13, '13', '13', 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_fasilitas`
+-- Struktur dari tabel `tb_fasilitas`
 --
 
 CREATE TABLE `tb_fasilitas` (
   `id` int(14) NOT NULL,
   `nama` varchar(225) NOT NULL,
-  `deskripsi` text DEFAULT NULL,
+  `link360` varchar(123) DEFAULT NULL,
   `image` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `tb_fasilitas`
+--
+
+INSERT INTO `tb_fasilitas` (`id`, `nama`, `link360`, `image`) VALUES
+(4, 'Gudang2', 'https://metaifsu.smkifsu.sch.id?type=fasilitas&fasid=1', '/storage/56p1.jpg'),
+(5, 'Ruang Studio', 'https://metaifsu.smkifsu.sch.id?type=fasilitas&fasid=1', '/storage/56p1.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_imgfasilitas`
+-- Struktur dari tabel `tb_imgfasilitas`
 --
 
 CREATE TABLE `tb_imgfasilitas` (
@@ -110,7 +118,7 @@ CREATE TABLE `tb_imgfasilitas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kelas`
+-- Struktur dari tabel `tb_kelas`
 --
 
 CREATE TABLE `tb_kelas` (
@@ -119,7 +127,7 @@ CREATE TABLE `tb_kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_kelas`
+-- Dumping data untuk tabel `tb_kelas`
 --
 
 INSERT INTO `tb_kelas` (`id`, `nama_kelas`) VALUES
@@ -132,7 +140,7 @@ INSERT INTO `tb_kelas` (`id`, `nama_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kompetensi_keahlian`
+-- Struktur dari tabel `tb_kompetensi_keahlian`
 --
 
 CREATE TABLE `tb_kompetensi_keahlian` (
@@ -147,7 +155,7 @@ CREATE TABLE `tb_kompetensi_keahlian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_kompetensi_keahlian`
+-- Dumping data untuk tabel `tb_kompetensi_keahlian`
 --
 
 INSERT INTO `tb_kompetensi_keahlian` (`id`, `slug`, `nama_komli`, `deskripsi`, `video_profile`, `misi`, `kepala_jurusan`, `kata_ajakan`) VALUES
@@ -157,7 +165,7 @@ INSERT INTO `tb_kompetensi_keahlian` (`id`, `slug`, `nama_komli`, `deskripsi`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_lembaga`
+-- Struktur dari tabel `tb_lembaga`
 --
 
 CREATE TABLE `tb_lembaga` (
@@ -177,7 +185,7 @@ CREATE TABLE `tb_lembaga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_lembaga`
+-- Dumping data untuk tabel `tb_lembaga`
 --
 
 INSERT INTO `tb_lembaga` (`id`, `nama`, `pekerjaan`, `kategori`, `email`, `agama`, `jenis_kelamin`, `image`, `status`, `ig_link`, `tiktok_link`, `yt_link`, `fb_link`) VALUES
@@ -189,7 +197,7 @@ INSERT INTO `tb_lembaga` (`id`, `nama`, `pekerjaan`, `kategori`, `email`, `agama
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_message`
+-- Struktur dari tabel `tb_message`
 --
 
 CREATE TABLE `tb_message` (
@@ -202,7 +210,7 @@ CREATE TABLE `tb_message` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pages`
+-- Struktur dari tabel `tb_pages`
 --
 
 CREATE TABLE `tb_pages` (
@@ -221,7 +229,7 @@ CREATE TABLE `tb_pages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pages_categories`
+-- Struktur dari tabel `tb_pages_categories`
 --
 
 CREATE TABLE `tb_pages_categories` (
@@ -233,7 +241,7 @@ CREATE TABLE `tb_pages_categories` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pengaturan`
+-- Struktur dari tabel `tb_pengaturan`
 --
 
 CREATE TABLE `tb_pengaturan` (
@@ -244,6 +252,7 @@ CREATE TABLE `tb_pengaturan` (
   `video_profile` text NOT NULL,
   `budaya_sekolah` text NOT NULL,
   `email` varchar(121) NOT NULL,
+  `telepon` varchar(13) NOT NULL,
   `sambutan_kepala_sekolah` text NOT NULL,
   `foto_kepsek` varchar(121) NOT NULL,
   `visi_misi` text NOT NULL,
@@ -258,16 +267,16 @@ CREATE TABLE `tb_pengaturan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_pengaturan`
+-- Dumping data untuk tabel `tb_pengaturan`
 --
 
-INSERT INTO `tb_pengaturan` (`title`, `keywords`, `profile_sekolah`, `favicon`, `video_profile`, `budaya_sekolah`, `email`, `sambutan_kepala_sekolah`, `foto_kepsek`, `visi_misi`, `yt_link`, `tiktok_link`, `fb_link`, `ig_link`, `alamat_sekolah`, `head_script`, `footer_script`, `head_style`) VALUES
-('SMK INFORMATIKA SUMEDANG', '', '<p>SMK Informatika Sumedang merupakan sebuah sekolah menengah kejuruan yang berada di bawah naungan Yayasan Pendidikan Sumedang (YPS). Sekolah ini didirikan pada tahun 2005 dengan ijin Dinas Pendidikan Kabupaten Sumedang berupa Surat Keputusan Kepala Dinas Pendidikan Kabupaten Sumedang Nomor 642.2/1820.Kep./Disdik/2005.</p>\r\n<p>SMK Informatika Sumedang ini didirikan dengan tujuan untuk menjawab tantangan jaman ke depan yang semakin dinamis dan perkembangan teknologi informasi di jaman globalisasi. Program studi yang ada di SMK Informatika Sumedang diarahkan untuk mencetak tenaga-tenaga yang terampil, profesional dan terlatih di bidang teknologi informasi serta menerapkannya di lingkungan masyarakat sesuai dengan kebutuhan baik sektor swasta maupun pemerintah.</p>\r\n<p>Sekolah ini memiliki visi untuk menjadikan sekolah sebagai pusat pendidikan dan latihan untuk menciptakan sumber daya manusia profesional, beriman dan bertaqwa terhadap Tuhan Yang Maha Esa ini. Sementara misinya adalah menghasilkan tamatan yang bertaqwa kepada Tuhan Yang Maha Esa; menghasilkan tenaga kerja yang profesional dengan memiliki kompetensi tinggi, mampu bersaing di pasar tenaga kerja nasional dan internasional dan menghasilkan tamatan yang mampu memenuhi dan mengikuti tuntutan ilmu pengetahuan dan teknologi. SMK Informatika Sumedang memiliki tujuan yaitu mempersiapkan peserta didik agar menjadi manusia produktif, mampu bekerja mandiri, mengisi lowongan pekerjaan yang ada di Dunia Usaha/Dunia Industri sebagai tenaga kerja tingkat menengah, sesuai dengan kompetensi dalam program keahlian pilihannya. Ditambah dengan membekali peserta didik agar mampu memilih karir, ulet dan gigih dalam berkompetensi, beradaptasi dilingkungan kerja dan mengembangkan sikap professional dalam bidang keahlian yang diminatinya. Serta membekali peserta didik dengan ilmu pengetahuan, teknologi, dan seni agar mampu mengembangkan diri di kemudian hari baik secara mandiri maupun melalui jenjang pendidikan yang lebih tinggi.</p>\r\n<p>SMK Informatika Sumedang menyelenggarakan kegiatan kependidikannya dengan melingkupi dua kompetisi keahlian yaitu Rekayasa Perangkat Lunak (RPL) dan Multimedia (MM).</p>', '', 'https://youyube.com/video?2', '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>', 'dadan@gmail.com', '<p>Assalamualaikum Wr. Wb.<br /><br />Pertama-tama, saya panjatkan puji syukur kepada Allah SWT, karena berkat rahmat dan karunia-Nya kita semua dapat berkumpul di tempat ini dengan kondisi bagaimanapun. Kita juga dapat menyaksikan putra dan putri kita berwisuda hari ini.<br /><br />Tentu saja hari ini adalha hari yang sangat mengharukan dan paling kita tunggu-tunggu. Kemudian, saya juga mengucapkan terima kasih kepada Bapak Kepala Sekolah dan juga pembawa acara yang telah memberikan kesempatan untuk dapat mengucapkan beberapa kata sambutan.<br /><br />Saya merupakan perwakilan dari salah satu dari siswa SDN 4 Kalijaga ingin menyampaikan rasa terima kasih yang sangat besar atas bimbingannya terhadap anak saya dan juga anak-anak lainnya. Terima kasih atas ilmu yang telah diberikan.<br /><br />Kami yakin segala ilmu yang sudah diberikan selama ini akan bermanfaat di masa depan. Terutama bagi siswa-siswa itu sendiri demi menyiapkan jenjang pendidikan yang lebih tinggi lagi. Hal ini tentu saja tidaklah mudah dalam membimbing siswa-siswa, karena dibutuhkan ketelatenan dan juga kesabaran dalam jumlah yang banyak.<br /><br />Kami juga berharap agar ketelatenan dan kesabaran dari para guru sekalian dapat dicontoh oleh para siswa-siswa sekalian. Kami berharap agar suatu hari nanti putra dan putri kami dapat meraih apa yang dicita-citakan.<br /><br />Selain itu, kami juga menyadari bahwa pasti ada banyak sekali kenakalan atau kebandelan putra putri kami yang seringkali membuat para bapak dan ibu guru kesal. Misalkan saja seperti sering mengobrol pada saat pelajaran sedang berlangsung. Bisa juga, karena ada putra putri kami yang senang berlarian di lorong sekolahan sambil berteriak.<br /><br />Semata-mata itu semua, karena putra dan putri kami masih anak kecil. Kami memohon maaf atas kejadian tersebut. Yang jelas, ingatkan saja putra putri kami mengenai tindakan bagaimana yang baik dan benar dengan lembut.<br /><br />Yang jelas kami tidak akan bisa membalas semua kebaikan dan jasa dari para guru sekalian. Berkat jasa kalian, seluruh siswa-siswa dapat memahami cara membaca, menulis, dan juga berhitung. Selain itu, masih banyak sekali hal-hal yang telah diajarkan kepada siswa siswa di sini, yang tentunya tidak dapat kmai sebutkan secara satu-persatu.<br /><br />Sekian pidato yang saya sampaikan. Saya hanya manusia biasa yang tidak luput dari dosa. Jadi apabila terdapat kesalahan dalam perkataan saya, melalui pidato ini juga saya mohon maaf yang sebesar-besarnya. Jangan sampai dimasukkan ke dalam hati. Terima kasih atas perhatiannya.<br />Wassalamualaikum Wr.Wb.</p>', '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg', '<h4>VISI</h4>\r\n<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>\r\n<p>&nbsp;</p>\r\n<h4>MISI</h4>\r\n<p>&nbsp;</p>\r\n<ul>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque&nbsp;</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n</ul>', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'Jl. Angkrek Situ No. 19 Sumedang 45323.\r\n', '', '', '');
+INSERT INTO `tb_pengaturan` (`title`, `keywords`, `profile_sekolah`, `favicon`, `video_profile`, `budaya_sekolah`, `email`, `telepon`, `sambutan_kepala_sekolah`, `foto_kepsek`, `visi_misi`, `yt_link`, `tiktok_link`, `fb_link`, `ig_link`, `alamat_sekolah`, `head_script`, `footer_script`, `head_style`) VALUES
+('SMK INFORMATIKA SUMEDANG', '', '<p>SMK Informatika Sumedang merupakan sebuah sekolah menengah kejuruan yang berada di bawah naungan Yayasan Pendidikan Sumedang (YPS). Sekolah ini didirikan pada tahun 2005 dengan ijin Dinas Pendidikan Kabupaten Sumedang berupa Surat Keputusan Kepala Dinas Pendidikan Kabupaten Sumedang Nomor 642.2/1820.Kep./Disdik/2005.</p>\r\n<p>SMK Informatika Sumedang ini didirikan dengan tujuan untuk menjawab tantangan jaman ke depan yang semakin dinamis dan perkembangan teknologi informasi di jaman globalisasi. Program studi yang ada di SMK Informatika Sumedang diarahkan untuk mencetak tenaga-tenaga yang terampil, profesional dan terlatih di bidang teknologi informasi serta menerapkannya di lingkungan masyarakat sesuai dengan kebutuhan baik sektor swasta maupun pemerintah.</p>\r\n<p>Sekolah ini memiliki visi untuk menjadikan sekolah sebagai pusat pendidikan dan latihan untuk menciptakan sumber daya manusia profesional, beriman dan bertaqwa terhadap Tuhan Yang Maha Esa ini. Sementara misinya adalah menghasilkan tamatan yang bertaqwa kepada Tuhan Yang Maha Esa; menghasilkan tenaga kerja yang profesional dengan memiliki kompetensi tinggi, mampu bersaing di pasar tenaga kerja nasional dan internasional dan menghasilkan tamatan yang mampu memenuhi dan mengikuti tuntutan ilmu pengetahuan dan teknologi. SMK Informatika Sumedang memiliki tujuan yaitu mempersiapkan peserta didik agar menjadi manusia produktif, mampu bekerja mandiri, mengisi lowongan pekerjaan yang ada di Dunia Usaha/Dunia Industri sebagai tenaga kerja tingkat menengah, sesuai dengan kompetensi dalam program keahlian pilihannya. Ditambah dengan membekali peserta didik agar mampu memilih karir, ulet dan gigih dalam berkompetensi, beradaptasi dilingkungan kerja dan mengembangkan sikap professional dalam bidang keahlian yang diminatinya. Serta membekali peserta didik dengan ilmu pengetahuan, teknologi, dan seni agar mampu mengembangkan diri di kemudian hari baik secara mandiri maupun melalui jenjang pendidikan yang lebih tinggi.</p>\r\n<p>SMK Informatika Sumedang menyelenggarakan kegiatan kependidikannya dengan melingkupi dua kompetisi keahlian yaitu Rekayasa Perangkat Lunak (RPL) dan Multimedia (MM).</p>', '', 'https://youyube.com/video?2', '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>', 'dadan@gmail.com', '088223837165', '<p>Assalamualaikum Wr. Wb.<br /><br />Pertama-tama, saya panjatkan puji syukur kepada Allah SWT, karena berkat rahmat dan karunia-Nya kita semua dapat berkumpul di tempat ini dengan kondisi bagaimanapun. Kita juga dapat menyaksikan putra dan putri kita berwisuda hari ini.<br /><br />Tentu saja hari ini adalha hari yang sangat mengharukan dan paling kita tunggu-tunggu. Kemudian, saya juga mengucapkan terima kasih kepada Bapak Kepala Sekolah dan juga pembawa acara yang telah memberikan kesempatan untuk dapat mengucapkan beberapa kata sambutan.<br /><br />Saya merupakan perwakilan dari salah satu dari siswa SDN 4 Kalijaga ingin menyampaikan rasa terima kasih yang sangat besar atas bimbingannya terhadap anak saya dan juga anak-anak lainnya. Terima kasih atas ilmu yang telah diberikan.<br /><br />Kami yakin segala ilmu yang sudah diberikan selama ini akan bermanfaat di masa depan. Terutama bagi siswa-siswa itu sendiri demi menyiapkan jenjang pendidikan yang lebih tinggi lagi. Hal ini tentu saja tidaklah mudah dalam membimbing siswa-siswa, karena dibutuhkan ketelatenan dan juga kesabaran dalam jumlah yang banyak.<br /><br />Kami juga berharap agar ketelatenan dan kesabaran dari para guru sekalian dapat dicontoh oleh para siswa-siswa sekalian. Kami berharap agar suatu hari nanti putra dan putri kami dapat meraih apa yang dicita-citakan.<br /><br />Selain itu, kami juga menyadari bahwa pasti ada banyak sekali kenakalan atau kebandelan putra putri kami yang seringkali membuat para bapak dan ibu guru kesal. Misalkan saja seperti sering mengobrol pada saat pelajaran sedang berlangsung. Bisa juga, karena ada putra putri kami yang senang berlarian di lorong sekolahan sambil berteriak.<br /><br />Semata-mata itu semua, karena putra dan putri kami masih anak kecil. Kami memohon maaf atas kejadian tersebut. Yang jelas, ingatkan saja putra putri kami mengenai tindakan bagaimana yang baik dan benar dengan lembut.<br /><br />Yang jelas kami tidak akan bisa membalas semua kebaikan dan jasa dari para guru sekalian. Berkat jasa kalian, seluruh siswa-siswa dapat memahami cara membaca, menulis, dan juga berhitung. Selain itu, masih banyak sekali hal-hal yang telah diajarkan kepada siswa siswa di sini, yang tentunya tidak dapat kmai sebutkan secara satu-persatu.<br /><br />Sekian pidato yang saya sampaikan. Saya hanya manusia biasa yang tidak luput dari dosa. Jadi apabila terdapat kesalahan dalam perkataan saya, melalui pidato ini juga saya mohon maaf yang sebesar-besarnya. Jangan sampai dimasukkan ke dalam hati. Terima kasih atas perhatiannya.<br />Wassalamualaikum Wr.Wb.</p>', '/storage/foto_siswa/72f4589eb892b82e124a769d165e8047.jpg', '<h4>VISI</h4>\r\n<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</p>\r\n<p>&nbsp;</p>\r\n<h4>MISI</h4>\r\n<p>&nbsp;</p>\r\n<ul>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque&nbsp;</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n<li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tempore iste suscipit nesciunt, nostrum itaque voluptas, officiis debitis unde totam. Quaerat hic ipsam quos ad earum, ab atque totam possimus.</li>\r\n</ul>', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'https://ig.com/smkifsu', 'Jl. Angkrek Situ No. 19 Sumedang 45323.\r\n', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_post`
+-- Struktur dari tabel `tb_post`
 --
 
 CREATE TABLE `tb_post` (
@@ -288,7 +297,7 @@ CREATE TABLE `tb_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_post`
+-- Dumping data untuk tabel `tb_post`
 --
 
 INSERT INTO `tb_post` (`id`, `slug`, `title`, `keywords`, `deskripsi_singkat`, `thumbnail`, `isi`, `id_tag`, `id_category`, `create_at`, `update_at`, `author`, `views`, `status`) VALUES
@@ -296,12 +305,12 @@ INSERT INTO `tb_post` (`id`, `slug`, `title`, `keywords`, `deskripsi_singkat`, `
 (3, 'kenapa-orang-orang-didunia-wkwkw-yang-addan-saya-suka', 'kenapa orang orang didunia wkwkw yang ad', 'baik', 'dada', '/storage/post/teaching-factory-app.JPG', '<p>dada</p>', NULL, 2, '2023-01-06T09:42:37', '', 4, 0, 'publish'),
 (4, 'workshop-penguatan-kelembagaan-smk-sharing-praktik-baik-program-smk-pusat-keunggulan', 'Workshop Penguatan Kelembagaan SMK Shari', 'dada,dadada,hidayat', '                        Selasa, 25 Oktober 2022 - SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan SMK INFORMATIKA SUMEDANG yang dihadiri  oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.  \r\n\r\nKegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri (Dr. Hj. Anne Sukmawati KD, M.M.Pd).                    ', '/public/storage/post/thumbnail/default.jpg', '<p style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Selasa, 25 Oktober 2022&nbsp;- SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan&nbsp;SMK INFORMATIKA SUMEDANG yang dihadiri&nbsp; oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.&nbsp;&nbsp;</span></p>\r\n<p class=\"MsoNormal\" style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Kegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri</span> (Dr. Hj. Anne Sukmawati KD, M.M.Pd).</p>', NULL, 2, '2023-01-20T06:29:41', '', 4, 0, 'publish'),
 (5, 'workshop-penguatan-kelembagaan-smk-sharing-praktik-baik-program-smk-pusat-keunggulan', 'Workshop Penguatan Kelembagaan SMK Shari', 'dada,ddddada,dwriwpoeri', 'Selasa, 25 Oktober 2022 - SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan SMK INFORMATIKA SUMEDANG yang dihadiri  oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.  \r\n\r\nKegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri (Dr. Hj. Anne Sukmawati KD, M.M.Pd).', '/storage/56p1.jpg', '<p style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Selasa, 25 Oktober 2022&nbsp;- SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan&nbsp;SMK INFORMATIKA SUMEDANG yang dihadiri&nbsp; oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.&nbsp;&nbsp;</span></p>\r\n<p class=\"MsoNormal\" style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Kegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri</span> (Dr. Hj. Anne Sukmawati KD, M.M.Pd).<span style=\"font-family: \'times new roman\', times; font-size: medium;\">Selasa, 25 Oktober 2022&nbsp;- SMK Informatika Sumedang mengadakan kegiatan Workshop Penguatan Kelembagaan SMK Sharing Praktik Baik Program SMK Pusat Keunggulan&nbsp;SMK INFORMATIKA SUMEDANG yang dihadiri&nbsp; oleh guru Produktif dan Siswa/iSMK Informatika Sumedang.&nbsp;</span><span style=\"font-family: \'times new roman\', times; font-size: medium;\">&nbsp;</span></p>\r\n<p class=\"MsoNormal\" style=\"margin: 0px 0px 10px; color: #555555; font-family: Roboto, sans-serif; font-size: 14px; background-color: #ffffff;\"><span style=\"font-family: times new roman, times; font-size: medium;\">Kegiatan ini merupakan serangakaian dari kegiatan kurikulum Merdeka dengan Moderator Iim Ibrahim AK, S.Pd., dan sabutan sekaligus membuka Kegiatan Sharing Praktik Baik oleh ibu kepala SMK Informatika Sumedang (Dr. E. Sulyati, M.Pd. dengan pemateri</span> (Dr. Hj. Anne Sukmawati KD, M.M.Pd).</p>', NULL, 2, '2023-01-20T06:35:03', '', 4, 0, 'publish'),
-(6, 'tutorial-membuat-koneksi-dengan-php', 'tutorial membuat koneksi dengan php', 'dada,dad34,da32rrwer', 'PHP dan MySQL adalah kombinasi bahasa pemograman dan database yang sangat populer. Situs duniailkom yang berbasis wordpress juga menggunakan kombinasi PHP dan MySQL.\r\n\r\nDalam bagian tutorial belajar PHP lanjutan ini, saya akan membuat tutorial mengenai cara membuat koneksi antara PHP dengan database MySQL.\r\n\r\nUntuk dapat mengikuti tutorial ini, saya sarankan anda telah mengetahui dasar penulisan PHP, seperti perulangan, tipe data, dan pemanggilan fungsi, karena kita akan banyak menggunakannya dalam tutorial kali ini. Pengetahuan tentang query MySQL juga akan sangat membantu.\r\n\r\nJika anda belum paham keduanya, atau untuk sekedar me-refresh tentang PHP dan MySQL, duniailkom telah membuat tutorial lengkap tentang keduanya. Untuk Tutorial PHP Dasar, dapat anda baca di Tutorial Belajar PHP Dasar Untuk Pemula dan untuk Tutorial MySQL Dasar, dapat anda baca di Tutorial Belajar MySQL Dasar Untuk Pemula.\r\n\r\nDalam halaman ini, saya akan mengindex seluruh Tutorial Cara Membuat Koneksi PHP ke Database MySQL. Semoga dengan tutorial ini anda bisa mengetahui dan paham c', '/public/storage/post/thumbnail/default.jpg', '<p>PHP&nbsp;dan&nbsp;MySQL&nbsp;adalah kombinasi bahasa pemograman dan database yang sangat populer. Situs duniailkom yang berbasis&nbsp;wordpress&nbsp;juga menggunakan kombinasi PHP dan MySQL.</p>\r\n<p>Dalam bagian&nbsp;tutorial belajar PHP lanjutan&nbsp;ini, saya akan membuat tutorial mengenai&nbsp;<a href=\"https://www.duniailkom.com/tutorial-php-cara-membuat-koneksi-php-ke-database-mysql/\">cara membuat koneksi antara PHP dengan database MySQL</a>.</p>\r\n<p>Untuk dapat mengikuti tutorial ini, saya sarankan anda telah mengetahui dasar penulisan&nbsp;PHP, seperti&nbsp;perulangan,&nbsp;tipe data, dan&nbsp;pemanggilan fungsi, karena kita akan banyak menggunakannya dalam tutorial kali ini. Pengetahuan tentang&nbsp;query&nbsp;MySQL&nbsp;juga akan sangat membantu.</p>\r\n<p>Jika anda belum paham keduanya, atau untuk sekedar me-refresh tentang&nbsp;PHP&nbsp;dan&nbsp;MySQL, duniailkom telah membuat tutorial lengkap tentang keduanya. Untuk&nbsp;Tutorial PHP Dasar, dapat anda baca di&nbsp;<a href=\"https://www.duniailkom.com/tutorial-belajar-php-dasar-untuk-pemula/\">Tutorial Belajar PHP Dasar Untuk Pemula</a>&nbsp;dan untuk&nbsp;Tutorial MySQL Dasar, dapat anda baca di&nbsp;<a href=\"https://www.duniailkom.com/tutorial-belajar-mysql-dan-index-artikel-mysql\">Tutorial Belajar MySQL Dasar Untuk Pemula</a>.</p>\r\n<p>Dalam halaman ini, saya akan mengindex seluruh&nbsp;Tutorial Cara Membuat Koneksi PHP ke Database MySQL. Semoga dengan tutorial ini anda bisa mengetahui dan paham cara menggabungkan PHP dengan MySQL.</p>\r\n<p>&nbsp;</p>\r\n<pre class=\"language-php\"><code>&lt;?php \r\n// isi nama host, username mysql, dan password mysql anda\r\n$host = mysqli_connect(\"localhost\",\"root\",\"\");\r\n\r\nif($host){\r\n	echo \"koneksi host berhasil.&lt;br/&gt;\";\r\n}else{\r\n	echo \"koneksi gagal.&lt;br/&gt;\";\r\n }\r\n// isikan dengan nama database yang akan di hubungkan\r\n$db = mysqli_select_db($host, \"db_sekolah\");\r\n\r\nif($db){\r\n	echo \"koneksi database berhasil.\";\r\n}else{\r\n	echo \"koneksi database gagal.\";\r\n}\r\n?&gt;</code></pre>\r\n<p>&nbsp;</p>', NULL, 2, '2023-01-20T08:21:34', '', 4, 0, 'publish');
+(6, 'tutorial-membuat-koneksi-dengan-php', 'tutorial membuat koneksi dengan php', 'dada,dad34,da32rrwer', 'PHP dan MySQL adalah kombinasi bahasa pemograman dan database yang sangat populer. Situs duniailkom yang berbasis wordpress juga menggunakan kombinasi PHP dan MySQL.\r\n\r\nDalam bagian tutorial belajar PHP lanjutan ini, saya akan membuat tutorial mengenai cara membuat koneksi antara PHP dengan database MySQL.\r\n\r\nUntuk dapat mengikuti tutorial ini, saya sarankan anda telah mengetahui dasar penulisan PHP, seperti perulangan, tipe data, dan pemanggilan fungsi, karena kita akan banyak menggunakannya dalam tutorial kali ini. Pengetahuan tentang query MySQL juga akan sangat membantu.\r\n\r\nJika anda belum paham keduanya, atau untuk sekedar me-refresh tentang PHP dan MySQL, duniailkom telah membuat tutorial lengkap tentang keduanya. Untuk Tutorial PHP Dasar, dapat anda baca di Tutorial Belajar PHP Dasar Untuk Pemula dan untuk Tutorial MySQL Dasar, dapat anda baca di Tutorial Belajar MySQL Dasar Untuk Pemula.\r\n\r\nDalam halaman ini, saya akan mengindex seluruh Tutorial Cara Membuat Koneksi PHP ke Database MySQL. Semoga dengan tutorial ini anda bisa mengetahui dan paham c', '/storage/56p1.jpg', '<p>PHP&nbsp;dan&nbsp;MySQL&nbsp;adalah kombinasi bahasa pemograman dan database yang sangat populer. Situs duniailkom yang berbasis&nbsp;wordpress&nbsp;juga menggunakan kombinasi PHP dan MySQL.</p>\r\n<p>Dalam bagian&nbsp;tutorial belajar PHP lanjutan&nbsp;ini, saya akan membuat tutorial mengenai&nbsp;<a href=\"https://www.duniailkom.com/tutorial-php-cara-membuat-koneksi-php-ke-database-mysql/\">cara membuat koneksi antara PHP dengan database MySQL</a>.</p>\r\n<p>Untuk dapat mengikuti tutorial ini, saya sarankan anda telah mengetahui dasar penulisan&nbsp;PHP, seperti&nbsp;perulangan,&nbsp;tipe data, dan&nbsp;pemanggilan fungsi, karena kita akan banyak menggunakannya dalam tutorial kali ini. Pengetahuan tentang&nbsp;query&nbsp;MySQL&nbsp;juga akan sangat membantu.</p>\r\n<p>Jika anda belum paham keduanya, atau untuk sekedar me-refresh tentang&nbsp;PHP&nbsp;dan&nbsp;MySQL, duniailkom telah membuat tutorial lengkap tentang keduanya. Untuk&nbsp;Tutorial PHP Dasar, dapat anda baca di&nbsp;<a href=\"https://www.duniailkom.com/tutorial-belajar-php-dasar-untuk-pemula/\">Tutorial Belajar PHP Dasar Untuk Pemula</a>&nbsp;dan untuk&nbsp;Tutorial MySQL Dasar, dapat anda baca di&nbsp;<a href=\"https://www.duniailkom.com/tutorial-belajar-mysql-dan-index-artikel-mysql\">Tutorial Belajar MySQL Dasar Untuk Pemula</a>.</p>\r\n<p>Dalam halaman ini, saya akan mengindex seluruh&nbsp;Tutorial Cara Membuat Koneksi PHP ke Database MySQL. Semoga dengan tutorial ini anda bisa mengetahui dan paham cara menggabungkan PHP dengan MySQL.</p>\r\n<p>&nbsp;</p>\r\n<pre class=\"language-php\"><code>\";\r\n}else{\r\n	echo \"koneksi gagal.\r\n\";\r\n }\r\n// isikan dengan nama database yang akan di hubungkan\r\n$db = mysqli_select_db($host, \"db_sekolah\");\r\n\r\nif($db){\r\n	echo \"koneksi database berhasil.\";\r\n}else{\r\n	echo \"koneksi database gagal.\";\r\n}\r\n?&gt;</code></pre>\r\n<p>&nbsp;</p>', NULL, 2, '2023-01-20T08:21:34', '', 4, 0, 'publish');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_post_categories`
+-- Struktur dari tabel `tb_post_categories`
 --
 
 CREATE TABLE `tb_post_categories` (
@@ -311,7 +320,7 @@ CREATE TABLE `tb_post_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_post_categories`
+-- Dumping data untuk tabel `tb_post_categories`
 --
 
 INSERT INTO `tb_post_categories` (`id`, `slug`, `nama`) VALUES
@@ -321,7 +330,7 @@ INSERT INTO `tb_post_categories` (`id`, `slug`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_setting`
+-- Struktur dari tabel `tb_setting`
 --
 
 CREATE TABLE `tb_setting` (
@@ -339,7 +348,7 @@ CREATE TABLE `tb_setting` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_siswa`
+-- Struktur dari tabel `tb_siswa`
 --
 
 CREATE TABLE `tb_siswa` (
@@ -355,7 +364,7 @@ CREATE TABLE `tb_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_siswa`
+-- Dumping data untuk tabel `tb_siswa`
 --
 
 INSERT INTO `tb_siswa` (`id`, `nis`, `nama`, `kelas`, `status`, `agama`, `jenis_kelamin`, `id_komli`, `gambar`) VALUES
@@ -366,7 +375,7 @@ INSERT INTO `tb_siswa` (`id`, `nis`, `nama`, `kelas`, `status`, `agama`, `jenis_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_users`
+-- Struktur dari tabel `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -385,187 +394,187 @@ CREATE TABLE `tb_users` (
 --
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_ekstrakurikuler`
+-- Indeks untuk tabel `tb_ekstrakurikuler`
 --
 ALTER TABLE `tb_ekstrakurikuler`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_fasilitas`
+-- Indeks untuk tabel `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_imgfasilitas`
+-- Indeks untuk tabel `tb_imgfasilitas`
 --
 ALTER TABLE `tb_imgfasilitas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_kelas`
+-- Indeks untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_kompetensi_keahlian`
+-- Indeks untuk tabel `tb_kompetensi_keahlian`
 --
 ALTER TABLE `tb_kompetensi_keahlian`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `slug` (`slug`);
 
 --
--- Indexes for table `tb_lembaga`
+-- Indeks untuk tabel `tb_lembaga`
 --
 ALTER TABLE `tb_lembaga`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_message`
+-- Indeks untuk tabel `tb_message`
 --
 ALTER TABLE `tb_message`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_pages`
+-- Indeks untuk tabel `tb_pages`
 --
 ALTER TABLE `tb_pages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_pages_categories`
+-- Indeks untuk tabel `tb_pages_categories`
 --
 ALTER TABLE `tb_pages_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_post`
+-- Indeks untuk tabel `tb_post`
 --
 ALTER TABLE `tb_post`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_post_categories`
+-- Indeks untuk tabel `tb_post_categories`
 --
 ALTER TABLE `tb_post_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_setting`
+-- Indeks untuk tabel `tb_setting`
 --
 ALTER TABLE `tb_setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_siswa`
+-- Indeks untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_users`
+-- Indeks untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT for table `tb_ekstrakurikuler`
+-- AUTO_INCREMENT untuk tabel `tb_ekstrakurikuler`
 --
 ALTER TABLE `tb_ekstrakurikuler`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tb_fasilitas`
+-- AUTO_INCREMENT untuk tabel `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_imgfasilitas`
+-- AUTO_INCREMENT untuk tabel `tb_imgfasilitas`
 --
 ALTER TABLE `tb_imgfasilitas`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_kelas`
+-- AUTO_INCREMENT untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_kompetensi_keahlian`
+-- AUTO_INCREMENT untuk tabel `tb_kompetensi_keahlian`
 --
 ALTER TABLE `tb_kompetensi_keahlian`
   MODIFY `id` int(22) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tb_lembaga`
+-- AUTO_INCREMENT untuk tabel `tb_lembaga`
 --
 ALTER TABLE `tb_lembaga`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tb_message`
+-- AUTO_INCREMENT untuk tabel `tb_message`
 --
 ALTER TABLE `tb_message`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_pages`
+-- AUTO_INCREMENT untuk tabel `tb_pages`
 --
 ALTER TABLE `tb_pages`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_pages_categories`
+-- AUTO_INCREMENT untuk tabel `tb_pages_categories`
 --
 ALTER TABLE `tb_pages_categories`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_post`
+-- AUTO_INCREMENT untuk tabel `tb_post`
 --
 ALTER TABLE `tb_post`
   MODIFY `id` int(14) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_post_categories`
+-- AUTO_INCREMENT untuk tabel `tb_post_categories`
 --
 ALTER TABLE `tb_post_categories`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tb_setting`
+-- AUTO_INCREMENT untuk tabel `tb_setting`
 --
 ALTER TABLE `tb_setting`
   MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_siswa`
+-- AUTO_INCREMENT untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tb_users`
+-- AUTO_INCREMENT untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;

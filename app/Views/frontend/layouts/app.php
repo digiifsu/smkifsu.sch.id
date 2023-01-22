@@ -28,7 +28,7 @@
         }
     </style>
     <?php $this->renderSection('head'); ?>
-    <title>SMKS INFORMATIKA SUMEDANG</title>
+    <title><?php echo $title ?? '' ?> - SMKS INFORMATIKA SUMEDANG</title>
 </head>
 
 <body>
@@ -106,7 +106,7 @@
                             </p>
                         </div>
                         <div class="nav_item">
-                            <p>Phone : (603) 555-0123</p>
+                            <p>Phone : <?php echo $pengaturan->telepon; ?></p>
                         </div>
                         <div class="nav_item">
                             <p>Email : <?php echo $pengaturan->email; ?></p>

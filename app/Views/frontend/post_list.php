@@ -22,7 +22,7 @@
 				<div class="swiper-wrapper">
 					<?php
 					$model_berita = model("Admin/Posts");
-					$post = $model_berita->orderBy('create_at','asc')->get()->getResult();
+					$post = $model_berita->where('status','publish')->orderBy('create_at','asc')->get()->getResult();
 					?>
 					<?php if (!empty($post)): ?>
 						<?php foreach ($post as $value): ?>
@@ -37,8 +37,8 @@
 									<h2>
 										<?php if (strlen($value->title) > 200): ?>
 											<?php echo substr($value->title, 0,200).'...'; ?>
-											<?php else: ?>
-												<?php echo $value->title; ?>
+										<?php else: ?>
+											<?php echo $value->title; ?>
 										<?php endif; ?>
 									</h2>
 								</div>
@@ -57,7 +57,14 @@
 			</div>
 			<div class="berita_galery grid grid-cols-1 md-grid-cols-2 gap-6">
 				<?php
-				$post_with_paginate = $model_berita->paginate(40);
+				if (isset($_GET['search'])) {
+					$search_val = strip_tags($_GET['search']);
+				}
+				if (isset($search_val)) {
+					$post_with_paginate = $model_berita->like('title',$search_val)->where('status','publish')->paginate(40);
+				}else{
+					$post_with_paginate = $model_berita->where('status','publish')->paginate(40);
+				}
 				$categori = model('Admin/PostsCategories');
 				$pager = $model_berita->pager;
 				?>
@@ -85,6 +92,12 @@
 							</a>
 						</div>
 					<?php endforeach ?>
+				<?php else: ?>
+					<?php if (isset($search_val)): ?>
+						<span>Post dengan kata kunci <b><?php echo $search_val ?></b> Tidak di temukan</span>
+					<?php else: ?>
+						<span>Not found berita</span>
+					<?php endif ?>
 				<?php endif ?>
 			</div>
 			<?php echo $pager->links(); ?>
@@ -92,10 +105,10 @@
 		</section>
 		<!-- Aside Berita -->
 		<aside class="berita_menu">
-			<div class="search_box flex justify-between">
-				<input type="text" placeholder="Search....">
+			<form method="GET" action="" class="search_box flex justify-between">
+				<input name="search" type="text" placeholder="Search....">
 				<button class="btn_search flex flex-center"><i class="fa-solid fa-magnifying-glass text-lg text-white absolute"></i></button>
-			</div>
+			</form>
 			<div class="berita_title_group">
 				<div class="line"></div>
 				<div class="title">

@@ -36,6 +36,8 @@ class Account extends BaseController {
 				$found = model('User')->where('email', $this->request->getPost('email'))->first();
 				if (!empty($found)) {
 					if (password_verify($this->request->getPost('password'), $found['password'])) {
+						session()->set('is_login',true);
+						session()->set('user_data',$found);
 						return redirect()->route('admin_dashboard');
 					} else {
 						return redirect()->route('admin_login')->withInput()->with('login_error', "Password yang kamu ketikan tidak valid!");
