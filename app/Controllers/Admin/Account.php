@@ -12,7 +12,6 @@ use \Config\Services;
 
 //use the ahahah
 class Account extends BaseController {
-	protected $helpers = ['form'];
 	public function loginView() {
 		$title = "login";
 		return view("admin/login", compact('title'));

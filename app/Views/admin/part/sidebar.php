@@ -9,45 +9,45 @@
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-								<span>
-									Dadan Hidayat
-									<span class="user-level">Administrator</span>
-								</span>
-                    </a>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <ul class="nav nav-primary">
-                <li class="nav-item">
-                    <a href="<?= site_url(route_to('admin_dashboard')); ?>">
-                        <i class="fas fa-home"></i>
-                        <p>Beranda</p>
-                    </a>
-                </li>
+                        <span>
+                           <?php echo login_data()->user->nama_lengkap; ?>
+                           <span class="user-level"><?php echo login_data()->role; ?></span>
+                       </span>
+                   </a>
+                   <div class="clearfix"></div>
+               </div>
+           </div>
+           <ul class="nav nav-primary">
+            <li class="nav-item">
+                <a href="<?= site_url(route_to('admin_dashboard')); ?>">
+                    <i class="fas fa-home"></i>
+                    <p>Beranda</p>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#artikel">
-                        <i class="far fa-newspaper"></i>
-                        <p>Post</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="artikel">
-                        <ul class="nav nav-collapse">
-                            <li>
+            <li class="nav-item">
+                <a data-toggle="collapse" href="#artikel">
+                    <i class="far fa-newspaper"></i>
+                    <p>Post</p>
+                    <span class="caret"></span>
+                </a>
+                <div class="collapse" id="artikel">
+                    <ul class="nav nav-collapse">
+                        <li>
                             <a href="<?= base_url(route_to('admin_post_addNew')); ?>">
-                                    <span class="sub-item">Add New</span>
-                                </a>
-                            </li>
-                            <li>
+                                <span class="sub-item">Add New</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?= base_url(route_to('admin_post_all')) ?>">
-                                    <span class="sub-item">All Posts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url(route_to('admin_categories')); ?>">
-                                    <span class="sub-item">Categories</span>
-                                </a>
-                            </li>
+                                <span class="sub-item">All Posts</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url(route_to('admin_categories')); ?>">
+                                <span class="sub-item">Categories</span>
+                            </a>
+                        </li>
                             <!-- <li>
                                 <a href="components/panels.html">
                                     <span class="sub-item">Tags</span>
@@ -112,7 +112,7 @@
                                     <span class="sub-item">Kelas</span>
                                 </a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="<?= base_url(route_to('admin_bankdata_komli')) ?>">
                                     <span class="sub-item">Kopetensi Keahlian</span>
                                 </a>
@@ -126,37 +126,40 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#tables">
-                        <i class="fas fa-cog"></i>
-                        <p>Pengaturan</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="tables">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="<?= site_url(route_to('admin_pengaturan_profile')) ?>">
-                                    <span class="sub-item">Profile Sekolah</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?= site_url(route_to('admin_pengaturan_general')) ?>">
-                                    <span class="sub-item">General</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo site_url(route_to('admin_sambutan_kepsek')) ?>">
-                                    <span class="sub-item">Sambutan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tables/datatables.html">
-                                    <span class="sub-item">Sistem</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+
+                <?php if (login_data()->role == 'super_admin'): ?>
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#tables">
+                            <i class="fas fa-cog"></i>
+                            <p>Pengaturan</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="tables">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="<?= site_url(route_to('admin_pengaturan_profile')) ?>">
+                                        <span class="sub-item">Profile Sekolah</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?= site_url(route_to('admin_pengaturan_general')) ?>">
+                                        <span class="sub-item">General</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo site_url(route_to('admin_sambutan_kepsek')) ?>">
+                                        <span class="sub-item">Sambutan</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tables/datatables.html">
+                                        <span class="sub-item">Sistem</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                <?php endif ?>
 
 
                 <li class="nav-item">
@@ -167,12 +170,19 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="widgets.html">
+                    <a href="<?php echo site_url(route_to('admin_bankdata_agenda')) ?>">
                         <i class="fas fa-calendar"></i>
                         <p>Agenda</p>
                     </a>
                 </li>
-
+                <?php if (login_data()->role == 'super_admin'): ?>
+                    <li class="nav-item">
+                        <a href="<?= site_url(route_to('admin_akun_saya')) ?>">
+                            <i class="fas fa-users-cog"></i>
+                            <p>Manage Akun</p>
+                        </a>
+                    </li>
+                <?php endif ?>
                 <li class="nav-item">
                     <a href="<?= site_url(route_to('admin_akun_saya')) ?>">
                         <i class="fas fa-user-cog"></i>

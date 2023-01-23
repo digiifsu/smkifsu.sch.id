@@ -31,7 +31,9 @@ $routes->get('profile/sambutan-kepala-sekolah','Home::sambutan',['as'=>'frontend
 $routes->get('eskul','Home::eskul',['as'=>'frontend_eskul']);
 $routes->get('eskul/detail/(:num)','Home::detail/$1',['as'=>'frontend_eskul_detail']);
 $routes->get('fasilitas','Home::fasilitas',['as'=>'frontend_fasilitas']);
+$routes->get('agenda', function($routes){
 
+});
 /*
  * --------------------------------------------------------------------
  * Route for admin
@@ -87,7 +89,7 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 	/**
 	 * ROUTES PENGATURAN
 	 * */
-	$routes->group('pengaturan',function($routes){
+	$routes->group('pengaturan',['filter'=>'role'],function($routes){
 		$routes->get('profile', 'Admin\Pengaturan::profile', ['as'=>'admin_pengaturan_profile']);
 		$routes->post('profile', 'Admin\Pengaturan::profileUpdate', ['as'=>'admin_pengaturan_profile_update']);
 		$routes->get('general', 'Admin\Pengaturan::general',['as'=>'admin_pengaturan_general']);
@@ -178,17 +180,7 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 				$routes->get('delete/(:num)',"Admin\Eskul::destroy/$1",['as'=>'admin_eskul_delete']);
 			}
 		);
-			/*
-			 * --------------------------------------------------------------------
-			 * Route group agenda
-			 * --------------------------------------------------------------------
-			 */
-			$routes->group(
-				'agenda',
-				function ($routes) {
 
-				}
-			);
 			/*
 			 * --------------------------------------------------------------------
 			 * Route group pages
@@ -208,10 +200,25 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 		}
 	);
 	/*
+	* --------------------------------------------------------------------
+	* Route group agenda
+	* --------------------------------------------------------------------
+	*/
+	$routes->group(
+		'agenda',
+		function ($routes) {
+			$routes->get("/",[\App\Controllers\Admin\Agenda::class,'index'],['as'=>'admin_bankdata_agenda']);
+			$routes->post("/",[\App\Controllers\Admin\Agenda::class,'store'],['as'=>'admin_bankdata_simpan']);
+			$routes->get("delete/(:num)",[[\App\Controllers\Admin\Agenda::class,'destroy'],'$1'],['as'=>'admin_bankdata_delete']);
+
+		}
+	);
+	/*
 	 * --------------------------------------------------------------------
 	 * Route group upload
 	 * --------------------------------------------------------------------
 	 */
+
 	$routes->group(
 		'storage',
 		function ($routes) {

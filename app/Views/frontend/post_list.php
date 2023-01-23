@@ -22,7 +22,7 @@
 				<div class="swiper-wrapper">
 					<?php
 					$model_berita = model("Admin/Posts");
-					$post = $model_berita->where('status','publish')->orderBy('create_at','asc')->get()->getResult();
+					$post = $model_berita->where('status','publish')->orderBy('create_at','desc')->get()->getResult();
 					?>
 					<?php if (!empty($post)): ?>
 						<?php foreach ($post as $value): ?>
@@ -31,7 +31,7 @@
 								<div class="title_news_banner flex flex-center">
 									<div class="date flex items-center">
 										<i class="fa-regular fa-calendar-days text-white text-sm"></i>
-										<p><?= tanggal_indo(date('Y-m-y',strtotime($value->create_at))) ?></p>
+										<p><?= tanggal_indo(date('Y-m-d',strtotime($value->create_at))) ?> <?php echo date('h:i:s',strtotime($value->create_at)) ?></p>
 
 									</div>
 									<h2>
@@ -61,9 +61,9 @@
 					$search_val = strip_tags($_GET['search']);
 				}
 				if (isset($search_val)) {
-					$post_with_paginate = $model_berita->like('title',$search_val)->where('status','publish')->paginate(40);
+					$post_with_paginate = $model_berita->like('title',$search_val)->orderBy('create_at','desc')->where('status','publish')->paginate(40);
 				}else{
-					$post_with_paginate = $model_berita->where('status','publish')->paginate(40);
+					$post_with_paginate = $model_berita->orderBy('create_at','desc')->where('status','publish')->paginate(40);
 				}
 				$categori = model('Admin/PostsCategories');
 				$pager = $model_berita->pager;
@@ -83,7 +83,7 @@
 								<div class="title">
 									<div class="date flex items-center">
 										<i class="fa-regular fa-calendar-days text-white text-sm"></i>
-										<p><?= tanggal_indo(date('Y-m-y',strtotime($value['create_at']))) ?></p>
+										<p><?= tanggal_indo(date('Y-m-d',strtotime($value['create_at']))) ?> <?php echo date('h:i:s',strtotime($value['create_at'])) ?></p>
 									</div>
 									<h2>
 										<?php echo $value['title'] ?? '' ?>
@@ -116,29 +116,7 @@
 					<h2>SMKIFSU</h2>
 				</div>
 			</div>
-			<div class="agenda_group grid grid-cols-1 gap-5">
-				<div class="card_agenda">
-					<img src="<?php echo base_url('frontend/assets/assets/img/agenda.png') ?>" alt="">
-					<div class="title">
-						<p>Jum'at, 04 November 2022</p>
-						<h2>Penilaian Akhir Semester</h2>
-					</div>
-				</div>
-				<div class="card_agenda">
-					<img src="<?php echo base_url('frontend/assets/assets/img/agenda.png') ?>" alt="">
-					<div class="title">
-						<p>Jum'at, 04 November 2022</p>
-						<h2>Penilaian Akhir Semester</h2>
-					</div>
-				</div>
-				<div class="card_agenda">
-					<img src="<?php echo base_url('frontend/assets/assets/img/agenda.png') ?>" alt="">
-					<div class="title">
-						<p>Jum'at, 04 November 2022</p>
-						<h2>Penilaian Akhir Semester</h2>
-					</div>
-				</div>
-			</div>
+			<?= $this->include('frontend/shared/agenda') ?>
 			<div class="berita_title_group">
 				<div class="line"></div>
 				<div class="title">

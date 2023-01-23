@@ -53,7 +53,7 @@ class Post extends BaseController
          
             //status draft or published
             $data['status'] = $status;
-            $data['author'] = 4;
+            $data['author'] = login_data()->id;
             $data['isi'] = $this->request->getPost('isi');
             $data['views'] = 0;
             $data['thumbnail'] = str_replace(base_url(), '', $this->request->getPost('thumbnail'));
@@ -98,7 +98,7 @@ class Post extends BaseController
                 'title' => $this->request->getPost('title'),
                 'slug' => buat_slug($this->request->getPost('slug')),
                 'isi' => $this->request->getPost('isi'),
-                'author' => 4,
+                'author' => login_data()->id,
                 'id_category' => $this->request->getPost('id_category'),
                 'create_at' => $this->request->getPost('create_at'),
                 'status' => $status,

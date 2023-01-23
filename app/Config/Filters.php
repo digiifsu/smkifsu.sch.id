@@ -8,7 +8,8 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
-use App\Filters\LoginFilters;
+use \App\Filters\LoginFilters;
+use \App\Filters\RoleFilters;
 class Filters extends BaseConfig
 {
     /**
@@ -24,6 +25,8 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'auth' => LoginFilters::class,
+        'role' => RoleFilters::class,
+
     ];
 
     /**

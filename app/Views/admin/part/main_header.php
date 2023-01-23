@@ -154,7 +154,7 @@
                 <li class="nav-item dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="<?= base_url('/') ?>assets/img/profile.jpg" alt="..."
+                            <img src="<?= base_url('assets/img/profile.jpg') ?>" alt="..."
                                 class="avatar-img rounded-circle">
                         </div>
                     </a>
@@ -162,11 +162,11 @@
                         <div class="dropdown-user-scroll scrollbar-outer">
                             <li>
                                 <div class="user-box">
-                                    <div class="avatar-lg"><img src="<?= base_url('/') ?>assets/img/profile.jpg"
+                                    <div class="avatar-lg"><img src="<?= base_url('assets/img/profile.jpg') ?>"
                                             alt="image profile" class="avatar-img rounded"></div>
                                     <div class="u-text">
-                                        <h4>Dadan Hidayat</h4>
-                                        <p class="text-muted">Web Administrator</p><a href="profile.html"
+                                        <h4><?php echo login_data()->user->nama_lengkap; ?></h4>
+                                        <p class="text-muted"><?php echo login_data()->role; ?></p><a href="profile.html"
                                             class="btn btn-xs btn-secondary btn-sm">Pengaturan</a>
                                     </div>
                                 </div>

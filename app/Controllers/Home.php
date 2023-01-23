@@ -15,7 +15,17 @@ class Home extends BaseController
     //detail post
     public function detailPost($id = null,$slug = null){
         $blogModel = new \App\Models\Admin\Posts();
-        $blog = $blogModel->withCategory()->where('status','publish')->where('tb_post.slug',$slug)->where('tb_post.id',$id)->get()->getRow();
+        $blog = $blogModel
+        ->withCategory()
+        ->where('tb_post.status','publish')
+        ->where('tb_post.slug',$slug)
+        ->where('tb_post.id',$id)
+        ->get()
+        ->getRow();
+        $author = model('User')->find($blog->author);
+        if ($author) {
+            $blog->nama_lengkap = $author['nama_lengkap'];
+        }
         return view("frontend/detail_berita",['detail_berita'=>$blog,'title'=>$blog->title]);
     }
     public function profile(){
