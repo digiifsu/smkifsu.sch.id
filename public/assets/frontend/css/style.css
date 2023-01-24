@@ -2106,6 +2106,7 @@ footer {
     flex-direction: row;
     align-items: center;
     margin-top: 0px !important;
+    margin: auto 0 !important;
   }
   .navbar .nav_menu .container .nav_items .dropdown .dropdown-content {
     position: absolute;
