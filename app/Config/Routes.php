@@ -41,13 +41,15 @@ $routes->get('agenda', function($routes){
  */
 $routes->get('ifsu-admin/login', "Admin\Account::loginView", ['as' => 'admin_login']);
 $routes->post('ifsu-admin/check_login', 'Admin\Account::loginProccess', ['as' => 'admin_login_post']);
-$routes->get('ifsu-admin/akun_saya', 'Admin\Account::akun_saya', ['as' => 'admin_akun_saya']);
+
 /*
  * --------------------------------------------------------------------
  * Route group guarded with admin
  * --------------------------------------------------------------------
  */
 $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
+	$routes->get('akun_saya', 'Admin\Account::akun_saya', ['as' => 'admin_akun_saya']);
+	$routes->get('logout', 'Admin\Account::logout', ['as' => 'logout']);
 	$routes->get("/", "Admin\Dashboard::index", ['as' => 'admin_dashboard']);
 	/*
 	 * --------------------------------------------------------------------
@@ -213,6 +215,11 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 
 		}
 	);
+	$routes->group('manage_akun',['filter'=>'role'],function ($routes) {
+		$routes->get("/",[\App\Controllers\Admin\Account::class,'all_account'],['as'=>'admin_manage_account']);
+		$routes->post("/",[\App\Controllers\Admin\Account::class,'save_new_account'],['as'=>'admin_manage_account']);
+	}
+);
 	/*
 	 * --------------------------------------------------------------------
 	 * Route group upload

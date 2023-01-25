@@ -177,7 +177,7 @@
                 </li>
                 <?php if (login_data()->role == 'super_admin'): ?>
                     <li class="nav-item">
-                        <a href="<?= site_url(route_to('admin_akun_saya')) ?>">
+                        <a href="<?= site_url(route_to('admin_manage_account')) ?>">
                             <i class="fas fa-users-cog"></i>
                             <p>Manage Akun</p>
                         </a>
@@ -191,7 +191,7 @@
                 </li>
                 <hr>
                 <li class="nav-item">
-                    <a href="widgets.html">
+                    <a href="<?php echo site_url(route_to('logout')); ?>">
                         <i class="fas fa-sign-out-alt"></i>
                         <p>Logout</p>
                     </a>

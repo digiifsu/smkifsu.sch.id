@@ -51,4 +51,19 @@ class Account extends BaseController {
 		//jika sudah login!
 		return view('admin/account/akun_saya',['title'=>"Akun Saya"]);
 	}
+	public function all_account(){
+		return view("admin/account/all",['title'=>'account']);
+	}
+	public function logout(){
+		session()->destroy();
+		session_unset();
+		unset($_SESSION);
+	}
+	public function save_new_account(){
+		$data = $this->request->getPost();
+		$data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+		if (model('User')->save($data)) {
+			echo "dadn";
+		}
+	}
 }

@@ -146,12 +146,12 @@
                 </div>
                 <div class="card-body">
                     <div class="user-profile text-center">
-                        <div class="name">Superadmin</div>
-                        <div class="job">superadmin@gmail.com</div>
-                        <div class="job">Ip: 192.168.2.1</div>
+                        <div class="name"><?php echo login_data()->user->nama_lengkap; ?></div>
+                        <div class="job"><?php echo login_data()->user->email; ?></div>
+                        <div class="job">Ip: <?php echo $_SERVER['REMOTE_ADDR'] ?? '?'; ?></div>
 
                         <div class="view-profile">
-                            <a href="#" class="btn btn-secondary btn-block">Edit Akun</a>
+                            <a href="<?php echo site_url(route_to('admin_akun_saya')); ?>" class="btn btn-secondary btn-block">Edit Akun</a>
                         </div>
                     </div>
                 </div>

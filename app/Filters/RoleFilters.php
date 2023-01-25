@@ -8,7 +8,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 class RoleFilters implements FilterInterface{
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (login_data()->role !== 'super_admin') {
+        if ((login_data()->role ?? false) !== 'super_admin') {
             return redirect()->route('admin_dashboard');
         }
     }
