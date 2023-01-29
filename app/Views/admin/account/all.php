@@ -34,8 +34,8 @@
                         <td><?php echo $value['level'] ?></td>
                         <td><?php echo $value['jabatan'] ?></td>
                         <td>
-                            <a href="" class="btn  btn-sm btn-danger">Delete</a>
-                            <a href="" class="btn btn-warning btn-sm">Update</a>
+                            <!-- <a href="" class="btn  btn-sm btn-danger">Delete</a> -->
+                            <a href="<?= site_url(route_to('admin_manage_account_edit', $value['id'])); ?>" class="btn btn-warning btn-sm">Update</a>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -74,8 +74,8 @@
         <label for="role">Role</label>
         <select required autofocus onautocomplete="false" name="level" class="form-control" id="">
             <?php $role = ['super_admin'=>"Super Admin",'admin'=>"Admin"]; ?>
-            <?php foreach ($role as  $value): ?>
-                <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+            <?php foreach ($role as $key =>  $value): ?>
+                <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
             <?php endforeach ?>
         </select>
     </div>

@@ -57,7 +57,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a data-toggle="collapse" href="#pages">
                         <i class="fas fa-file-contract"></i>
                         <p>Pages</p>
@@ -82,7 +82,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#forms">
@@ -184,7 +184,7 @@
                     </li>
                 <?php endif ?>
                 <li class="nav-item">
-                    <a href="<?= site_url(route_to('admin_akun_saya')) ?>">
+                    <a href="<?= site_url(route_to('admin_manage_account_edit',login_data()->user->id)) ?>">
                         <i class="fas fa-user-cog"></i>
                         <p>Akun Saya</p>
                     </a>

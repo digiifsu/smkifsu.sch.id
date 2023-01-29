@@ -172,7 +172,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="<?php echo site_url(route_to('logout')); ?>">Logout</a>
                             </li>
                         </div>
                     </ul>

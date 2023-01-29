@@ -120,7 +120,7 @@
                     <div class="karya_card">
                         <div class="text_group">
                             <div class="icon">
-                                <img data-src="assets/icons/web.png" alt="">
+                                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/web.png" alt="">
                             </div>
                             <h2>Web Apps</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
@@ -131,7 +131,7 @@
                     <div class="karya_card">
                         <div class="text_group">
                             <div class="icon">
-                                <img data-src="assets/icons/mobile.png" alt="">
+                                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/mobile.png" alt="">
                             </div>
                             <h2>Mobile Apps</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
@@ -142,7 +142,7 @@
                     <div class="karya_card">
                         <div class="text_group">
                             <div class="icon">
-                                <img data-src="assets/icons/film.png" alt="">
+                                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/film.png" alt="">
                             </div>
                             <h2>Film & Animasi</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
@@ -153,7 +153,7 @@
                     <div class="karya_card">
                         <div class="text_group">
                             <div class="icon">
-                                <img data-src="assets/icons/photo.png" alt="">
+                                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/photo.png" alt="">
                             </div>
                             <h2>Photography</h2>
                             <p>L orem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,orem ipsum dolor
@@ -166,7 +166,7 @@
                     <div class="karya_card">
                         <div class="text_group">
                             <div class="icon">
-                                <img data-src="assets/icons/bot.png" alt="">
+                                <img data-src="<?= base_url('assets/frontend') ?>/assets/icons/bot.png" alt="">
                             </div>
                             <h2>Robotic</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,</p>
@@ -192,7 +192,7 @@
                         <div class="testi_card">
                             <div class="profile">
                                 <div class="profile_icon">
-                                    <img data-src="assets/img/cameraman-holding-camera.jpg" alt="">
+                                    <img data-src="<?= base_url('assets/frontend') ?>/assets/img/cameraman-holding-camera.jpg" alt="">
                                 </div>
                                 <div class="profile_name">
                                     <h2>Jamal</h2>
@@ -210,7 +210,7 @@
                         <div class="testi_card">
                             <div class="profile">
                                 <div class="profile_icon">
-                                    <img data-src="assets/img/ahit.jpg" alt="">
+                                    <img data-src="<?= base_url('assets/frontend') ?>/assets/img/ahit.jpg" alt="">
                                 </div>
                                 <div class="profile_name">
                                     <h2>Ahmad Hidayat</h2>
@@ -228,7 +228,7 @@
                         <div class="testi_card">
                             <div class="profile">
                                 <div class="profile_icon">
-                                    <img data-src="assets/img/cameraman-holding-camera.jpg" alt="">
+                                    <img data-src="<?= base_url('assets/frontend') ?>/assets/img/cameraman-holding-camera.jpg" alt="">
                                 </div>
                                 <div class="profile_name">
                                     <h2>S. Putri</h2>
@@ -246,7 +246,7 @@
                         <div class="testi_card">
                             <div class="profile">
                                 <div class="profile_icon">
-                                    <img data-src="assets/img/cameraman-holding-camera.jpg" alt="">
+                                    <img data-src="<?= base_url('assets/frontend') ?>/assets/img/cameraman-holding-camera.jpg" alt="">
                                 </div>
                                 <div class="profile_name">
                                     <h2>Jamal</h2>

@@ -128,7 +128,8 @@
                 </div>
                 <div class="card-body">
                     <div class="chart-container" style="min-height: 375px">
-                        <canvas id="statisticsChart"></canvas>
+                        <!-- <canvas id="statisticsChart"></canvas> -->
+                        <span>Feature is comming son</span>
                     </div>
                     <div id="myChartLegend"></div>
                 </div>

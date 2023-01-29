@@ -31,6 +31,7 @@ $routes->get('profile/sambutan-kepala-sekolah','Home::sambutan',['as'=>'frontend
 $routes->get('eskul','Home::eskul',['as'=>'frontend_eskul']);
 $routes->get('eskul/detail/(:num)','Home::detail/$1',['as'=>'frontend_eskul_detail']);
 $routes->get('fasilitas','Home::fasilitas',['as'=>'frontend_fasilitas']);
+$routes->get('prestasi', "Home::prestasi", ['as' => 'prestasi_siswa']);
 $routes->get('agenda', function($routes){
 
 });
@@ -218,6 +219,8 @@ $routes->group('ifsu-admin', ['filter' => 'auth'], function ($routes) {
 	$routes->group('manage_akun',['filter'=>'role'],function ($routes) {
 		$routes->get("/",[\App\Controllers\Admin\Account::class,'all_account'],['as'=>'admin_manage_account']);
 		$routes->post("/",[\App\Controllers\Admin\Account::class,'save_new_account'],['as'=>'admin_manage_account']);
+		$routes->get('edit/(:num)', [[\App\Controllers\Admin\Account::class, 'edit'], '$1'], ['as' => 'admin_manage_account_edit']);
+		$routes->post('edit/(:num)', [[\App\Controllers\Admin\Account::class, 'edit'], '$1'], ['as' => 'admin_manage_account_edit']);
 	}
 );
 	/*

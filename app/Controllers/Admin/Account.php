@@ -8,6 +8,8 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\User;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use \Config\Services;
 
 //use the ahahah
@@ -54,10 +56,33 @@ class Account extends BaseController {
 	public function all_account(){
 		return view("admin/account/all",['title'=>'account']);
 	}
+	public function edit($id = null){
+		if(null === $id){
+			throw PageNotFoundException::forPageNotFound();
+		}
+		$data = (new User)->find($id);
+		if(isset($_POST['edit'])){
+			$post_data = $this->request->getPost();
+			unset($post_data['edit']);
+			if(empty($post_data['password'])){
+				$post_data['password'] = $data['password'];
+			} else {
+				$post_data['password'] = password_hash($post_data['password'], PASSWORD_DEFAULT);
+			}
+			$user = new User();
+			if($user->update($id, $post_data)){
+				return redirect()->back()->with('success', 'data berhasil di update');
+			}
+			return redirect()->back()->with('success', 'data gagal di update');
+		} else {
+			return view('admin/account/edit_akun', ['title' => "Edit Akun ",'data'=>$data]);
+		}
+	}
 	public function logout(){
 		session()->destroy();
 		session_unset();
 		unset($_SESSION);
+		return redirect()->route('login');
 	}
 	public function save_new_account(){
 		$data = $this->request->getPost();

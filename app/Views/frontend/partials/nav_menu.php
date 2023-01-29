@@ -65,7 +65,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="pages/prestasi_list.html" class="nav_link">Prestasi</a>
+                                    <a href="<?= site_url(route_to('prestasi_list')) ?>" class="nav_link">Prestasi</a>
                                 </li>
                                 <li class="dropdown">
                                     <div class="nav_link">Kelas Industri<i class="fa-solid fa-chevron-down text-sm"></i>
